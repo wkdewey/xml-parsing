@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <attributions xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns="http://read.84000.co/ns/1.0">
+    <export timestamp="2021-03-12T16:42:09.442Z" user="admin"/>
     <text id="UT22084-001-001">
         <bibl type="toh" key="toh1-1">
             <label>Toh 1-1</label>
             <work type="tibetanSource">
-                <label>རབ་ཏུ་འབྱུང་བའི་གཞི།</label>
+                <label>rab tu ’byung ba’i gzhi</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0001-1"/>
-                <attribution role="translatorTib" resource="EFT:PALGYI-LH-NPO">
+                <attribution role="translatorTib" resource="eft:palgyi-lh-npo">
                     <label>Palgyi Lhünpo</label>
                 </attribution>
-                <attribution role="translatorTib" resource="EFT:SARVAJNADEVA">
+                <attribution role="translatorTib" resource="eft:sarvajnadeva">
                     <label>Sarvajñādeva</label>
                 </attribution>
-                <attribution role="translatorTib" resource="EFT:VIDYAKARAPRABHA">
+                <attribution role="translatorTib" resource="eft:vidyakaraprabha">
                     <label>Vidyākaraprabha</label>
                 </attribution>
-                <attribution role="translatorTib" resource="EFT:DHARMAKARA">
+                <attribution role="translatorTib" resource="eft:dharmakara">
                     <label>Dharmākara</label>
                 </attribution>
-                <attribution role="translatorTib" resource="EFT:PALTSEK">
+                <attribution role="translatorTib" resource="eft:paltsek">
                     <label>Paltsek</label>
                 </attribution>
             </work>
@@ -27,28 +28,28 @@
         <work type="englishTranslation">
             <label>The Chapter on Going Forth</label>
             <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
-            <attribution role="translatorMain" resource="EFT:TEAM-26">
+            <attribution role="translatorMain" resource="eft:team-26">
                 <label>Robert Miller and team</label>
             </attribution>
-            <attribution role="translatorEng" resource="EFT:PERSON-165">
+            <attribution role="translatorEng" resource="eft:person-165">
                 <label>Robert Miller</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-171">
+            <attribution role="advisor" resource="eft:person-171">
                 <label>Geshé Tséwang Nyima</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-166">
+            <attribution role="advisor" resource="eft:person-166">
                 <label>Diana Finnegan (Ven. Lhundup Damchö)</label>
             </attribution>
-            <attribution role="reviser" resource="EFT:PERSON-167">
+            <attribution role="reviser" resource="eft:person-167">
                 <label>Fumi Yao</label>
             </attribution>
-            <attribution role="reviser" resource="EFT:PERSON-170">
+            <attribution role="reviser" resource="eft:person-170">
                 <label>Maurice Ozaine</label>
             </attribution>
-            <attribution role="reviser" resource="EFT:PERSON-169">
+            <attribution role="reviser" resource="eft:person-169">
                 <label>Matthew Wuethrich</label>
             </attribution>
-            <attribution role="finalReviewer" resource="EFT:PERSON-139">
+            <attribution role="finalReviewer" resource="eft:person-139">
                 <label>John Canti</label>
             </attribution>
         </work>
@@ -57,7 +58,7 @@
         <bibl type="toh" key="toh1-2">
             <label>Toh 1-2</label>
             <work type="tibetanSource">
-                <label>གསོ་སྦྱོང་གི་གཞི། </label>
+                <label>gso sbyong gi gzhi/</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0001-2"/>
             </work>
@@ -65,25 +66,25 @@
         <work type="englishTranslation">
             <label>Chapter 2: On the Rite of Restoration</label>
             <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
-            <attribution role="translatorMain" resource="EFT:TEAM-26">
+            <attribution role="translatorMain" resource="eft:team-26">
                 <label>Robert Miller and team</label>
             </attribution>
-            <attribution role="translatorEng" resource="EFT:PERSON-165">
+            <attribution role="translatorEng" resource="eft:person-165">
                 <label>Robert Miller</label>
             </attribution>
-            <attribution role="externalReviewer" resource="EFT:PERSON-284">
+            <attribution role="externalReviewer" resource="eft:person-284">
                 <label>Vincent Eltschinger</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-168">
+            <attribution role="advisor" resource="eft:person-168">
                 <label>Haiyan Hu-von Hinüber</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-170">
+            <attribution role="advisor" resource="eft:person-170">
                 <label>Maurice Ozaine</label>
             </attribution>
-            <attribution role="reviser" resource="EFT:PERSON-169">
+            <attribution role="reviser" resource="eft:person-169">
                 <label>Matthew Wuethrich</label>
             </attribution>
-            <attribution role="dharmaMaster" resource="EFT:PERSON-171">
+            <attribution role="dharmaMaster" resource="eft:person-171">
                 <label>Geshé Tséwang Nyima</label>
             </attribution>
         </work>
@@ -92,7 +93,7 @@
         <bibl type="toh" key="toh1-3">
             <label>Toh 1-3</label>
             <work type="tibetanSource">
-                <label>དགག་དབྱེའི་གཞི། </label>
+                <label>dgag dbye'i gzhi/</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0001-3"/>
             </work>
@@ -100,25 +101,25 @@
         <work type="englishTranslation">
             <label>Chapter 3: On the Relaxation of Restrictions</label>
             <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
-            <attribution role="translatorMain" resource="EFT:TEAM-26">
+            <attribution role="translatorMain" resource="eft:team-26">
                 <label>Robert Miller and team</label>
             </attribution>
-            <attribution role="translatorEng" resource="EFT:PERSON-165">
+            <attribution role="translatorEng" resource="eft:person-165">
                 <label>Robert Miller</label>
             </attribution>
-            <attribution role="externalReviewer" resource="EFT:PERSON-284">
+            <attribution role="externalReviewer" resource="eft:person-284">
                 <label>Vincent Eltschinger</label>
             </attribution>
-            <attribution role="dharmaMaster" resource="EFT:PERSON-171">
+            <attribution role="dharmaMaster" resource="eft:person-171">
                 <label>Geshé Tséwang Nyima</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-168">
+            <attribution role="advisor" resource="eft:person-168">
                 <label>Haiyan Hu-von Hinüber</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-170">
+            <attribution role="advisor" resource="eft:person-170">
                 <label>Maurice Ozaine</label>
             </attribution>
-            <attribution role="reviser" resource="EFT:PERSON-169">
+            <attribution role="reviser" resource="eft:person-169">
                 <label>Matthew Wuethrich</label>
             </attribution>
         </work>
@@ -127,7 +128,7 @@
         <bibl type="toh" key="toh1-4">
             <label>Toh 1-4</label>
             <work type="tibetanSource">
-                <label>དབྱར་གྱི་གཞི། </label>
+                <label>dbyar gyi gzhi/</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0001-4"/>
             </work>
@@ -135,25 +136,25 @@
         <work type="englishTranslation">
             <label>Chapter 4: On the Rains</label>
             <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
-            <attribution role="translatorMain" resource="EFT:TEAM-26">
+            <attribution role="translatorMain" resource="eft:team-26">
                 <label>Robert Miller and team</label>
             </attribution>
-            <attribution role="translatorEng" resource="EFT:PERSON-165">
+            <attribution role="translatorEng" resource="eft:person-165">
                 <label>Robert Miller</label>
             </attribution>
-            <attribution role="externalReviewer" resource="EFT:PERSON-284">
+            <attribution role="externalReviewer" resource="eft:person-284">
                 <label>Vincent Eltschinger</label>
             </attribution>
-            <attribution role="dharmaMaster" resource="EFT:PERSON-171">
+            <attribution role="dharmaMaster" resource="eft:person-171">
                 <label>Geshé Tséwang Nyima</label>
             </attribution>
-            <attribution role="reviser" resource="EFT:PERSON-169">
+            <attribution role="reviser" resource="eft:person-169">
                 <label>Matthew Wuethrich</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-168">
+            <attribution role="advisor" resource="eft:person-168">
                 <label>Haiyan Hu-von Hinüber</label>
             </attribution>
-            <attribution role="advisor" resource="EFT:PERSON-170">
+            <attribution role="advisor" resource="eft:person-170">
                 <label>Maurice Ozaine</label>
             </attribution>
         </work>
@@ -162,7 +163,7 @@
         <bibl type="toh" key="toh1-5">
             <label>Toh 1-5</label>
             <work type="tibetanSource">
-                <label>ཀོ་ལྤགས་ཀྱི་གཞི། </label>
+                <label>ko lpags kyi gzhi/</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0001-5"/>
             </work>
@@ -170,7 +171,7 @@
         <work type="englishTranslation">
             <label>Chapter 5: On Leather</label>
             <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
-            <attribution role="translatorMain" resource="EFT:TEAM-18">
+            <attribution role="translatorMain" resource="eft:team-18">
                 <label>Lochung Translation Committee</label>
             </attribution>
         </work>
