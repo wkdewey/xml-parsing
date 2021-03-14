@@ -9,11 +9,11 @@ root = tree.getroot()
 for child in root:
     print(child.tag, child.attrib)
 #import the BDRC spreadsheet
-spreadsheet = Path("../data_export/Tentative template.xlsx")
+spreadsheet = Path(__file__).parent / "/Users/williamdewey/Development/code/84000-data-rdf/data-export/Tentative template.xlsx"
 kangyur_sheet = ""
 if spreadsheet.exists():
-  kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "dergeKangyur")
-print(kangyur_sheet)
+  kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
+# print(kangyur_sheet["ID"])
 #iterate through XML entries (texts)
 
 #get ID from spreadsheet
