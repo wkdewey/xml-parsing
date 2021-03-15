@@ -2,9 +2,12 @@
 import xml.etree.ElementTree as ET
 import pandas as pd
 import pdb
+import re
 from pathlib import Path
 #load the XML file/copy the file?
-tree = ET.parse('sample-data.xml')
+data_file = 'sample-data.xml'
+# data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kangyur-data.xml"
+tree = ET.parse(data_file)
 root = tree.getroot()
 #test
 # for child in root:
@@ -22,7 +25,7 @@ if spreadsheet.exists():
 #     toh_num = label.textroo
 #     print(toh_num)
 for bibl in root.iter("{http://read.84000.co/ns/1.0}bibl"):
-   toh_num = bibl.attrib["key"]
+    toh_num = bibl.attrib["key"]
   
 #get ID from spreadsheet
 
