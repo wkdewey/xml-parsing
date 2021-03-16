@@ -1,7 +1,6 @@
 
 import xml.etree.ElementTree as ET
 import pandas as pd
-import pdb
 import re
 from pathlib import Path
 
@@ -18,12 +17,13 @@ if spreadsheet.exists():
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 for bibl in root.iter("{http://read.84000.co/ns/1.0}bibl"):
-    toh_num = bibl.attrib["key"]
-    #get ID from spreadsheet
+    toh_num = bibl.attrib["key"][3:]
+    print(toh_num)
+    #match ID with spreadsheet
+    spread_num = "D" + toh_num
+    match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
+    print(match)
 
-#match with ID in this doc
-
-#add IDs from spreadsheet
 
 #add roles from spreadsheet
 
