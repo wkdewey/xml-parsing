@@ -7,6 +7,9 @@ from pathlib import Path
 data_file = 'sample-data.xml'
 # data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kangyur-data.xml"
 #load the xml file
+ET.register_namespace('', "http://read.84000.co/ns/1.0")
+ET.register_namespace('rdf', "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+ET.register_namespace('owl', "http://www.w3.org/2002/07/owl#")
 tree = ET.parse(data_file)
 root = tree.getroot()
 #import the BDRC spreadsheet
@@ -31,13 +34,25 @@ for text in root.findall("default:text", ns):
     #get lists of roles, and lists of names
     roles = match["role"]
     names = match["indicated value"]
+    ids = match["identification"]
     #add an element <attribution> under <work>, with role set to value of spreadsheet
     work = bibl.find("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
+    for (idx, role) in enumerate(roles):
+      attribution = ET.SubElement(work, "attribution")
+      attribution.attrib["role"] = role
+      #add a label with corresponding name
+      label = ET.SubElement(attribution, "label")
+      label.text = names.iloc[idx]
+      sameAs= ET.SubElement(attribution, "owl:sameAs")
+      print(ids.iloc[idx])
+      person_uri = "http://purl.bdrc.io/resource/" + ids.iloc[idx]
+      print(person_uri)
+      sameAs.attrib["rdf:resource"] = "http://purl.bdrc.io/resource/" + person_uri
     
-    #add a label with
 
 
 
 #some query to get associated places, likely from BDRC
 
-#write to file, probably
+#write to file
+tree.write("new-sample-data.xml")
