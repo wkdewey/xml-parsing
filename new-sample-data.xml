@@ -1,107 +1,235 @@
 <attributions xmlns="http://read.84000.co/ns/1.0" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <export timestamp="2021-03-12T16:42:09.442Z" user="admin" />
-    <text id="UT22084-005-001">
-        <bibl type="toh" key="toh2">
-            <label>Toh 2</label>
-            <work type="tibetanSource">
-                <label>so sor thar pa'i mdo/</label>
-                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0002" />
-                <attribution role="translatorTib" resource="eft:jinamitra-k-">
-                    <label>Jinamitra (k)</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
-                    <label>Klu'i rgyal mtshan</label>
-                </attribution>
-            <attribution role="translatorPandita"><label>slob dpon dzi na mi tra</label></attribution><attribution role="translator"><label>lo tsA ba ban de cog ro klu'i rgyal mtshan</label></attribution></work>
-        </bibl>
-        <work type="englishTranslation">
-            <label>The Pr&#257;timok&#7779;a S&#363;tra</label>
-            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-            <attribution role="translatorMain" resource="eft:team-9">
-                <label>Dharmachakra Translation Committee</label>
-            </attribution>
-        </work>
-    </text>
-    <text id="UT22084-005-002">
-        <bibl type="toh" key="toh3">
-            <label>Toh 3</label>
-            <work type="tibetanSource">
-                <label>'dul ba rnam 'byed/</label>
-                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0003" />
-                <attribution role="translatorTib" resource="eft:jinamitra-k-">
-                    <label>Jinamitra (k)</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
-                    <label>Klu'i rgyal mtshan</label>
-                </attribution>
-            <attribution role="translatorPandita"><label>kha che'i bye brag tu smra ba'i slob dpon dzi na mi tra</label></attribution><attribution role="translator"><label>zhu chen gyi lots+tsha ba ban de klu'i rgyal mtshan</label></attribution></work>
-        </bibl>
-        <work type="englishTranslation">
-            <label>Detailed Explanations of Discipline</label>
-            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-            <attribution role="translatorMain" resource="eft:team-9">
-                <label>Dharmachakra Translation Committee</label>
-            </attribution>
-            <attribution role="translatorEng" resource="eft:person-59">
-                <label>Benjamin Collet-Cassart</label>
-            </attribution>
-            <attribution role="translatorEng" resource="eft:person-54">
-                <label>Thomas Doctor</label>
-            </attribution>
-        </work>
-    </text>
-    <text id="UT22084-009-001">
-        <bibl type="toh" key="toh4">
-            <label>Toh 4</label>
-            <work type="tibetanSource">
-                <label>dge slong ma'i so sor thar pa'i mdo/</label>
-                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0004" />
-                <attribution role="translatorTib" resource="eft:dzi-na-mi-tra-k-">
-                    <label>dzi na mi tra (k)</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan">
-                    <label>cog ro klu'i rgyal mtshan</label>
-                </attribution>
-            <attribution role="translatorPandita"><label>kha che bye brag tu smra ba'i slob dpon dzi na mi tra</label></attribution><attribution role="translator"><label>zhu chen gyi lots+tsha ba cog ro klu'i rgyal mtshan</label></attribution></work>
-        </bibl>
-        <work type="englishTranslation">
-            <label>The Bhik&#7779;un&#299;s&#8217; Pr&#257;timok&#7779;a S&#363;tra</label>
-            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-        </work>
-    </text>
-    <text id="UT22084-009-002">
-        <bibl type="toh" key="toh5">
-            <label>Toh 5</label>
-            <work type="tibetanSource">
-                <label>dge slong ma'i 'dul ba rnam par 'byed pa/</label>
-                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0005" />
-                <attribution role="translatorTib" resource="eft:sarvanyadeva">
-                    <label>sarvanyadeva</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:dharmakara">
-                    <label>dharmakara</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:vidyakaraprabha">
-                    <label>vidyakaraprabha</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po">
-                    <label>ban de dpal gyi lhun po</label>
-                </attribution>
-                <attribution role="reviser" resource="eft:bidyakaraprabha">
-                    <label>bidyakaraprabha</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs">
-                    <label>ban de dpal brtsegs</label>
-                </attribution>
-            <attribution role="translatorPandita"><label>rgya gar gyi mkhan po bid+yA ka ra pra b+ha</label></attribution><attribution role="translatorPandita"><label>kha che'i mkhan po sarba dz+nyA de ba</label></attribution><attribution role="translatorPandita"><label>d+harmA ka ra</label></attribution><attribution role="translator"><label>lo ts+tsha ba ban de dpal gyi lhun po</label></attribution><attribution role="revisor"><label>zhu chen gyi lo ts+tsha ba ban de dpal brtsegs</label></attribution><attribution role="revisor2"><label>snga zhus kun dga'o shAkya dpal/_/gnyis kyis ma dag dri ma bsal/_/gsum zhus mkhas pa snar thang dpon slob pas/_/sa yi steng 'dir legs par dag bgyis so</label></attribution></work>
-        </bibl>
-        <work type="englishTranslation">
-            <label>Detailed Explanations on Nuns&#8217; Discipline</label>
-            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
-        </work>
-    </text>
+	<export timestamp="2021-03-12T16:42:09.442Z" user="admin" />
+	<text id="UT22084-005-001">
+		<bibl type="toh" key="toh2">
+			<label>
+				Toh 2
+			</label>
+			<work type="tibetanSource">
+				<label>
+					so sor thar pa'i mdo/
+				</label>
+				<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+				<sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0002" />
+				<attribution role="translatorTib" resource="eft:jinamitra-k-">
+					<label>
+						Jinamitra (k)
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
+					<label>
+						Klu'i rgyal mtshan
+					</label>
+				</attribution>
+				<attribution role="translatorPandita">
+					<label>
+						slob dpon dzi na mi tra
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
+				</attribution>
+				<attribution role="translator">
+					<label>
+						lo tsA ba ban de cog ro klu'i rgyal mtshan
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
+				</attribution>
+			</work>
+		</bibl>
+		<work type="englishTranslation">
+			<label>
+				The Pr&#257;timok&#7779;a S&#363;tra
+			</label>
+			<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+			<attribution role="translatorMain" resource="eft:team-9">
+				<label>
+					Dharmachakra Translation Committee
+				</label>
+			</attribution>
+		</work>
+	</text>
+	<text id="UT22084-005-002">
+		<bibl type="toh" key="toh3">
+			<label>
+				Toh 3
+			</label>
+			<work type="tibetanSource">
+				<label>
+					'dul ba rnam 'byed/
+				</label>
+				<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+				<sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0003" />
+				<attribution role="translatorTib" resource="eft:jinamitra-k-">
+					<label>
+						Jinamitra (k)
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
+					<label>
+						Klu'i rgyal mtshan
+					</label>
+				</attribution>
+				<attribution role="translatorPandita">
+					<label>
+						kha che'i bye brag tu smra ba'i slob dpon dzi na mi tra
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
+				</attribution>
+				<attribution role="translator">
+					<label>
+						zhu chen gyi lots+tsha ba ban de klu'i rgyal mtshan
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
+				</attribution>
+			</work>
+		</bibl>
+		<work type="englishTranslation">
+			<label>
+				Detailed Explanations of Discipline
+			</label>
+			<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+			<attribution role="translatorMain" resource="eft:team-9">
+				<label>
+					Dharmachakra Translation Committee
+				</label>
+			</attribution>
+			<attribution role="translatorEng" resource="eft:person-59">
+				<label>
+					Benjamin Collet-Cassart
+				</label>
+			</attribution>
+			<attribution role="translatorEng" resource="eft:person-54">
+				<label>
+					Thomas Doctor
+				</label>
+			</attribution>
+		</work>
+	</text>
+	<text id="UT22084-009-001">
+		<bibl type="toh" key="toh4">
+			<label>
+				Toh 4
+			</label>
+			<work type="tibetanSource">
+				<label>
+					dge slong ma'i so sor thar pa'i mdo/
+				</label>
+				<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+				<sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0004" />
+				<attribution role="translatorTib" resource="eft:dzi-na-mi-tra-k-">
+					<label>
+						dzi na mi tra (k)
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan">
+					<label>
+						cog ro klu'i rgyal mtshan
+					</label>
+				</attribution>
+				<attribution role="translatorPandita">
+					<label>
+						kha che bye brag tu smra ba'i slob dpon dzi na mi tra
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
+				</attribution>
+				<attribution role="translator">
+					<label>
+						zhu chen gyi lots+tsha ba cog ro klu'i rgyal mtshan
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
+				</attribution>
+			</work>
+		</bibl>
+		<work type="englishTranslation">
+			<label>
+				The Bhik&#7779;un&#299;s&#8217; Pr&#257;timok&#7779;a S&#363;tra
+			</label>
+			<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+		</work>
+	</text>
+	<text id="UT22084-009-002">
+		<bibl type="toh" key="toh5">
+			<label>
+				Toh 5
+			</label>
+			<work type="tibetanSource">
+				<label>
+					dge slong ma'i 'dul ba rnam par 'byed pa/
+				</label>
+				<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+				<sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0005" />
+				<attribution role="translatorTib" resource="eft:sarvanyadeva">
+					<label>
+						sarvanyadeva
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:dharmakara">
+					<label>
+						dharmakara
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:vidyakaraprabha">
+					<label>
+						vidyakaraprabha
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po">
+					<label>
+						ban de dpal gyi lhun po
+					</label>
+				</attribution>
+				<attribution role="reviser" resource="eft:bidyakaraprabha">
+					<label>
+						bidyakaraprabha
+					</label>
+				</attribution>
+				<attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs">
+					<label>
+						ban de dpal brtsegs
+					</label>
+				</attribution>
+				<attribution role="translatorPandita">
+					<label>
+						rgya gar gyi mkhan po bid+yA ka ra pra b+ha
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8211" />
+				</attribution>
+				<attribution role="translatorPandita">
+					<label>
+						kha che'i mkhan po sarba dz+nyA de ba
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P00KG07267" />
+				</attribution>
+				<attribution role="translatorPandita">
+					<label>
+						d+harmA ka ra
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8249" />
+				</attribution>
+				<attribution role="translator">
+					<label>
+						lo ts+tsha ba ban de dpal gyi lhun po
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P4259" />
+				</attribution>
+				<attribution role="revisor">
+					<label>
+						zhu chen gyi lo ts+tsha ba ban de dpal brtsegs
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" />
+				</attribution>
+				<attribution role="revisor2">
+					<label>
+						snga zhus kun dga'o shAkya dpal/_/gnyis kyis ma dag dri ma bsal/_/gsum zhus mkhas pa snar thang dpon slob pas/_/sa yi steng 'dir legs par dag bgyis so
+					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" />
+				</attribution>
+			</work>
+		</bibl>
+		<work type="englishTranslation">
+			<label>
+				Detailed Explanations on Nuns&#8217; Discipline
+			</label>
+			<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
+		</work>
+	</text>
 </attributions>

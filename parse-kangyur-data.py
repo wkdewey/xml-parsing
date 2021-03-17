@@ -44,10 +44,9 @@ for text in root.findall("default:text", ns):
       label = ET.SubElement(attribution, "label")
       label.text = names.iloc[idx]
       sameAs= ET.SubElement(attribution, "owl:sameAs")
-      print(ids.iloc[idx])
-      person_uri = "http://purl.bdrc.io/resource/" + ids.iloc[idx]
-      print(person_uri)
-      sameAs.attrib["rdf:resource"] = "http://purl.bdrc.io/resource/" + person_uri
+      if type(ids.iloc[idx]) is str:
+          person_uri = "http://purl.bdrc.io/resource/" + ids.iloc[idx]
+      sameAs.attrib["rdf:resource"] = person_uri
     
 
 
