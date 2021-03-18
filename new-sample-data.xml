@@ -1,6 +1,4 @@
-<attributions xmlns="http://read.84000.co/ns/1.0"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<attributions xmlns="http://read.84000.co/ns/1.0" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <export timestamp="2021-03-12T16:42:09.442Z" user="admin" />
     <text id="UT22084-005-001">
         <bibl type="toh" key="toh2">
@@ -14,14 +12,6 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
                     <label>Klu'i rgyal mtshan</label>
-                </attribution>
-                <attribution role="translatorPandita">
-                    <label>slob dpon dzi na mi tra</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
-                </attribution>
-                <attribution role="translator">
-                    <label>lo tsA ba ban de cog ro klu'i rgyal mtshan</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
                 </attribution>
             </work>
         </bibl>
@@ -45,14 +35,6 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
                     <label>Klu'i rgyal mtshan</label>
-                </attribution>
-                <attribution role="translatorPandita">
-                    <label>kha che'i bye brag tu smra ba'i slob dpon dzi na mi tra</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
-                </attribution>
-                <attribution role="translator">
-                    <label>zhu chen gyi lots+tsha ba ban de klu'i rgyal mtshan</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
                 </attribution>
             </work>
         </bibl>
@@ -82,14 +64,6 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan">
                     <label>cog ro klu'i rgyal mtshan</label>
-                </attribution>
-                <attribution role="translatorPandita">
-                    <label>kha che bye brag tu smra ba'i slob dpon dzi na mi tra</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
-                </attribution>
-                <attribution role="translator">
-                    <label>zhu chen gyi lots+tsha ba cog ro klu'i rgyal mtshan</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
                 </attribution>
             </work>
         </bibl>
@@ -122,30 +96,6 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs">
                     <label>ban de dpal brtsegs</label>
-                </attribution>
-                <attribution role="translatorPandita">
-                    <label>rgya gar gyi mkhan po bid+yA ka ra pra b+ha</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8211" />
-                </attribution>
-                <attribution role="translatorPandita">
-                    <label>kha che'i mkhan po sarba dz+nyA de ba</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P00KG07267" />
-                </attribution>
-                <attribution role="translatorPandita">
-                    <label>d+harmA ka ra</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8249" />
-                </attribution>
-                <attribution role="translator">
-                    <label>lo ts+tsha ba ban de dpal gyi lhun po</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4259" />
-                </attribution>
-                <attribution role="revisor">
-                    <label>zhu chen gyi lo ts+tsha ba ban de dpal brtsegs</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" />
-                </attribution>
-                <attribution role="revisor2">
-                    <label>snga zhus kun dga'o shAkya dpal/_/gnyis kyis ma dag dri ma bsal/_/gsum zhus mkhas pa snar thang dpon slob pas/_/sa yi steng 'dir legs par dag bgyis so</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" />
                 </attribution>
             </work>
         </bibl>
