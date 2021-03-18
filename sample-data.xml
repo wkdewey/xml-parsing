@@ -105,4 +105,156 @@
             <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
         </work>
     </text>
+    <text id="UT22084-034-007">
+        <bibl type="toh" key="toh19">
+            <label>Toh 19</label>
+            <work type="tibetanSource">
+                <label>sher phyin kau shi ka/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0019"/>
+            </work>
+        </bibl>
+        <bibl type="toh" key="toh554">
+            <label>Toh 554</label>
+            <work type="tibetanSource">
+                <label>sher phyin kau shi ka/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0019"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Perfection of Wisdom for Kauśika</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+        </work>
+    </text>
+    <text id="UT22084-034-008">
+        <bibl type="toh" key="toh20">
+            <label>Toh 20</label>
+            <work type="tibetanSource">
+                <label>sher phyin sgo nyi shu rtsa lnga pa/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0490"/>
+            </work>
+        </bibl>
+        <bibl type="toh" key="toh491">
+            <label>Toh 491</label>
+            <work type="tibetanSource">
+                <label>sher phyin sgo nyi shu rtsa lnga pa/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0490"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Twenty-five Entrances to the Perfection of Wisdom</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+        </work>
+    </text>
+    <text id="UT22084-034-009">
+        <bibl type="toh" key="toh21">
+            <label>Toh 21</label>
+            <work type="tibetanSource">
+                <label>shes rab snying po/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0529"/>
+            </work>
+        </bibl>
+        <bibl type="toh" key="toh531">
+            <label>Toh 531</label>
+            <work type="tibetanSource">
+                <label>shes rab snying po/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0529"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Essence of the Perfection of Wisdom (The Heart Sūtra)</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+        </work>
+    </text>
+    <text id="UT22084-034-010">
+        <bibl type="toh" key="toh22">
+            <label>Toh 22</label>
+            <work type="tibetanSource">
+                <label>sher phyin yi ge nyung ngu/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0022"/>
+            </work>
+        </bibl>
+        <bibl type="toh" key="toh530">
+            <label>Toh 530</label>
+            <work type="tibetanSource">
+                <label>sher phyin yi ge nyung ngu/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0022"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Perfection of Wisdom in a Few Syllables</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+        </work>
+    </text>
+    <text id="UT22084-034-011">
+        <bibl type="toh" key="toh23">
+            <label>Toh 23</label>
+            <work type="tibetanSource">
+                <label>sher phyin yi ge gcig ma/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0023"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Perfection of Wisdom Mother in One Syllable</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+        </work>
+    </text>
+    <text id="UT22084-034-012">
+        <bibl type="toh" key="toh24">
+            <label>Toh 24</label>
+            <work type="tibetanSource">
+                <label>sher phyin bdun brgya pa/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0024"/>
+            </work>
+        </bibl>
+        <bibl type="toh" key="toh90">
+            <label>Toh 90</label>
+            <work type="tibetanSource">
+                <label>sher phyin bdun brgya pa/</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0024"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Perfection of Wisdom in Seven Hundred Lines</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+            <attribution role="translatorMain" resource="eft:team-58">
+                <label>Dharmanidhi Translation Group</label>
+            </attribution>
+            <attribution role="translatorEng" resource="eft:person-99">
+                <label>Thomas Cruijsen</label>
+            </attribution>
+        </work>
+    </text>
+    <text id="UT22084-034-013">
+        <bibl type="toh" key="toh25">
+            <label>Toh 25</label>
+            <work type="tibetanSource">
+                <label>sher phyin mtshan brgya rtsa brgyad pa</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0025"/>
+            </work>
+        </bibl>
+        <bibl type="toh" key="toh553">
+            <label>Toh 553</label>
+            <work type="tibetanSource">
+                <label>sher phyin mtshan brgya rtsa brgyad pa</label>
+                <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0025"/>
+            </work>
+        </bibl>
+        <work type="englishTranslation">
+            <label>The Hundred and Eight Names of the Perfection of Wisdom</label>
+            <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work"/>
+        </work>
+    </text>
 </attributions>
