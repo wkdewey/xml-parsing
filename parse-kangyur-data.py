@@ -16,9 +16,9 @@ root = tree.getroot()
 spreadsheet = Path(__file__).parent / "/Users/williamdewey/Development/code/84000-data-rdf/data-export/Tentative template.xlsx"
 kangyur_sheet = ""
 if spreadsheet.exists():
-  kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
-  tib_persons_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
-  indian_persons_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
+    kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
+    tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
+    ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 ns = {
@@ -31,17 +31,33 @@ for text in root.findall("default:text", ns):
     toh_num = bibl.attrib["key"][3:]
     #find toh_num in spreadsheet
     spread_num = "D" + toh_num
-    match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
+    kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
     #add roles from spreadsheet
     #get lists of roles, and lists of names
-    person_ids = match["identification"]
-    roles = match["role"]
-    names = match["indicated value"]
-    possible_individuals = []
+    person_ids = kangyur_match["identification"]
+    roles = kangyur_match["role"]
+    kangyur_names = kangyur_match["indicated value"]
+    possible_individuals = {}
     for (idx, id) in enumerate(person_ids):
-      name = names.iloc[idx]
-      possible_individuals.append((id, name))
-
+        possible_individuals[id] = []
+        kangyur_name = kangyur_names.iloc[idx]
+        possible_individuals[id].append(kangyur_name)
+        tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
+        tib_name_1 = tib_match["names_tib"]
+        if len(tib_name_1) > 0:
+            possible_individuals[id].append(tib_name_1.iloc[0])
+        tib_name_2 = tib_match["names_skt"]
+        if len(tib_name_2) > 0:
+            possible_individuals[id].append(tib_name_2.iloc[0])
+        ind_match = ind_sheet.loc[ind_sheet["ID"] == id]
+        ind_name_1 = ind_match["names_tib"]
+        if len(ind_name_1) > 0:
+            possible_individuals[id].append(ind_name_1.iloc[0])
+        ind_name_2 = ind_match["names_skt"]
+        if len(ind_name_1) > 0:
+            possible_individuals[id].append(ind_name_2.iloc[0])
+    for id, names in possible_individuals.items():
+        pass
     # work = bibl.find("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
     # for (idx, role) in enumerate(roles):
     #   attribution = ET.SubElement(work, "attribution")
