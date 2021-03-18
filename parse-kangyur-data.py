@@ -55,6 +55,7 @@ for text in root.findall("default:text", ns):
     work = bibl.find("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
     #find toh_num in spreadsheet
     spread_num = "D" + toh_num
+    #should check to make sure there is a match, not the case if there is a hyphen
     kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
     #add roles from spreadsheet
     #get lists of roles, and lists of names
@@ -62,7 +63,7 @@ for text in root.findall("default:text", ns):
     roles = kangyur_match["role"]
     kangyur_names = kangyur_match["indicated value"]
     attributions = work.findall("default:attribution", ns)
-    if attributions:
+    if len(attributions) > 0:
         #get the names that are already in the 84000 spreadsheet
         possible_individuals = find_possible_individuals(person_ids, kangyur_names)
         #make the name into more searchable format
@@ -75,18 +76,12 @@ for text in root.findall("default:text", ns):
             attribution.attrib["role"] = role
             #add a label with corresponding name
             label = ET.SubElement(attribution, "label")
-            label.text = names.iloc[idx]
+            label.text = kangyur_names.iloc[idx]
             sameAs= ET.SubElement(attribution, "owl:sameAs")
             if type(person_ids.iloc[idx]) is str:
                 person_uri = "http://purl.bdrc.io/resource/" + person_ids.iloc[idx]
             sameAs.attrib["rdf:resource"] = person_uri
-    
-
-    
-    
-
-
-
+            breakpoint()
 #some query to get associated places, likely from BDRC
 #export CSV with matching ID's
 #write to file
