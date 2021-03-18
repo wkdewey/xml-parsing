@@ -17,6 +17,8 @@ spreadsheet = Path(__file__).parent / "/Users/williamdewey/Development/code/8400
 kangyur_sheet = ""
 if spreadsheet.exists():
   kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
+  tib_persons_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
+  indian_persons_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 ns = {
@@ -52,6 +54,6 @@ for text in root.findall("default:text", ns):
 
 
 #some query to get associated places, likely from BDRC
-
+#export CSV with matching ID's
 #write to file
 tree.write("new-sample-data.xml")
