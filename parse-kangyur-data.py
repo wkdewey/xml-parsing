@@ -49,6 +49,13 @@ def find_possible_individuals(person_ids, kangyur_names):
             possible_individuals[id].append(ind_name_2.iloc[0])
     return possible_individuals
 
+def strip_name(name):
+    pattern = r'\/'
+    pattern2 = r' \(k\)'
+    name = re.sub(pattern, '', name)
+    mod_name = re.sub(pattern2, '', name)
+    return mod_name
+
 for text in root.findall("default:text", ns):
     bibl = text.find("default:bibl", ns)
     toh_num = bibl.attrib["key"][3:]
@@ -63,13 +70,17 @@ for text in root.findall("default:text", ns):
     roles = kangyur_match["role"]
     kangyur_names = kangyur_match["indicated value"]
     attributions = work.findall("default:attribution", ns)
+    labels = work.findall("default:label", ns)
     if len(attributions) > 0:
         #get the names that are already in the 84000 spreadsheet
         possible_individuals = find_possible_individuals(person_ids, kangyur_names)
-        #make the name into more searchable format
-        #search this hash against the names
-        for id, names in possible_individuals.items():
-            pass
+        names_84000 = []
+        for label in labels:
+            #make the name into more searchable format
+            name_84000 = strip_name(label.text)
+            
+            for id, names in possible_individuals.items():
+                pass
     else:
         for (idx, role) in enumerate(roles):
             attribution = ET.SubElement(work, "attribution")
@@ -81,7 +92,6 @@ for text in root.findall("default:text", ns):
             if type(person_ids.iloc[idx]) is str:
                 person_uri = "http://purl.bdrc.io/resource/" + person_ids.iloc[idx]
             sameAs.attrib["rdf:resource"] = person_uri
-            breakpoint()
 #some query to get associated places, likely from BDRC
 #export CSV with matching ID's
 #write to file
