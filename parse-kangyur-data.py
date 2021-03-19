@@ -1,6 +1,7 @@
 
 import xml.etree.ElementTree as ET
 import pandas as pd
+import numpy as np
 import re
 from pathlib import Path
 
@@ -45,7 +46,7 @@ def find_possible_individuals(person_ids, kangyur_names):
         if len(ind_name_1) > 0:
             possible_individuals[id].append(ind_name_1.iloc[0])
         ind_name_2 = ind_match["names_skt"]
-        if len(ind_name_1) > 0:
+        if len(ind_name_2) > 0:
             possible_individuals[id].append(ind_name_2.iloc[0])
     return possible_individuals
 
@@ -74,13 +75,17 @@ for text in root.findall("default:text", ns):
     if len(attributions) > 0:
         #get the names that are already in the 84000 spreadsheet
         possible_individuals = find_possible_individuals(person_ids, kangyur_names)
-        names_84000 = []
         for label in labels:
             #make the name into more searchable format
             name_84000 = strip_name(label.text)
-            
-            for id, names in possible_individuals.items():
-                pass
+            for id, bdrc_names in possible_individuals.items():
+                for bdrc_name in bdrc_names:
+                    breakpoint()
+                    if re.search(bdrc_name, name_84000):
+                        print("Found!")
+                        breakpoint()
+                    pass
+
     else:
         for (idx, role) in enumerate(roles):
             attribution = ET.SubElement(work, "attribution")
