@@ -35,19 +35,23 @@ def find_possible_individuals(person_ids, kangyur_names):
         kangyur_name = kangyur_names.iloc[idx]
         possible_individuals[id].append(kangyur_name)
         tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
-        tib_name_1 = tib_match["names_tib"]
+        tib_name_1 = tib_match["names_tib"] 
         if len(tib_name_1) > 0:
-            possible_individuals[id].append(tib_name_1.iloc[0])
+            if not pd.isnull(tib_name_1.iloc[0]):
+                possible_individuals[id].append(tib_name_1.iloc[0])
         tib_name_2 = tib_match["names_skt"]
         if len(tib_name_2) > 0:
-            possible_individuals[id].append(tib_name_2.iloc[0])
+            if not pd.isnull(tib_name_2.iloc[0]):
+                possible_individuals[id].append(tib_name_2.iloc[0])
         ind_match = ind_sheet.loc[ind_sheet["ID"] == id]
         ind_name_1 = ind_match["names_tib"]
         if len(ind_name_1) > 0:
-            possible_individuals[id].append(ind_name_1.iloc[0])
+            if not pd.isnull(ind_name_1.iloc[0]):
+                possible_individuals[id].append(ind_name_1.iloc[0])
         ind_name_2 = ind_match["names_skt"]
         if len(ind_name_2) > 0:
-            possible_individuals[id].append(ind_name_2.iloc[0])
+            if not pd.isnull(ind_name_2.iloc[0]):
+                possible_individuals[id].append(ind_name_2.iloc[0])
     return possible_individuals
 
 def strip_name(name):
@@ -80,10 +84,8 @@ for text in root.findall("default:text", ns):
             name_84000 = strip_name(label.text)
             for id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
-                    breakpoint()
                     if re.search(bdrc_name, name_84000):
                         print("Found!")
-                        breakpoint()
                     pass
 
     else:
