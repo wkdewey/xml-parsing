@@ -75,7 +75,7 @@ for text in root.findall("default:text", ns):
     roles = kangyur_match["role"]
     kangyur_names = kangyur_match["indicated value"]
     attributions = work.findall("default:attribution", ns)
-    labels = work.findall("default:label", ns)
+    labels = work.findall("./{http://read.84000.co/ns/1.0}attribution/{http://read.84000.co/ns/1.0}label")
     if len(attributions) > 0:
         #get the names that are already in the 84000 spreadsheet
         possible_individuals = find_possible_individuals(person_ids, kangyur_names)
@@ -84,7 +84,8 @@ for text in root.findall("default:text", ns):
             name_84000 = strip_name(label.text)
             for id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
-                    if re.search(bdrc_name, name_84000):
+                    print(f"checking {bdrc_name} against {name_84000}")
+                    if re.search(name_84000, bdrc_name, re.IGNORECASE):
                         print("Found!")
                     pass
 
