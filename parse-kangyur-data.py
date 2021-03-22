@@ -79,19 +79,19 @@ for text in root.findall("default:text", ns):
     if len(attributions) > 0:
         #get the names that are already in the 84000 spreadsheet
         possible_individuals = find_possible_individuals(person_ids, kangyur_names)
-        for label in labels:
+        for attribution in attributions:
             #make the name into more searchable format
+            label = attribution.find("default:label", ns)
             name_84000 = strip_name(label.text)
             for id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
                     print(f"checking {bdrc_name} against {name_84000}")
                     if re.search(name_84000, bdrc_name, re.IGNORECASE):
-                        print("Found!")
                         #update the attributions
                         #add role that matches with the BDRC id
-                        breakpoint()
                         person = kangyur_match.loc[kangyur_match["identification"] == id]
-                        role = person["role"]
+                        role = person["role"].item()
+                        breakpoint()
                         attribution.attrib["role"] = role
                         breakpoint()
                         #add sameAs element with BDRC number
