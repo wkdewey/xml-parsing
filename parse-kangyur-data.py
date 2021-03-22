@@ -91,10 +91,15 @@ for text in root.findall("default:text", ns):
                         #add role that matches with the BDRC id
                         person = kangyur_match.loc[kangyur_match["identification"] == id]
                         role = person["role"].item()
-                        breakpoint()
-                        attribution.attrib["role"] = role
+                        if attribution.attrib["role"]:
+                            attribution.attrib["role2"] = role
+                        else:
+                            attribution.attrib["role"] = role
                         breakpoint()
                         #add sameAs element with BDRC number
+                        sameAs= ET.SubElement(attribution, "owl:sameAs")
+                        person_uri = "http://purl.bdrc.io/resource/" + id
+                        sameAs.attrib["rdf:resource"] = person_uri
                         #add alternate role?
                         break
 
