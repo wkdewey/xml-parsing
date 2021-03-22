@@ -87,7 +87,16 @@ for text in root.findall("default:text", ns):
                     print(f"checking {bdrc_name} against {name_84000}")
                     if re.search(name_84000, bdrc_name, re.IGNORECASE):
                         print("Found!")
-                    pass
+                        #update the attributions
+                        #add role that matches with the BDRC id
+                        breakpoint()
+                        person = kangyur_match.loc[kangyur_match["identification"] == id]
+                        role = person["role"]
+                        attribution.attrib["role"] = role
+                        breakpoint()
+                        #add sameAs element with BDRC number
+                        #add alternate role?
+                        break
 
     else:
         for (idx, role) in enumerate(roles):

@@ -1,4 +1,6 @@
-<attributions xmlns="http://read.84000.co/ns/1.0" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<attributions xmlns="http://read.84000.co/ns/1.0"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <export timestamp="2021-03-12T16:42:09.442Z" user="admin" />
     <text id="UT22084-005-001">
         <bibl type="toh" key="toh2">
@@ -155,7 +157,27 @@
                 <label>shes rab snying po/</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0529" />
-            <attribution role="translatorPandita"><label>rgya gar gyi mkhan po bi ma la mi tra</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P5011" /></attribution><attribution role="translator"><label>lots+tsha ba dge slong rin chen sde</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1256" /></attribution><attribution role="revisor"><label>zhu chen gyi lo ts+tsha ba dge blo</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" /></attribution><attribution role="revisor"><label>nam mkha'</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" /></attribution><attribution role="translationplace"><label>dpal bsam yas lhun gyis grub pa'i gtsug lag gi dge rgyas bye ma gling gi rtsig ngos la bris pa dang zhu dag legs par bgyis so</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" /></attribution></work>
+                <attribution role="translatorPandita">
+                    <label>rgya gar gyi mkhan po bi ma la mi tra</label>
+                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P5011" />
+                </attribution>
+                <attribution role="translator">
+                    <label>lots+tsha ba dge slong rin chen sde</label>
+                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1256" />
+                </attribution>
+                <attribution role="revisor">
+                    <label>zhu chen gyi lo ts+tsha ba dge blo</label>
+                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" />
+                </attribution>
+                <attribution role="revisor">
+                    <label>nam mkha'</label>
+                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" />
+                </attribution>
+                <attribution role="translationplace">
+                    <label>dpal bsam yas lhun gyis grub pa'i gtsug lag gi dge rgyas bye ma gling gi rtsig ngos la bris pa dang zhu dag legs par bgyis so</label>
+                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" />
+                </attribution>
+            </work>
         </bibl>
         <bibl type="toh" key="toh531">
             <label>Toh 531</label>
