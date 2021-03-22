@@ -20,6 +20,7 @@ if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
+person_matches = { "84000 ID": [], "BDRC ID": []}
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 ns = {
@@ -83,15 +84,18 @@ for text in root.findall("default:text", ns):
             #make the name into more searchable format
             label = attribution.find("default:label", ns)
             name_84000 = strip_name(label.text)
+            id_84000 = attribution.attrib["resource"]
             print(f"Looking for matches for person {name_84000}")
-            for id, bdrc_names in possible_individuals.items():
+            matched = False
+            for bdrc_id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
                     print(f"checking {bdrc_name} against {name_84000}")
                     if re.search(name_84000, bdrc_name, re.IGNORECASE):
                         #update the attributions
                         #add role that matches with the BDRC id
+                        matched = True
                         print("matched")
-                        person = kangyur_match.loc[kangyur_match["identification"] == id]
+                        person = kangyur_match.loc[kangyur_match["identification"] == bdrc_id]
                         role = person["role"].item()
                         print(f"adding role {role}")
                         if attribution.attrib["role"]:
@@ -99,12 +103,17 @@ for text in root.findall("default:text", ns):
                         else:
                             attribution.attrib["role"] = role
                         #add sameAs element with BDRC number
-                        print(f"same as bdrc {id}")
+                        print(f"same as bdrc {bdrc_id}")
                         sameAs = ET.SubElement(attribution, "owl:sameAs")
-                        person_uri = "http://purl.bdrc.io/resource/" + id
+                        person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
                         sameAs.attrib["rdf:resource"] = person_uri
                         #add alternate role?
                         break
+            if matched:
+                person_matches["84000 ID"].append(id_84000)
+                person_matches["BDRC ID"].append(bdrc_id)
+                matched = False
+                break
 
     else:
         for (idx, role) in enumerate(roles):
@@ -119,6 +128,8 @@ for text in root.findall("default:text", ns):
             sameAs.attrib["rdf:resource"] = person_uri
 #some query to get associated places, likely from BDRC
 #export CSV with matching ID's
+    matches_df = pd.DataFrame(person_matches)
+    matches_df.to_csv("person_matches.csv")
 #write to file
 
 

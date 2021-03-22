@@ -9,11 +9,9 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0002" />
                 <attribution role="translatorTib" resource="eft:jinamitra-k-" role2="translatorPandita">
                     <label>Jinamitra (k)</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
-                </attribution>
-                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan" role2="translator">
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
+                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
                     <label>Klu'i rgyal mtshan</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
                 </attribution>
             </work>
         </bibl>
@@ -34,11 +32,9 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0003" />
                 <attribution role="translatorTib" resource="eft:jinamitra-k-" role2="translatorPandita">
                     <label>Jinamitra (k)</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
-                </attribution>
-                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan" role2="translator">
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
+                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
                     <label>Klu'i rgyal mtshan</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
                 </attribution>
             </work>
         </bibl>
@@ -65,11 +61,9 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0004" />
                 <attribution role="translatorTib" resource="eft:dzi-na-mi-tra-k-" role2="translatorPandita">
                     <label>dzi na mi tra (k)</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" />
-                </attribution>
-                <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan" role2="translator">
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
+                <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan">
                     <label>cog ro klu'i rgyal mtshan</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" />
                 </attribution>
             </work>
         </bibl>
@@ -90,21 +84,18 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:dharmakara" role2="translatorPandita">
                     <label>dharmakara</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8249" />
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8249" /></attribution>
                 <attribution role="translatorTib" resource="eft:vidyakaraprabha">
                     <label>vidyakaraprabha</label>
                 </attribution>
-                <attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po" role2="translator">
+                <attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po">
                     <label>ban de dpal gyi lhun po</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4259" />
                 </attribution>
                 <attribution role="reviser" resource="eft:bidyakaraprabha">
                     <label>bidyakaraprabha</label>
                 </attribution>
-                <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs" role2="revisor">
+                <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs">
                     <label>ban de dpal brtsegs</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" />
                 </attribution>
             </work>
         </bibl>
@@ -164,27 +155,7 @@
                 <label>shes rab snying po/</label>
                 <rdf:type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0529" />
-                <attribution role="translatorPandita">
-                    <label>rgya gar gyi mkhan po bi ma la mi tra</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P5011" />
-                </attribution>
-                <attribution role="translator">
-                    <label>lots+tsha ba dge slong rin chen sde</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1256" />
-                </attribution>
-                <attribution role="revisor">
-                    <label>zhu chen gyi lo ts+tsha ba dge blo</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" />
-                </attribution>
-                <attribution role="revisor">
-                    <label>nam mkha'</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" />
-                </attribution>
-                <attribution role="translationplace">
-                    <label>dpal bsam yas lhun gyis grub pa'i gtsug lag gi dge rgyas bye ma gling gi rtsig ngos la bris pa dang zhu dag legs par bgyis so</label>
-                    <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" />
-                </attribution>
-            </work>
+            <attribution role="translatorPandita"><label>rgya gar gyi mkhan po bi ma la mi tra</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P5011" /></attribution><attribution role="translator"><label>lots+tsha ba dge slong rin chen sde</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1256" /></attribution><attribution role="revisor"><label>zhu chen gyi lo ts+tsha ba dge blo</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" /></attribution><attribution role="revisor"><label>nam mkha'</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" /></attribution><attribution role="translationplace"><label>dpal bsam yas lhun gyis grub pa'i gtsug lag gi dge rgyas bye ma gling gi rtsig ngos la bris pa dang zhu dag legs par bgyis so</label><owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1242" /></attribution></work>
         </bibl>
         <bibl type="toh" key="toh531">
             <label>Toh 531</label>
