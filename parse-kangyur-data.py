@@ -83,21 +83,24 @@ for text in root.findall("default:text", ns):
             #make the name into more searchable format
             label = attribution.find("default:label", ns)
             name_84000 = strip_name(label.text)
+            print(f"Looking for matches for person {name_84000}")
             for id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
                     print(f"checking {bdrc_name} against {name_84000}")
                     if re.search(name_84000, bdrc_name, re.IGNORECASE):
                         #update the attributions
                         #add role that matches with the BDRC id
+                        print("matched")
                         person = kangyur_match.loc[kangyur_match["identification"] == id]
                         role = person["role"].item()
+                        print(f"adding role {role}")
                         if attribution.attrib["role"]:
                             attribution.attrib["role2"] = role
                         else:
                             attribution.attrib["role"] = role
-                        breakpoint()
                         #add sameAs element with BDRC number
-                        sameAs= ET.SubElement(attribution, "owl:sameAs")
+                        print(f"same as bdrc {id}")
+                        sameAs = ET.SubElement(attribution, "owl:sameAs")
                         person_uri = "http://purl.bdrc.io/resource/" + id
                         sameAs.attrib["rdf:resource"] = person_uri
                         #add alternate role?
