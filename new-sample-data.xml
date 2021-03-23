@@ -10,9 +10,9 @@
                 <attribution role="translatorTib" resource="eft:jinamitra-k-" role2="translatorPandita">
                     <label>Jinamitra (k)</label>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
-                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
+                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan" role2="translator">
                     <label>Klu'i rgyal mtshan</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -33,9 +33,9 @@
                 <attribution role="translatorTib" resource="eft:jinamitra-k-" role2="translatorPandita">
                     <label>Jinamitra (k)</label>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
-                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
+                <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan" role2="translator">
                     <label>Klu'i rgyal mtshan</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -62,9 +62,9 @@
                 <attribution role="translatorTib" resource="eft:dzi-na-mi-tra-k-" role2="translatorPandita">
                     <label>dzi na mi tra (k)</label>
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
-                <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan">
+                <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan" role2="translator">
                     <label>cog ro klu'i rgyal mtshan</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -88,15 +88,15 @@
                 <attribution role="translatorTib" resource="eft:vidyakaraprabha">
                     <label>vidyakaraprabha</label>
                 </attribution>
-                <attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po">
+                <attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po" role2="translator">
                     <label>ban de dpal gyi lhun po</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4259" /></attribution>
                 <attribution role="reviser" resource="eft:bidyakaraprabha">
                     <label>bidyakaraprabha</label>
                 </attribution>
-                <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs">
+                <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs" role2="revisor">
                     <label>ban de dpal brtsegs</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">

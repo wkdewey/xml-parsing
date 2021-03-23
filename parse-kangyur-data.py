@@ -85,8 +85,9 @@ for text in root.findall("default:text", ns):
             label = attribution.find("default:label", ns)
             name_84000 = strip_name(label.text)
             id_84000 = attribution.attrib["resource"]
-            print(f"Looking for matches for person {name_84000}")
+            print(f"Looking for matches for person {name_84000} from toh {toh_num}")
             matched = False
+            print(f"Matched? {matched}")
             for bdrc_id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
                     print(f"checking {bdrc_name} against {name_84000}")
@@ -109,11 +110,12 @@ for text in root.findall("default:text", ns):
                         sameAs.attrib["rdf:resource"] = person_uri
                         #add alternate role?
                         break
-            if matched:
-                person_matches["84000 ID"].append(id_84000)
-                person_matches["BDRC ID"].append(bdrc_id)
-                matched = False
-                break
+                print(f"Matched? {matched}")
+                if matched:
+                    person_matches["84000 ID"].append(id_84000)
+                    person_matches["BDRC ID"].append(bdrc_id)
+                    matched = False
+                    break
 
     else:
         for (idx, role) in enumerate(roles):
