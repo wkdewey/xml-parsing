@@ -21,6 +21,7 @@ if spreadsheet.exists():
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
 person_matches = { "84000 ID": [], "BDRC ID": []}
+unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 ns = {
@@ -87,7 +88,6 @@ for text in root.findall("default:text", ns):
             id_84000 = attribution.attrib["resource"]
             print(f"Looking for matches for person {name_84000} from toh {toh_num}")
             matched = False
-            print(f"Matched? {matched}")
             for bdrc_id, bdrc_names in possible_individuals.items():
                 for bdrc_name in bdrc_names:
                     print(f"checking {bdrc_name} against {name_84000}")
@@ -95,7 +95,7 @@ for text in root.findall("default:text", ns):
                         #update the attributions
                         #add role that matches with the BDRC id
                         matched = True
-                        print("matched")
+                        print("match found")
                         person = kangyur_match.loc[kangyur_match["identification"] == bdrc_id]
                         role = person["role"].item()
                         print(f"adding role {role}")
@@ -110,13 +110,15 @@ for text in root.findall("default:text", ns):
                         sameAs.attrib["rdf:resource"] = person_uri
                         #add alternate role?
                         break
-                print(f"Matched? {matched}")
                 if matched:
                     person_matches["84000 ID"].append(id_84000)
                     person_matches["BDRC ID"].append(bdrc_id)
-                    matched = False
                     break
-
+            if not matched:
+                print("no matches found")
+                unmatched_persons["84000 ID"].append(id_84000)
+                unmatched_persons["84000 name"].append(name_84000)
+                unmatched_persons["possible BDRC matches"].append(possible_individuals)
     else:
         for (idx, role) in enumerate(roles):
             attribution = ET.SubElement(work, "attribution")
@@ -132,6 +134,8 @@ for text in root.findall("default:text", ns):
 #export CSV with matching ID's
     matches_df = pd.DataFrame(person_matches)
     matches_df.to_csv("person_matches.csv")
+    unmatched_df = pd.DataFrame(unmatched_persons)
+    unmatched_df.to_csv("unmatched_persons.csv")
 #write to file
 
 
