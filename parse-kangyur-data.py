@@ -135,7 +135,7 @@ for text in root.findall("default:text", ns):
     matches_df = pd.DataFrame(person_matches)
     matches_df.to_csv("person_matches.csv")
     unmatched_df = pd.DataFrame(unmatched_persons)
-    unmatched_df.to_csv("unmatched_persons.csv")
+    unmatched_df.to_csv("unmatched_persons.csv", encoding='utf-8')
 #write to file
 
 
