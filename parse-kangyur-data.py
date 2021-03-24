@@ -117,9 +117,10 @@ for text in root.findall("default:text", ns):
                     break
             if not matched:
                 print("no matches found")
-                unmatched_persons["84000 ID"].append(id_84000)
-                unmatched_persons["84000 name"].append(name_84000)
-                unmatched_persons["possible BDRC matches"].append(possible_individuals)
+                if id_84000 not in unmatched_persons["84000 ID"] and possible_individuals not in  unmatched_persons["possible BDRC matches"]:
+                    unmatched_persons["84000 ID"].append(id_84000)
+                    unmatched_persons["84000 name"].append(name_84000)
+                    unmatched_persons["possible BDRC matches"].append(possible_individuals)
     else:
         for (idx, role) in enumerate(roles):
             attribution = ET.SubElement(work, "attribution")
