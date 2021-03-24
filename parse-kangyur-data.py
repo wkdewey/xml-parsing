@@ -5,8 +5,8 @@ import numpy as np
 import re
 from pathlib import Path
 
-data_file = 'sample-data.xml'
-# data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kangyur-data.xml"
+# data_file = 'sample-data.xml'
+data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kangyur-data.xml"
 #load the xml file
 ET.register_namespace('', "http://read.84000.co/ns/1.0")
 ET.register_namespace('rdf', "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -139,4 +139,4 @@ for text in root.findall("default:text", ns):
 #write to file
 
 
-tree.write("new-sample-data.xml")
+tree.write("new-kangyur-data-test.xml")
