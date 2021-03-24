@@ -111,8 +111,9 @@ for text in root.findall("default:text", ns):
                         #add alternate role?
                         break
                 if matched:
-                    person_matches["84000 ID"].append(id_84000)
-                    person_matches["BDRC ID"].append(bdrc_id)
+                    if id_84000 not in person_matches["84000 ID"]:
+                        person_matches["84000 ID"].append(id_84000)
+                        person_matches["BDRC ID"].append(bdrc_id)
                     break
             if not matched:
                 print("no matches found")
