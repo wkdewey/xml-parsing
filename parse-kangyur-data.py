@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import re
 from pathlib import Path
+from .database import Database
 
 # data_file = 'sample-data.xml'
 data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kangyur-data.xml"
@@ -11,8 +12,15 @@ data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kan
 ET.register_namespace('', "http://read.84000.co/ns/1.0")
 ET.register_namespace('rdf', "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 ET.register_namespace('owl', "http://www.w3.org/2002/07/owl#")
+ns = {
+  'default': "http://read.84000.co/ns/1.0",
+  'rdf': "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+  'owl': "http://www.w3.org/2002/07/owl#"
+}
 tree = ET.parse(data_file)
 root = tree.getroot()
+texts = root.findall("default:text", ns)
+Database.new(texts, ns)
 #import the BDRC spreadsheet
 spreadsheet = Path(__file__).parent / "/Users/williamdewey/Development/code/84000-data-rdf/data-export/Tentative template.xlsx"
 kangyur_sheet = ""
@@ -24,13 +32,11 @@ person_matches = { "84000 ID": [], "BDRC ID": []}
 unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
 unmatched_works = {"Toh": []}
 unattributed_works = { "84000 ID": []}
+unmatched_texts = {"ID": []}
+unattributed_texts = {"ID": []}
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
-ns = {
-  'default': "http://read.84000.co/ns/1.0",
-  'rdf': "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-  'owl': "http://www.w3.org/2002/07/owl#"
-}
+
 
 def find_possible_individuals(person_ids, kangyur_names):
     possible_individuals = {}
@@ -65,10 +71,12 @@ def strip_name(name):
     mod_name = re.sub(pattern2, '', name)
     return mod_name
 
+def update_attributions():
+    pass
+
 for text in root.findall("default:text", ns):
-    bibl = text.find("default:bibl", ns)
     toh_num = bibl.attrib["key"][3:]
-    work = bibl.find("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
+    works = bibl.findall("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
     #find toh_num in spreadsheet
     spread_num = "D" + toh_num
     #should check to make sure there is a match, not the case if there is a hyphen
@@ -80,66 +88,53 @@ for text in root.findall("default:text", ns):
     person_ids = kangyur_match["identification"]
     roles = kangyur_match["role"]
     kangyur_names = kangyur_match["indicated value"]
-    attributions = work.findall("default:attribution", ns)
-    labels = work.findall("./{http://read.84000.co/ns/1.0}attribution/{http://read.84000.co/ns/1.0}label")
-    if len(attributions) > 0:
-        #get the names that are already in the 84000 spreadsheet
-        possible_individuals = find_possible_individuals(person_ids, kangyur_names)
-        for attribution in attributions:
-            #make the name into more searchable format
-            label = attribution.find("default:label", ns)
-            name_84000 = strip_name(label.text)
-            id_84000 = attribution.attrib["resource"]
-            print(f"Looking for matches for person {name_84000} from toh {toh_num}")
-            matched = False
-            for bdrc_id, bdrc_names in possible_individuals.items():
-                for bdrc_name in bdrc_names:
-                    print(f"checking {bdrc_name} against {name_84000}")
-                    if re.search(name_84000, bdrc_name, re.IGNORECASE):
-                        #update the attributions
-                        #add role that matches with the BDRC id
-                        matched = True
-                        print("match found")
-                        person = kangyur_match.loc[kangyur_match["identification"] == bdrc_id]
-                        role = person["role"].item()
-                        print(f"adding role {role}")
-                        if attribution.attrib["role"]:
-                            attribution.attrib["role2"] = role
-                        else:
-                            attribution.attrib["role"] = role
-                        #add sameAs element with BDRC number
-                        print(f"same as bdrc {bdrc_id}")
-                        sameAs = ET.SubElement(attribution, "owl:sameAs")
-                        person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
-                        sameAs.attrib["rdf:resource"] = person_uri
-                        #add alternate role?
+    for work in works:
+        attributions = work.findall("default:attribution", ns)
+        labels = work.findall("./{http://read.84000.co/ns/1.0}attribution/{http://read.84000.co/ns/1.0}label")
+        if len(attributions) > 0:
+            #get the names that are already in the 84000 spreadsheet
+            possible_individuals = find_possible_individuals(person_ids, kangyur_names)
+            for attribution in attributions:
+                #make the name into more searchable format
+                label = attribution.find("default:label", ns)
+                name_84000 = strip_name(label.text)
+                id_84000 = attribution.attrib["resource"]
+                print(f"Looking for matches for person {name_84000} from toh {toh_num}")
+                matched = False
+                for bdrc_id, bdrc_names in possible_individuals.items():
+                    for bdrc_name in bdrc_names:
+                        print(f"checking {bdrc_name} against {name_84000}")
+                        if re.search(name_84000, bdrc_name, re.IGNORECASE):
+                            #update the attributions
+                            #add role that matches with the BDRC id
+                            
+                            #add alternate role?
+                            break
+                    if matched:
+                        if id_84000 not in person_matches["84000 ID"]:
+                            person_matches["84000 ID"].append(id_84000)
+                            person_matches["BDRC ID"].append(bdrc_id)
                         break
-                if matched:
-                    if id_84000 not in person_matches["84000 ID"]:
-                        person_matches["84000 ID"].append(id_84000)
-                        person_matches["BDRC ID"].append(bdrc_id)
-                    break
-            if not matched:
-                print("no matches found")
-                if id_84000 not in unmatched_persons["84000 ID"] and possible_individuals not in  unmatched_persons["possible BDRC matches"]:
-                    unmatched_persons["84000 ID"].append(id_84000)
-                    unmatched_persons["84000 name"].append(name_84000)
-                    unmatched_persons["possible BDRC matches"].append(possible_individuals)
-    else:
-        if len(roles) == 0:
-            unattributed_works["84000 ID"].append(bibl.attrib["key"])
-        for (idx, role) in enumerate(roles):
-            attribution = ET.SubElement(work, "attribution")
-            attribution.attrib["role"] = role
-            #add a label with corresponding name
-            label = ET.SubElement(attribution, "label")
-            label.text = kangyur_names.iloc[idx]
-            sameAs= ET.SubElement(attribution, "owl:sameAs")
-            if type(person_ids.iloc[idx]) is str:
-                person_uri = "http://purl.bdrc.io/resource/" + person_ids.iloc[idx]
-            sameAs.attrib["rdf:resource"] = person_uri
+                if not matched:
+                    print("no matches found")
+                    if id_84000 not in unmatched_persons["84000 ID"] and possible_individuals not in  unmatched_persons["possible BDRC matches"]:
+                        unmatched_persons["84000 ID"].append(id_84000)
+                        unmatched_persons["84000 name"].append(name_84000)
+                        unmatched_persons["possible BDRC matches"].append(possible_individuals)
+        else:
+            if len(roles) == 0:
+                unattributed_works["84000 ID"].append(bibl.attrib["key"])
+            for (idx, role) in enumerate(roles):
+                attribution = ET.SubElement(work, "attribution")
+                attribution.attrib["role"] = role
+                #add a label with corresponding name
+                label = ET.SubElement(attribution, "label")
+                label.text = kangyur_names.iloc[idx]
+                sameAs= ET.SubElement(attribution, "owl:sameAs")
+                if type(person_ids.iloc[idx]) is str:
+                    person_uri = "http://purl.bdrc.io/resource/" + person_ids.iloc[idx]
+                sameAs.attrib["rdf:resource"] = person_uri
 #some query to get associated places, likely from BDRC
-breakpoint()
 #export CSV with matching ID's
 matches_df = pd.DataFrame(person_matches)
 matches_df.to_csv("person_matches.csv")
