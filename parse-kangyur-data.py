@@ -22,8 +22,8 @@ if spreadsheet.exists():
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
 person_matches = { "84000 ID": [], "BDRC ID": []}
 unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
-unmatched_texts = {"Toh": []}
-unattributed_texts = { "84000 ID": []}
+unmatched_works = {"Toh": []}
+unattributed_works = { "84000 ID": []}
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 ns = {
@@ -74,7 +74,7 @@ for text in root.findall("default:text", ns):
     #should check to make sure there is a match, not the case if there is a hyphen
     kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
     if kangyur_match.empty:
-        unmatched_texts["Toh"].append(bibl.attrib["key"])
+        unmatched_works["Toh"].append(bibl.attrib["key"])
     #add roles from spreadsheet
     #get lists of roles, and lists of names
     person_ids = kangyur_match["identification"]
@@ -127,7 +127,7 @@ for text in root.findall("default:text", ns):
                     unmatched_persons["possible BDRC matches"].append(possible_individuals)
     else:
         if len(roles) == 0:
-            unattributed_texts["84000 ID"].append(bibl.attrib["key"])
+            unattributed_works["84000 ID"].append(bibl.attrib["key"])
         for (idx, role) in enumerate(roles):
             attribution = ET.SubElement(work, "attribution")
             attribution.attrib["role"] = role
@@ -145,10 +145,10 @@ matches_df = pd.DataFrame(person_matches)
 matches_df.to_csv("person_matches.csv")
 unmatched_df = pd.DataFrame(unmatched_persons)
 unmatched_df.to_csv("unmatched_persons.csv", encoding='utf-8')
-unmatched_texts_df = pd.DataFrame(unmatched_texts)
-unmatched_texts_df.to_csv("unmatched_texts.csv")
-unattributed_texts_df = pd.DataFrame(unattributed_texts)
-unattributed_texts_df.to_csv("unattributed_texts.csv")
+unmatched_works_df = pd.DataFrame(unmatched_works)
+unmatched_works_df.to_csv("unmatched_works.csv")
+unattributed_works_df = pd.DataFrame(unattributed_works)
+unattributed_works_df.to_csv("unattributed_works.csv")
 #write to file
 
 
