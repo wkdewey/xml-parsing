@@ -20,7 +20,7 @@ ns = {
 tree = ET.parse(data_file)
 root = tree.getroot()
 texts = root.findall("default:text", ns)
-Database.new(texts, ns)
+
 #import the BDRC spreadsheet
 spreadsheet = Path(__file__).parent / "/Users/williamdewey/Development/code/84000-data-rdf/data-export/Tentative template.xlsx"
 kangyur_sheet = ""
@@ -28,6 +28,7 @@ if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
+Database.new(texts, ns, kangyur_sheet)
 person_matches = { "84000 ID": [], "BDRC ID": []}
 unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
 unmatched_works = {"Toh": []}
@@ -75,12 +76,10 @@ def update_attributions():
     pass
 
 for text in root.findall("default:text", ns):
-    toh_num = bibl.attrib["key"][3:]
-    works = bibl.findall("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
     #find toh_num in spreadsheet
-    spread_num = "D" + toh_num
+    # spread_num = "D" + toh_num
     #should check to make sure there is a match, not the case if there is a hyphen
-    kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
+    # kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
     if kangyur_match.empty:
         unmatched_works["Toh"].append(bibl.attrib["key"])
     #add roles from spreadsheet
@@ -90,7 +89,6 @@ for text in root.findall("default:text", ns):
     kangyur_names = kangyur_match["indicated value"]
     for work in works:
         attributions = work.findall("default:attribution", ns)
-        labels = work.findall("./{http://read.84000.co/ns/1.0}attribution/{http://read.84000.co/ns/1.0}label")
         if len(attributions) > 0:
             #get the names that are already in the 84000 spreadsheet
             possible_individuals = find_possible_individuals(person_ids, kangyur_names)
