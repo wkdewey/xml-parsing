@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import re
 from pathlib import Path
-from .database import Database
+from .dataset import Dataset
 
 # data_file = 'sample-data.xml'
 data_file = "/Users/williamdewey/Development/code/84000-data-rdf/data-export/kangyur-data.xml"
@@ -28,42 +28,13 @@ if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
-Database.new(texts, ns, kangyur_sheet)
-person_matches = { "84000 ID": [], "BDRC ID": []}
-unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
-unmatched_works = {"Toh": []}
-unattributed_works = { "84000 ID": []}
-unmatched_texts = {"ID": []}
-unattributed_texts = {"ID": []}
+dataset = Dataset.new(texts, ns, kangyur_sheet)
+
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 
 
-def find_possible_individuals(person_ids, kangyur_names):
-    possible_individuals = {}
-    for (idx, id) in enumerate(person_ids):
-        possible_individuals[id] = []
-        kangyur_name = kangyur_names.iloc[idx]
-        possible_individuals[id].append(kangyur_name)
-        tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
-        tib_name_1 = tib_match["names_tib"] 
-        if len(tib_name_1) > 0:
-            if not pd.isnull(tib_name_1.iloc[0]):
-                possible_individuals[id].append(tib_name_1.iloc[0])
-        tib_name_2 = tib_match["names_skt"]
-        if len(tib_name_2) > 0:
-            if not pd.isnull(tib_name_2.iloc[0]):
-                possible_individuals[id].append(tib_name_2.iloc[0])
-        ind_match = ind_sheet.loc[ind_sheet["ID"] == id]
-        ind_name_1 = ind_match["names_tib"]
-        if len(ind_name_1) > 0:
-            if not pd.isnull(ind_name_1.iloc[0]):
-                possible_individuals[id].append(ind_name_1.iloc[0])
-        ind_name_2 = ind_match["names_skt"]
-        if len(ind_name_2) > 0:
-            if not pd.isnull(ind_name_2.iloc[0]):
-                possible_individuals[id].append(ind_name_2.iloc[0])
-    return possible_individuals
+
 
 def strip_name(name):
     pattern = r'\/'
@@ -72,26 +43,12 @@ def strip_name(name):
     mod_name = re.sub(pattern2, '', name)
     return mod_name
 
-def update_attributions():
-    pass
 
-for text in root.findall("default:text", ns):
-    #find toh_num in spreadsheet
-    # spread_num = "D" + toh_num
-    #should check to make sure there is a match, not the case if there is a hyphen
-    # kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == spread_num]
-    if kangyur_match.empty:
-        unmatched_works["Toh"].append(bibl.attrib["key"])
-    #add roles from spreadsheet
-    #get lists of roles, and lists of names
-    person_ids = kangyur_match["identification"]
-    roles = kangyur_match["role"]
-    kangyur_names = kangyur_match["indicated value"]
-    for work in works:
-        attributions = work.findall("default:attribution", ns)
-        if len(attributions) > 0:
+for text in dataset.texts:
+
+    for work in text.works:
+        if len(work.attributions) > 0:
             #get the names that are already in the 84000 spreadsheet
-            possible_individuals = find_possible_individuals(person_ids, kangyur_names)
             for attribution in attributions:
                 #make the name into more searchable format
                 label = attribution.find("default:label", ns)
