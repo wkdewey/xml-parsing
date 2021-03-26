@@ -11,9 +11,10 @@ Currently the script only considers the first BDRC work listed. It needs to be u
 # output
 
 It outputs several csv files as follows:
-person_matches.csv contains 84000 IDs and BDRC IDs of persons that match
-unmatched_persons.csv contains the 84000 names and ID for persons that did not match, as well as the hash of possibile individuals from the BDRC side
-unmatched_works.csv contains a list of works by tohoku number that were not matched to a BDRC work
-unattributed_works.csv contains a list of works (by ID) for which no attributions could be found. It overlaps with the above file.
+
+1. person_matches.csv contains 84000 IDs and BDRC IDs of persons that match
+2. unmatched_persons.csv contains the 84000 names and ID for persons that did not match, as well as the hash of possibile individuals from the BDRC side
+3. unmatched_works.csv contains a list of works by tohoku number that were not matched to a BDRC work
+4. unattributed_works.csv contains a list of works (by ID) for which no attributions could be found. It overlaps with the above file.
 
 sample-data.xml is a test file containing a subset of the xml data
