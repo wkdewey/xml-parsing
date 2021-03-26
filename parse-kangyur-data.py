@@ -139,7 +139,6 @@ for text in root.findall("default:text", ns):
                 person_uri = "http://purl.bdrc.io/resource/" + person_ids.iloc[idx]
             sameAs.attrib["rdf:resource"] = person_uri
 #some query to get associated places, likely from BDRC
-breakpoint()
 #export CSV with matching ID's
 matches_df = pd.DataFrame(person_matches)
 matches_df.to_csv("person_matches.csv")
