@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import re
 from pathlib import Path
-from dataset import Dataset, Object
+from dataset import Dataset, Output
 import requests
 
 # data_file = 'sample-data.xml'
@@ -82,13 +82,13 @@ for text in dataset.texts:
             
 #some query to get associated places, likely from BDRC
 #export CSV with matching ID's
-matches_df = pd.DataFrame(Object.person_matches)
+matches_df = pd.DataFrame(Output.person_matches)
 matches_df.to_csv("person_matches.csv")
-unmatched_df = pd.DataFrame(Object.unmatched_persons)
+unmatched_df = pd.DataFrame(Output.unmatched_persons)
 unmatched_df.to_csv("unmatched_persons.csv", encoding='utf-8')
-unmatched_works_df = pd.DataFrame(Object.unmatched_works)
+unmatched_works_df = pd.DataFrame(Output.unmatched_works)
 unmatched_works_df.to_csv("unmatched_works.csv")
-unattributed_works_df = pd.DataFrame(Object.unattributed_works)
+unattributed_works_df = pd.DataFrame(Output.unattributed_works)
 unattributed_works_df.to_csv("unattributed_works.csv")
 #write to file
 
