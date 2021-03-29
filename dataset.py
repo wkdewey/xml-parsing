@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+import xml.etree.ElementTree as ET
 
 class Dataset:
     def __init__(self, texts, ns, kangyur_sheet, tib_sheet, ind_sheet):
@@ -79,18 +80,18 @@ class Work:
     def add_attributions(self):
         pass
         # below is for xml
-        # if len(roles) == 0:
-        #         unattributed_works["84000 ID"].append(bibl.attrib["key"])
-        # for (idx, role) in enumerate(roles):
-        #     attribution = ET.SubElement(work, "attribution")
-        #     attribution.attrib["role"] = role
-        #     #add a label with corresponding name
-        #     label = ET.SubElement(attribution, "label")
-        #     label.text = kangyur_names.iloc[idx]
-        #     sameAs= ET.SubElement(attribution, "owl:sameAs")
-        #     if type(person_ids.iloc[idx]) is str:
-        #         person_uri = "http://purl.bdrc.io/resource/" + person_ids.iloc[idx]
-        #     sameAs.attrib["rdf:resource"] = person_uri
+        if len(self.roles) == 0:
+                Output.unattributed_works["84000 ID"].append(self.bibl.attrib["key"])
+        for (idx, role) in enumerate(self.roles):
+            attribution = ET.SubElement(self.work_element, "attribution")
+            attribution.attrib["role"] = role
+            #add a label with corresponding name
+            label = ET.SubElement(attribution, "label")
+            label.text = self.kangyur_names.iloc[idx]
+            sameAs= ET.SubElement(attribution, "owl:sameAs")
+            if type(self.person_ids.iloc[idx]) is str:
+                person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
+            sameAs.attrib["rdf:resource"] = person_uri
         # What do I need to do for the spreadsheet
 
 class Attribution:
@@ -109,9 +110,11 @@ class Attribution:
         mod_name = re.sub(pattern2, '', name)
         return mod_name
     
-    def update_attribution(self):
-        pass
-        #or update spreadsheet?
+    def update_attribution(self, bdrc_id):
+        if self.id_84000 not in Output.person_matches["84000 ID"]:
+            Output.person_matches["84000 ID"].append(self.id_84000)
+            Output.person_matches["BDRC ID"].append(bdrc_id)
+        #add role that matches with the BDRC id to XML, csv file
 
     
     
@@ -121,16 +124,10 @@ class Attribution:
             for bdrc_name in bdrc_names:
                 print(f"checking {bdrc_name} against {self.name_84000}")
                 if re.search(self.name_84000, bdrc_name, re.IGNORECASE):
-                    self.update_attribution()
-                    #add role that matches with the BDRC id
-                    
-                    #add alternate role?
+                    self.update_attribution(self, bdrc_id)
+                    matched = True
                     break
-            if matched:
-                if self.id_84000 not in Output.person_matches["84000 ID"]:
-                    Output.person_matches["84000 ID"].append(self.id_84000)
-                    Output.person_matches["BDRC ID"].append(bdrc_id)
-                break
+                
         if not matched:
             print("no matches found")
             if self.id_84000 not in Output.unmatched_persons["84000 ID"] and self.possible_individuals not in Output.unmatched_persons["possible BDRC matches"]:
