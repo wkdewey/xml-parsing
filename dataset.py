@@ -8,25 +8,25 @@ class Dataset:
         self.kangyur_sheet = kangyur_sheet
         self.tib_sheet = tib_sheet
         self.ind_sheet = ind_sheet
-        self.initialize_texts(self, texts, ns)
+        self.initialize_texts(texts, ns)
 
     def initialize_texts(self, texts, ns):
         for text in texts:
             bibls = text.findall("default:bibl", ns)
-            text_obj = Text(bibls, self.kangyur_sheet)
+            text_obj = Text(bibls, self.kangyur_sheet, self.tib_sheet, self.ind_sheet, ns)
             self.texts.append(text_obj)
 
 class Text:
     def __init__(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, ns):
         self.works = []
         self.bibls = bibls
-        self.initialize_works(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, ns)
+        self.initialize_works(bibls, kangyur_sheet, tib_sheet, ind_sheet, ns)
     
-    def initialize_works(self, bibls, kangyur_sheet, ns):
+    def initialize_works(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, ns):
         for bibl in bibls:
             works = bibl.findall("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
             for work_element in works:
-                work_obj = Work(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, ns)
+                work_obj = Work(bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, ns)
                 self.works.append(work_obj)
 
 class Work:
@@ -41,8 +41,8 @@ class Work:
         self.person_ids = kangyur_match["identification"]
         self.roles = kangyur_match["role"]
         self.kangyur_names = kangyur_match["indicated value"]
-        self.possible_individuals = self.find_possible_individuals(self, tib_sheet, ind_sheet)
-        self.initialize_attributions(self, ns)
+        self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
+        self.initialize_attributions(ns)
 
     def initialize_attributions(self, ns):
         attributions = self.work_element.findall("default:attribution", ns)
