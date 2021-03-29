@@ -36,7 +36,7 @@ if spreadsheet.exists():
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
 
-dataset = Dataset.new(texts, ns, kangyur_sheet)
+dataset = Dataset(texts, ns, kangyur_sheet)
 #iterate through XML entries (texts)
  #should refactor with namespace dictionaries
 
