@@ -32,6 +32,7 @@ class Text:
 class Work:
     def __init__(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, ns):
         self.attributions = []
+        self.bibl = bibl
         self.work_element = work_element
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num
@@ -47,7 +48,7 @@ class Work:
     def initialize_attributions(self, ns):
         attributions = self.work_element.findall("default:attribution", ns)
         for attribution_element in attributions:
-            attribution_obj = Attribution(self, self.person_ids, self.kangyur_names, attribution_element, self.possible_individuals, ns)
+            attribution_obj = Attribution(attribution_element, self.possible_individuals, ns)
             self.attributions.append(attribution_obj)
 
     def find_possible_individuals(self, tib_sheet, ind_sheet):
@@ -78,10 +79,9 @@ class Work:
 
 
     def add_attributions(self):
-        pass
         # below is for xml
         if len(self.roles) == 0:
-                Output.unattributed_works["84000 ID"].append(self.bibl.attrib["key"])
+            Output.unattributed_works["84000 ID"].append(self.bibl.attrib["key"])
         for (idx, role) in enumerate(self.roles):
             attribution = ET.SubElement(self.work_element, "attribution")
             attribution.attrib["role"] = role
@@ -124,7 +124,7 @@ class Attribution:
             for bdrc_name in bdrc_names:
                 print(f"checking {bdrc_name} against {self.name_84000}")
                 if re.search(self.name_84000, bdrc_name, re.IGNORECASE):
-                    self.update_attribution(self, bdrc_id)
+                    self.update_attribution(bdrc_id)
                     matched = True
                     break
                 
