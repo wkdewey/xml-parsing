@@ -36,19 +36,19 @@ class Work:
         self.work_element = work_element
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num
-        kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
-        if kangyur_match.empty:
+        self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
+        if self.kangyur_match.empty:
             Output.unmatched_works["Toh"].append(bibl.attrib["key"])
-        self.person_ids = kangyur_match["identification"]
-        self.roles = kangyur_match["role"]
-        self.kangyur_names = kangyur_match["indicated value"]
+        self.person_ids = self.kangyur_match["identification"]
+        self.roles = self.kangyur_match["role"]
+        self.kangyur_names = self.kangyur_match["indicated value"]
         self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
         self.initialize_attributions(ns)
 
     def initialize_attributions(self, ns):
         attributions = self.work_element.findall("default:attribution", ns)
         for attribution_element in attributions:
-            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, ns)
+            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, ns)
             self.attributions.append(attribution_obj)
 
     def find_possible_individuals(self, tib_sheet, ind_sheet):
@@ -96,13 +96,14 @@ class Work:
 
 class Attribution:
 
-    def __init__(self, attribution_element, possible_individuals, toh_num, ns):
+    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, ns):
         self.attribution_element = attribution_element
         self.possible_individuals = possible_individuals
         self.label = attribution_element.find("default:label", ns)
         self.name_84000 = Attribution.strip_name(self.label.text)
         self.id_84000 = attribution_element.attrib["resource"]
         self.toh_num = toh_num
+        self.kangyur_match = kangyur_match
 
     @staticmethod
     def strip_name(name):
@@ -130,13 +131,19 @@ class Attribution:
                     self.update_attribution(bdrc_id)
                     matched = True
                     print("match found")
-                    # person = kangyur_match.loc[kangyur_match["identification"] == bdrc_id]
-                    # role = person["role"].item()
-                    # print(f"adding role {role}")
-                    # if attribution.attrib["role"]:
-                    #     attribution.attrib["role2"] = role
-                    # else:
-                    #     attribution.attrib["role"] = role
+                    person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
+                    role = person["role"].item()
+                    print(f"adding role {role}")
+                    if self.attribution_element.attrib["role"]:
+                        Output.discrepant_roles["84000 ID"].append(self.id_84000)
+                        Output.discrepant_roles["84000 name"].append(self.name_84000)
+                        Output.discrepant_roles["BDRC ID"].append(bdrc_id)
+                        Output.discrepant_roles["84000 role"].append(self.attribution_element.attrib["role"])
+                        Output.discrepant_roles["BDRC role"].append(role)
+                        # consider the different schemas before matching the roles
+                        # self.attribution_element.attrib["role2"] = role
+                    else:
+                        self.attribution_element.attrib["role"] = role
                     #add sameAs element with BDRC number
                     print(f"same as bdrc {bdrc_id}")
                     sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
@@ -155,8 +162,8 @@ class Attribution:
 
 
 class Output:
-
     person_matches = { "84000 ID": [], "BDRC ID": []}
     unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
     unmatched_works = {"Toh": []}
     unattributed_works = { "84000 ID": []}
+    discrepant_roles = { "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
