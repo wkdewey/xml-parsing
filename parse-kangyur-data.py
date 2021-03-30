@@ -8,7 +8,8 @@ from dataset import Dataset, Output
 import requests
 
 # data_file = 'sample-data.xml'
-data_file = "/Users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/kangyur-data.xml"
+# Note change back to xml-parsing without the refactoring
+data_file = "/Users/williamdewey/Development/code/84000-data-rdf/xml-parsing-refactoring/data-export/kangyur-data.xml"
 #load the xml file
 ET.register_namespace('', "http://read.84000.co/ns/1.0")
 ET.register_namespace('rdf', "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -26,7 +27,7 @@ texts = root.findall("default:text", ns)
 
 spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRoQ2LY-zLATi0XMd_MUhV94zAMkHLzxbAVHji4EtBLl2gAkzXJmKyq0alkd9B3HJsX-98D6mKzCoyL/pub?output=xlsx"
 r = requests.get(spreadsheet_url)
-spreadsheet_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/ATII - Tentative template.xlsx'
+spreadsheet_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing-refactoring/data-export/ATII - Tentative template.xlsx'
 with open(spreadsheet_path, 'wb') as f:
     f.write(r.content)
 spreadsheet = Path(spreadsheet_path)
