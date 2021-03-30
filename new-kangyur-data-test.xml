@@ -379,10 +379,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0002" />
                 <attribution role="translatorTib" resource="eft:jinamitra-k-">
                     <label>Jinamitra (k)</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
                     <label>Klu'i rgyal mtshan</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -402,10 +402,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0003" />
                 <attribution role="translatorTib" resource="eft:jinamitra-k-">
                     <label>Jinamitra (k)</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:klu-i-rgyal-mtshan">
                     <label>Klu'i rgyal mtshan</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -431,10 +431,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0004" />
                 <attribution role="translatorTib" resource="eft:dzi-na-mi-tra-k-">
                     <label>dzi na mi tra (k)</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:cog-ro-klu-i-rgyal-mtshan">
                     <label>cog ro klu'i rgyal mtshan</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8183" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -454,19 +454,19 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:dharmakara">
                     <label>dharmakara</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8249" /></attribution>
                 <attribution role="translatorTib" resource="eft:vidyakaraprabha">
                     <label>vidyakaraprabha</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ban-de-dpal-gyi-lhun-po">
                     <label>ban de dpal gyi lhun po</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4259" /></attribution>
                 <attribution role="reviser" resource="eft:bidyakaraprabha">
                     <label>bidyakaraprabha</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ban-de-dpal-brtsegs">
                     <label>ban de dpal brtsegs</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -489,7 +489,7 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:dpal-byor">
                     <label>dpal 'byor</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4258" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -2096,7 +2096,7 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -2256,10 +2256,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0052" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -2332,10 +2332,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0054" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -2401,7 +2401,7 @@
                     <label>Surendrabodhi</label>
                     <label>&#346;&#299;lendra</label>
                     <label>Dharmat&#257;&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -2750,10 +2750,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0069" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -2794,10 +2794,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0070" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8210" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3000,10 +3000,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0078" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3124,10 +3124,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0083" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3191,10 +3191,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0085" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3232,7 +3232,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0086" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>Dana&#347;ila</label>
                 </attribution>
@@ -3408,10 +3408,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:dpal-dbyangs">
                     <label>dpal dbyangs</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8260" /></attribution>
                 <attribution role="reviser" resource="eft:ska-ba-dpal-brtsegs">
                     <label>ska ba dpal brtsegs</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -3446,13 +3446,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0095" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:munivarman">
                     <label>Munivarman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8261" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3499,7 +3499,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0096" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3543,10 +3543,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0097" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:silendrabodhi">
                     <label>&#346;&#299;lendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1KG8854" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3606,7 +3606,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0099" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-nyingpo">
                     <label>Yesh&#233; Nyingpo</label>
                 </attribution>
@@ -3651,7 +3651,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0100" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -3687,7 +3687,7 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:jnanagarbha">
                     <label>J&#241;&#257;nagarbha</label>
                 </attribution>
@@ -4067,10 +4067,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -4121,7 +4121,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0115" />
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-ye-shes-sde-">
                     <label>Yesh&#233; D&#233; (ye shes sde)</label>
                 </attribution>
@@ -4156,10 +4156,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0116" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -4519,10 +4519,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0129" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -4575,7 +4575,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0130" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -4617,13 +4617,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0131" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:munivarman">
                     <label>Munivarman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8261" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -4693,10 +4693,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0134" />
                 <attribution role="translatorTib" resource="eft:prajnavarma">
                     <label>Praj&#241;&#257;varma</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:silendrabodhi">
                     <label>&#346;&#299;lendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1KG8854" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -5099,7 +5099,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0147" />
                 <attribution role="translatorTib" resource="eft:silendrabodhi">
                     <label>&#346;&#299;lendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1KG8854" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -5209,7 +5209,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0151" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -5250,16 +5250,16 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0152" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:buddhaprabha">
                     <label>Buddhaprabha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8268" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5297,13 +5297,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0153" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarma">
                     <label>prajnavarma</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5332,13 +5332,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0154" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>Danasila</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:munivarman">
                     <label>Munivarman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8261" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -5379,7 +5379,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0155" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -5414,10 +5414,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
                 <attribution role="translatorTib" resource="eft:dgon-gling-rma">
                     <label>dgon gling rma</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8269" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5449,10 +5449,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0157" />
                 <attribution role="translatorTib" resource="eft:dpal-gyi-lhun-po">
                     <label>dpal gyi lhun po</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4259" /></attribution>
                 <attribution role="translatorTib" resource="eft:dpal-brtsegs">
                     <label>dpal brtsegs</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5493,10 +5493,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0158" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5522,10 +5522,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0159" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -5563,16 +5563,16 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0160" />
                 <attribution role="translatorTib" resource="eft:sakyaprabha">
                     <label>&#346;&#257;kyaprabha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4CZ16819" /></attribution>
                 <attribution role="translatorTib" resource="eft:dharmapala">
                     <label>Dharmap&#257;la</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:dharmatasila">
                     <label>Dharmat&#257;&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8266" /></attribution>
                 <attribution role="translatorTib" resource="eft:devendraraksita">
                     <label>Devendrarak&#7779;ita</label>
                 </attribution>
@@ -5616,10 +5616,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0161" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5674,10 +5674,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-snying-po">
                     <label>ye shes snying po</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4255" /></attribution>
                 <attribution role="reviser" resource="eft:dpal-brtsegs">
                     <label>dpal brtsegs</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8182" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5713,16 +5713,16 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0164" />
                 <attribution role="translatorTib" resource="eft:visuddhasimha">
                     <label>Vi&#347;uddhasi&#7747;ha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8219" /></attribution>
                 <attribution role="translatorTib" resource="eft:dge-ba-dpal">
                     <label>dge ba dpal</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4263" /></attribution>
                 <attribution role="reviser" resource="eft:vidyakarasimha">
                     <label>Vidy&#257;karasi&#7747;ha</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:devacandra">
                     <label>Devacandra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8220" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5760,10 +5760,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0165" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5801,10 +5801,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0166" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5821,10 +5821,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0167" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5879,13 +5879,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0169" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5914,10 +5914,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -5943,10 +5943,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0171" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -6007,10 +6007,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0173" />
                 <attribution role="translatorTib" resource="eft:kamalagupta">
                     <label>kamalagupta</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8093" /></attribution>
                 <attribution role="translatorTib" resource="eft:rin-chen-bzang-po">
                     <label>rin chen bzang po</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P753" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -6127,10 +6127,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0177" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -6162,13 +6162,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0178" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:jnanasidhi">
                     <label>jnanasidhi</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -6203,13 +6203,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0179" />
                 <attribution role="translatorTib" resource="eft:sakyaprabha">
                     <label>&#346;&#257;kyaprabha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4CZ16819" /></attribution>
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:dharmatasila">
                     <label>Dharmat&#257;&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8266" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -6250,7 +6250,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0180" />
                 <attribution role="translatorTib" resource="eft:rin-chen-tsho">
                     <label>rin chen 'tsho</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8273" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -6311,7 +6311,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0182" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -6366,10 +6366,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0184" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -6413,7 +6413,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0185" />
                 <attribution role="translatorTib" resource="eft:jnanagarbha">
                     <label>J&#241;&#257;nagarbha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8217" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -6718,7 +6718,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0196" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -7169,7 +7169,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0212" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -7317,10 +7317,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0218" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -7499,7 +7499,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0225" />
                 <attribution role="translatorTib" resource="eft:sarvajnadeva">
                     <label>Sarvaj&#241;&#257;deva</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P00KG07267" /></attribution>
                 <attribution role="translatorTib" resource="eft:paltsek">
                     <label>Paltsek</label>
                 </attribution>
@@ -7839,13 +7839,13 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:vijayasila">
                     <label>Vijaya&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8267" /></attribution>
                 <attribution role="translatorTib" resource="eft:silendrabodhi">
                     <label>&#346;&#299;lendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1KG8854" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -7874,10 +7874,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0239" />
                 <attribution role="translatorTib" resource="eft:hwa-shang-zab-mo">
                     <label>hwa shang zab mo</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P0TMP080" /></attribution>
                 <attribution role="translatorTib" resource="eft:rnam-par-mi-rtog-pa">
                     <label>rnam par mi rtog pa</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P0TMPT007" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -7897,10 +7897,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:munivarma">
                     <label>munivarma</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8261" /></attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -7955,7 +7955,7 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:rnam-par-mi-rtog-pa">
                     <label>rnam par mi rtog pa</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P0TMPT007" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -8010,7 +8010,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0244" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -8051,7 +8051,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0245" />
                 <attribution role="translatorTib" resource="eft:prajnavarman">
                     <label>Praj&#241;&#257;varman</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2548" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -8133,7 +8133,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0247" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>Dana&#347;ila</label>
                 </attribution>
@@ -8206,7 +8206,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0249" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -8444,10 +8444,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0260" />
                 <attribution role="translatorTib" resource="eft:sakyaprabha">
                     <label>&#346;&#257;kyaprabha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4CZ16819" /></attribution>
                 <attribution role="translatorTib" resource="eft:ratnaraksita">
                     <label>Ratnarak&#7779;ita</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8265" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -8795,10 +8795,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0273" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -8812,10 +8812,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0273" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -8829,10 +8829,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0273" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -9701,7 +9701,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0309" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:zhang-yesh-d-">
                     <label>Zhang Yesh&#233; D&#233;</label>
                 </attribution>
@@ -9778,7 +9778,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0312" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -9792,7 +9792,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0312" />
                 <attribution role="translatorTib" resource="eft:surendrabodhi">
                     <label>Surendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8228" /></attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yesh&#233; D&#233;</label>
                 </attribution>
@@ -10576,10 +10576,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0347" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:devacandra">
                     <label>Devacandra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8220" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -10640,7 +10640,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0349" />
                 <attribution role="translatorTib" resource="eft:dharmasribhadra">
                     <label>Dharma&#347;r&#299;bhadra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8171" /></attribution>
                 <attribution role="translatorTib" resource="eft:sherab-lekpa">
                     <label>Sherab Lekpa</label>
                 </attribution>
@@ -11318,7 +11318,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0384" />
                 <attribution role="translatorTib" resource="eft:gayadhara">
                     <label>Gay&#257;dhara</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8151" /></attribution>
                 <attribution role="translatorTib" resource="eft:sakya-yesh-">
                     <label>&#346;&#257;kya Yesh&#233;</label>
                 </attribution>
@@ -12162,10 +12162,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0437" />
                 <attribution role="translatorTib" resource="eft:krsnapandita">
                     <label>K&#7771;&#7779;napa&#7751;&#7693;ita</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P2956" /></attribution>
                 <attribution role="translatorTib" resource="eft:tshul-khrims-rgyal-ba">
                     <label>tshul khrims rgyal ba</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3456" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -13088,7 +13088,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0497" />
                 <attribution role="translatorTib" resource="eft:celu">
                     <label>Celu</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8206" /></attribution>
                 <attribution role="translatorTib" resource="eft:phakpa-sherab">
                     <label>Phakpa Sherab</label>
                 </attribution>
@@ -13188,13 +13188,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0502" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:silendrabodhi">
                     <label>&#346;&#299;lendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1KG8854" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -13229,10 +13229,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0503" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -13400,10 +13400,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0512" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -13440,10 +13440,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0513" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -13457,10 +13457,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0513" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -13492,10 +13492,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0514" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -13509,10 +13509,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0514" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -14467,10 +14467,10 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:jnanasiddhi">
                     <label>J&#241;&#257;nasiddhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8222" /></attribution>
                 <attribution role="translatorTib" resource="eft:sakyaprabha">
                     <label>&#346;&#257;kyaprabha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4CZ16819" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -14580,13 +14580,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0558" />
                 <attribution role="translatorTib" resource="eft:silendrabodhi">
                     <label>&#346;&#299;lendrabodhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P1KG8854" /></attribution>
                 <attribution role="translatorTib" resource="eft:jnanasiddhi">
                     <label>J&#241;&#257;nasiddhi</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8222" /></attribution>
                 <attribution role="translatorTib" resource="eft:sakyaprabha">
                     <label>&#346;&#257;kyaprabha</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P4CZ16819" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-d-">
                     <label>Band&#233; Yesh&#233; D&#233;</label>
                 </attribution>
@@ -14747,13 +14747,13 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0564" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>danasila</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:ye-shes-sde">
                     <label>ye shes sde</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8205" /></attribution>
             </work>
         </bibl>
         <work type="englishTranslation">
@@ -17042,7 +17042,7 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0670" />
                 <attribution role="translatorTib" resource="eft:punyasambhava">
                     <label>punyasambhava</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P0TMP104" /></attribution>
                 <attribution role="translatorTib" resource="eft:pa-tshab-nyi-ma-grags">
                     <label>pa tshab nyi ma grags</label>
                 </attribution>
@@ -18024,10 +18024,10 @@
                 <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0719" />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P8209" /></attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-de">
                     <label>Band&#233; Yesh&#233; De</label>
                 </attribution>
@@ -18044,7 +18044,7 @@
                 </attribution>
                 <attribution role="translatorTib" resource="eft:danasila">
                     <label>D&#257;na&#347;&#299;la</label>
-                </attribution>
+                <owl:sameAs rdf:resource="http://purl.bdrc.io/resource/P3214" /></attribution>
                 <attribution role="translatorTib" resource="eft:band-yesh-de">
                     <label>Band&#233; Yesh&#233; De</label>
                 </attribution>

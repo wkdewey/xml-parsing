@@ -48,7 +48,7 @@ class Work:
     def initialize_attributions(self, ns):
         attributions = self.work_element.findall("default:attribution", ns)
         for attribution_element in attributions:
-            attribution_obj = Attribution(attribution_element, self.possible_individuals, ns)
+            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, ns)
             self.attributions.append(attribution_obj)
 
     def find_possible_individuals(self, tib_sheet, ind_sheet):
@@ -96,11 +96,13 @@ class Work:
 
 class Attribution:
 
-    def __init__(self, attribution_element, possible_individuals, ns):
+    def __init__(self, attribution_element, possible_individuals, toh_num, ns):
+        self.attribution_element = attribution_element
         self.possible_individuals = possible_individuals
         self.label = attribution_element.find("default:label", ns)
         self.name_84000 = Attribution.strip_name(self.label.text)
         self.id_84000 = attribution_element.attrib["resource"]
+        self.toh_num = toh_num
 
     @staticmethod
     def strip_name(name):
@@ -120,12 +122,27 @@ class Attribution:
     
     def find_matches(self):
         matched = False
+        print(f"Looking for matches for person {self.name_84000} from toh {self.toh_num}")
         for bdrc_id, bdrc_names in self.possible_individuals.items():
             for bdrc_name in bdrc_names:
                 print(f"checking {bdrc_name} against {self.name_84000}")
                 if re.search(self.name_84000, bdrc_name, re.IGNORECASE):
                     self.update_attribution(bdrc_id)
                     matched = True
+                    print("match found")
+                    # person = kangyur_match.loc[kangyur_match["identification"] == bdrc_id]
+                    # role = person["role"].item()
+                    # print(f"adding role {role}")
+                    # if attribution.attrib["role"]:
+                    #     attribution.attrib["role2"] = role
+                    # else:
+                    #     attribution.attrib["role"] = role
+                    #add sameAs element with BDRC number
+                    print(f"same as bdrc {bdrc_id}")
+                    sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
+                    person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
+                    sameAs.attrib["rdf:resource"] = person_uri
+                    #add alternate role?
                     break
                 
         if not matched:
@@ -143,5 +160,3 @@ class Output:
     unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
     unmatched_works = {"Toh": []}
     unattributed_works = { "84000 ID": []}
-    unmatched_texts = {"ID": []}
-    unattributed_texts = {"ID": []}
