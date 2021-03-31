@@ -135,6 +135,7 @@ class Attribution:
                     role = person["role"].item()
                     print(f"adding role {role}")
                     if self.attribution_element.attrib["role"]:
+                        Output.discrepant_roles["toh"].append(self.toh_num)
                         Output.discrepant_roles["84000 ID"].append(self.id_84000)
                         Output.discrepant_roles["84000 name"].append(self.name_84000)
                         Output.discrepant_roles["BDRC ID"].append(bdrc_id)
@@ -166,4 +167,4 @@ class Output:
     unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
     unmatched_works = {"Toh": []}
     unattributed_works = { "84000 ID": []}
-    discrepant_roles = { "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
+    discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
