@@ -114,10 +114,23 @@ class Attribution:
         return mod_name
     
     def update_attribution(self, bdrc_id):
-        if self.id_84000 not in Output.person_matches["84000 ID"]:
-            Output.person_matches["84000 ID"].append(self.id_84000)
-            Output.person_matches["BDRC ID"].append(bdrc_id)
-        #add role that matches with the BDRC id to XML, csv file
+        person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
+        role = person["role"].item()
+        print(f"adding role {role}")
+        if self.attribution_element.attrib["role"]:
+            Output.discrepant_roles["toh"].append(self.toh_num)
+            Output.discrepant_roles["84000 ID"].append(self.id_84000)
+            Output.discrepant_roles["84000 name"].append(self.name_84000)
+            Output.discrepant_roles["BDRC ID"].append(bdrc_id)
+            Output.discrepant_roles["84000 role"].append(self.attribution_element.attrib["role"])
+            Output.discrepant_roles["BDRC role"].append(role)
+        self.attribution_element.attrib["role"] = role
+        #add sameAs element with BDRC number
+        print(f"same as bdrc {bdrc_id}")
+        sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
+        person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
+        sameAs.attrib["rdf:resource"] = person_uri
+        #add alternate role?
 
     
     
@@ -128,31 +141,13 @@ class Attribution:
             for bdrc_name in bdrc_names:
                 print(f"checking {bdrc_name} against {self.name_84000}")
                 if re.search(self.name_84000, bdrc_name, re.IGNORECASE):
-                    self.update_attribution(bdrc_id)
                     matched = True
                     print("match found")
-                    person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
-                    role = person["role"].item()
-                    print(f"adding role {role}")
-                    if self.attribution_element.attrib["role"]:
-                        Output.discrepant_roles["toh"].append(self.toh_num)
-                        Output.discrepant_roles["84000 ID"].append(self.id_84000)
-                        Output.discrepant_roles["84000 name"].append(self.name_84000)
-                        Output.discrepant_roles["BDRC ID"].append(bdrc_id)
-                        Output.discrepant_roles["84000 role"].append(self.attribution_element.attrib["role"])
-                        Output.discrepant_roles["BDRC role"].append(role)
-                        # consider the different schemas before matching the roles
-                        # self.attribution_element.attrib["role2"] = role
-                    else:
-                        self.attribution_element.attrib["role"] = role
-                    #add sameAs element with BDRC number
-                    print(f"same as bdrc {bdrc_id}")
-                    sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
-                    person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
-                    sameAs.attrib["rdf:resource"] = person_uri
-                    #add alternate role?
+                    if self.id_84000 not in Output.person_matches["84000 ID"]:
+                        Output.person_matches["84000 ID"].append(self.id_84000)
+                        Output.person_matches["BDRC ID"].append(bdrc_id)
+                    self.update_attribution(bdrc_id)
                     break
-                
         if not matched:
             print("no matches found")
             if self.id_84000 not in Output.unmatched_persons["84000 ID"] and self.possible_individuals not in Output.unmatched_persons["possible BDRC matches"]:

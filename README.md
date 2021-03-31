@@ -15,5 +15,3 @@ It outputs several csv files as follows:
 3. unmatched_works.csv contains a list of works by tohoku number that were not matched to a BDRC work
 4. unattributed_works.csv contains a list of works (by ID) for which no attributions could be found. It overlaps with the above file.
 5. discprepant_roles.csv notes instances where a person is assigned different roles (i.e. translatorTib vs. translatorPandita) in 84000 and BDRC for the same text.
-
-sample-data.xml is a test file containing a subset of the xml data
