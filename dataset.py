@@ -151,6 +151,7 @@ class Attribution:
         if not matched:
             print("no matches found")
             if self.id_84000 not in Output.unmatched_persons["84000 ID"] and self.possible_individuals not in Output.unmatched_persons["possible BDRC matches"]:
+                Output.unmatched_persons["toh"].append(self.toh_num)
                 Output.unmatched_persons["84000 ID"].append(self.id_84000)
                 Output.unmatched_persons["84000 name"].append(self.name_84000)
                 Output.unmatched_persons["possible BDRC matches"].append(self.possible_individuals)
@@ -159,7 +160,7 @@ class Attribution:
 
 class Output:
     person_matches = { "84000 ID": [], "BDRC ID": []}
-    unmatched_persons = { "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
+    unmatched_persons = { "toh": [], "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
     unmatched_works = {"Toh": []}
     unattributed_works = { "84000 ID": []}
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
