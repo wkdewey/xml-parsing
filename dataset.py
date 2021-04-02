@@ -97,7 +97,24 @@ class Work:
                 if not pd.isnull(ind_name_2.iloc[0]):
                     possible_individuals[id].append(ind_name_2.iloc[0])
         return possible_individuals
-
+    def find_matches(self):
+        #finds works where one has a match in Kangyur and the other doesn't
+        matched = []
+        matching_texts = { "matched": [], "unmatched": [] }
+        for work in self.works:
+            matched.append(bool(work.attributions))
+        if len(set(matched)) > 1:
+            for work in self.works:
+                if work.kangyur_match.empty:
+                    matching_texts["unmatched"].append(work.toh_num)
+                else:
+                    matching_texts["matched"].append(work.toh_num)
+            Output.attributable_works["matched_toh"].append(matching_texts["matched"])
+            Output.attributable_works["unmatched_toh"].append(matching_texts["unmatched"])
+        #check if works have matches and the same name
+        #first, add it to a list
+        #if one does, add the data
+        pass
 
     def add_attributions(self):
         # below is for xml
