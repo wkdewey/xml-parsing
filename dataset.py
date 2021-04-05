@@ -32,23 +32,32 @@ class Text:
                 self.works.append(work_obj)
 
     def find_matches(self):
-        #finds works where one has a match in Kangyur and the other doesn't
+        #finds texts where one work has a match in Kangyur and the other doesn't
+        #or one work has attributions and the other doesn't
         matched = []
-        matching_texts = { "matched": [], "unmatched": [] }
+        attributed = []
+        matching_texts = { "matched": [], "unmatched": [], "attributed": [], "unattributed": []}
         for work in self.works:
             matched.append(not work.kangyur_match.empty)
+            attributed.append(len(work.attributions) > 0)
         if len(set(matched)) > 1:
             for work in self.works:
                 if work.kangyur_match.empty:
                     matching_texts["unmatched"].append(work.toh_num)
                 else:
                     matching_texts["matched"].append(work.toh_num)
-            Output.matchable_works["matched_toh"].append(matching_texts["matched"])
-            Output.matchable_works["unmatched_toh"].append(matching_texts["unmatched"])
-        #check if works have matches and the same name
-        #first, add it to a list
-        #if one does, add the data
-        pass
+        if len(set(attributed)) > 1:
+            for work in self.works:            
+                if len(work.attributions) == 0:
+                    matching_texts["unattributed"].append(work.toh_num)
+                else:
+                    matching_texts["attributed"].append(work.toh_num)
+
+        Output.matchable_works["matched_toh"].append(matching_texts["matched"])
+        Output.matchable_works["unmatched_toh"].append(matching_texts["unmatched"])
+        Output.attributable_works["attributed_toh"].append(matching_texts["attributed"])
+        Output.attributable_works["unattributed_toh"].append(matching_texts["unattributed"])
+
 
 class Work:
     def __init__(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, ns):
@@ -97,24 +106,7 @@ class Work:
                 if not pd.isnull(ind_name_2.iloc[0]):
                     possible_individuals[id].append(ind_name_2.iloc[0])
         return possible_individuals
-    def find_matches(self):
-        #finds works where one has a match in Kangyur and the other doesn't
-        matched = []
-        matching_texts = { "matched": [], "unmatched": [] }
-        for work in self.works:
-            matched.append(bool(work.attributions))
-        if len(set(matched)) > 1:
-            for work in self.works:
-                if work.kangyur_match.empty:
-                    matching_texts["unmatched"].append(work.toh_num)
-                else:
-                    matching_texts["matched"].append(work.toh_num)
-            Output.attributable_works["matched_toh"].append(matching_texts["matched"])
-            Output.attributable_works["unmatched_toh"].append(matching_texts["unmatched"])
-        #check if works have matches and the same name
-        #first, add it to a list
-        #if one does, add the data
-        pass
+    
 
     def find_unattributed_works(self):
         if len(self.roles) == 0:
@@ -207,6 +199,7 @@ class Output:
     unmatched_persons = { "toh": [], "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
     unmatched_works = {"Toh": []}
     matchable_works = {"matched_toh": [], "unmatched_toh": []}
+    attributable_works = {"attributed_toh": [], "unattributed_toh": []}
     unattributed_works = { "84000 ID": []}
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
     # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}
