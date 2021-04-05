@@ -39,7 +39,8 @@ for text in dataset.texts:
             for attribution in work.attributions:
                 attribution.find_matches()
         else:
-            work.add_attributions()
+            work.find_unattributed_works()
+            # work.add_attributions()
 #some query to get associated places, likely from BDRC
 matches_df = pd.DataFrame(Output.person_matches)
 matches_df.to_csv("person_matches.csv")

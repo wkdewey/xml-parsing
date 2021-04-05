@@ -116,10 +116,12 @@ class Work:
         #if one does, add the data
         pass
 
-    def add_attributions(self):
-        # below is for xml
+    def find_unattributed_works(self):
         if len(self.roles) == 0:
             Output.unattributed_works["84000 ID"].append(self.bibl.attrib["key"])
+
+    def add_attributions(self):
+        
         for (idx, role) in enumerate(self.roles):
             attribution = ET.SubElement(self.work_element, "attribution")
             attribution.attrib["role"] = role
@@ -150,11 +152,10 @@ class Attribution:
         name = re.sub(pattern, '', name)
         mod_name = re.sub(pattern2, '', name)
         return mod_name
-    
-    def update_attribution(self, bdrc_id):
+
+    def find_discrepant_roles(self, bdrc_id):
         person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
         role = person["role"].item()
-        print(f"adding role {role}")
         if self.attribution_element.attrib["role"]:
             Output.discrepant_roles["toh"].append(self.toh_num)
             Output.discrepant_roles["84000 ID"].append(self.id_84000)
@@ -162,13 +163,18 @@ class Attribution:
             Output.discrepant_roles["BDRC ID"].append(bdrc_id)
             Output.discrepant_roles["84000 role"].append(self.attribution_element.attrib["role"])
             Output.discrepant_roles["BDRC role"].append(role)
+    
+    def update_attribution(self, bdrc_id):
+        person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
+        role = person["role"].item()
+        print(f"adding role {role}")
+
         self.attribution_element.attrib["role"] = role
         #add sameAs element with BDRC number
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
         person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
         sameAs.attrib["rdf:resource"] = person_uri
-        #add alternate role?
 
     
     
@@ -184,7 +190,7 @@ class Attribution:
                     if self.id_84000 not in Output.person_matches["84000 ID"]:
                         Output.person_matches["84000 ID"].append(self.id_84000)
                         Output.person_matches["BDRC ID"].append(bdrc_id)
-                    self.update_attribution(bdrc_id)
+                    self.find_discrepant_roles(bdrc_id)
                     break
         if not matched:
             print("no matches found")
