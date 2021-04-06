@@ -46,17 +46,20 @@ class Text:
                     matching_texts["unmatched"].append(work.toh_num)
                 else:
                     matching_texts["matched"].append(work.toh_num)
+            Output.matchable_works["matched_toh"].append(matching_texts["matched"])
+            Output.matchable_works["unmatched_toh"].append(matching_texts["unmatched"])
+        
         if len(set(attributed)) > 1:
             for work in self.works:            
                 if len(work.attributions) == 0:
                     matching_texts["unattributed"].append(work.toh_num)
                 else:
                     matching_texts["attributed"].append(work.toh_num)
+            Output.attributable_works["attributed_toh"].append(matching_texts["attributed"])
+            Output.attributable_works["unattributed_toh"].append(matching_texts["unattributed"])
 
-        Output.matchable_works["matched_toh"].append(matching_texts["matched"])
-        Output.matchable_works["unmatched_toh"].append(matching_texts["unmatched"])
-        Output.attributable_works["attributed_toh"].append(matching_texts["attributed"])
-        Output.attributable_works["unattributed_toh"].append(matching_texts["unattributed"])
+        
+        
 
 
 class Work:
@@ -64,6 +67,9 @@ class Work:
         self.attributions = []
         self.bibl = bibl
         self.work_element = work_element
+        # bdrc_id = work_element.find("owl:sameAs", ns).attrib['{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource']
+        # self.bdrc_id = bdrc_id.split("/")[-1]
+        self.bdrc_id = self.find_bdrc_id(ns)
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num
         self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
@@ -112,6 +118,16 @@ class Work:
         if len(self.roles) == 0:
             Output.unattributed_works["84000 ID"].append(self.bibl.attrib["key"])
 
+    def find_bdrc_id(self, ns):
+        bdrc_id = None
+        sameAs = self.work_element.find("owl:sameAs", ns)
+        url = ""
+        if sameAs is not None:
+            url = sameAs.attrib['{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource']
+        if url:
+            bdrc_id = url.split("/")[-1]
+        return bdrc_id
+
     def add_attributions(self):
         
         for (idx, role) in enumerate(self.roles):
@@ -125,6 +141,9 @@ class Work:
                 person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
             sameAs.attrib["rdf:resource"] = person_uri
         # What do I need to do for the spreadsheet
+
+    def add_bdrc_id(self, kangyur_sheet):
+        kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
 
 class Attribution:
 

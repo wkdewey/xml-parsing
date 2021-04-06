@@ -40,6 +40,7 @@ for text in dataset.texts:
                 attribution.find_matches()
         else:
             work.find_unattributed_works()
+        work.add_bdrc_id(kangyur_sheet)
             # work.add_attributions()
 #some query to get associated places, likely from BDRC
 matches_df = pd.DataFrame(Output.person_matches)
@@ -56,4 +57,5 @@ attributable_works_df = pd.DataFrame(Output.attributable_works)
 attributable_works_df.to_csv("attributable_works.csv")
 discrepant_roles_df = pd.DataFrame(Output.discrepant_roles)
 discrepant_roles_df.to_csv("discrepant_roles.csv", encoding='utf-8')
+kangyur_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 tree.write("new-kangyur-data-test.xml")
