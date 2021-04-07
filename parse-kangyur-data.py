@@ -31,6 +31,11 @@ if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
+notes_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/combined notes on spreadsheet.xlsx'
+notes = Path(notes_path)
+WD_person_matches = ""
+if notes.exists():
+    WD_person_matches = pd.read_excel(notes, sheet_name = "WD_person_matches")
 dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet)
 
 for text in dataset.texts:
@@ -57,5 +62,8 @@ attributable_works_df = pd.DataFrame(Output.attributable_works)
 attributable_works_df.to_csv("attributable_works.csv")
 discrepant_roles_df = pd.DataFrame(Output.discrepant_roles)
 discrepant_roles_df.to_csv("discrepant_roles.csv", encoding='utf-8')
+
+all_person_matches = pd.concat([matches_df, WD_person_matches], axis = 0)
+all_person_matches.to_csv("all_person_matches.csv")
 kangyur_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 tree.write("new-kangyur-data-test.xml")
