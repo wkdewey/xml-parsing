@@ -31,11 +31,16 @@ if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
-notes_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/combined notes on spreadsheet.xlsx'
-notes = Path(notes_path)
+matches_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/combined notes on spreadsheet.xlsx'
+matches = Path(matches_path)
 WD_person_matches = ""
-if notes.exists():
-    WD_person_matches = pd.read_excel(notes, sheet_name = "WD_person_matches")
+if matches.exists():
+    WD_person_matches = pd.read_excel(matches, sheet_name = "WD_person_matches")
+missing_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_missing_entries.xlsx'
+missing = Path(missing_path)
+WD_missing_entries = ""
+if missing.exists():
+    WD_missing_entries = pd.read_excel(missing)
 dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet)
 
 for text in dataset.texts:
@@ -77,5 +82,6 @@ for bdrc_id in bdrc_ids:
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
-kangyur_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
+final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
+final_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 tree.write("new-kangyur-data-test.xml")
