@@ -211,18 +211,7 @@ class Attribution:
                 Output.unmatched_persons["84000 name"].append(self.name_84000)
                 Output.unmatched_persons["possible BDRC matches"].append(self.possible_individuals)
     
-    def add_84000_id(self,matches_df, WD_person_matches, kangyur_sheet):
-        #find the matching bdrc_id
-        bdrc_match = matches_df.loc[matches_df["84000 ID"] == self.id_84000, "BDRC ID"]
-        if bdrc_match.empty:
-            bdrc_match = WD_person_matches.loc[WD_person_matches["84000 ID"] == self.id_84000, "BDRC ID"]
-        #set 84000 id for the matching entries
-        if not bdrc_match.empty:
-            self.bdrc_id = bdrc_match.values[0]
-            breakpoint()
-            pass
-        #     kangyur_sheet.loc[kangyur_sheet["identification"] == self.bdrc_id, '84000_bdrc_id'].append(self.bdrc_id)
-
+    
 
 
 class Output:
