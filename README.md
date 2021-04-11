@@ -4,11 +4,11 @@ parse-kangyur-data.py is a script is designed to parse the 84000 XML file kangyu
 
 # script functionality
 
-parse-kangyur-data.py looks through all the work elements of the xml document and matches them up by tohoku number with the spreadsheet. If there are already attributions on the 84000 side, it creates a list of possible individuals from the spreadsheet (based on the BDRC ID of persons associated with the work, located by tohoku number). It then matches up the attribution, if possible. If it finds a match, it adds roles and the BDRC ID of the person. If there is no match it adds whatever attribution data it could find from the spreadsheet. It then writes updated info to a new xml file. The script also outputs csv files comparing data from 84000 and BDRC, showing relevant cases where the data match or are discrepant.
+parse-kangyur-data.py looks through all the work elements of the XML document and matches them up by tohoku number with the spreadsheet. If there are already attributions on the 84000 side, it creates a list of possible individuals from the spreadsheet (based on the BDRC ID of persons associated with the work, located by tohoku number). It then matches up the attribution, if possible. If it finds a match, it adds roles and the BDRC ID of the person. If there is no match it adds whatever attribution data it could find from the spreadsheet. It then writes updated info to a new xml file. The script also outputs csv files comparing data from 84000 and BDRC, showing relevant cases where the data match or are discrepant.
 
 The script goes through the data again and matches up works in the spreadsheet with BDRC ID's (taken from the XML), and also persons listed in the spreadsheet with 84000 ID's (taken from the XML). The final spreadsheet is then extended with missing entries, which I identified from previous data output.
 
-(The script is also intended to update the xml, but that part is a work in progress now that I have refactored the code to update the spreadsheet. For now, I comeented out or deleted the code that updates the XML)
+(The script is also intended to update the XML, but that part is a work in progress now that I have refactored the code to update the spreadsheet. For now, I commented out or deleted the code that updates the XML)
 
 # output
 
