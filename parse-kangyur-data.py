@@ -93,4 +93,4 @@ for text in dataset.texts:
         for person in spread_attributions.itertuples():
             work.add_or_update_attributions(person)
 
-tree.write("new-kangyur-daquitta-test.xml")
+tree.write("new-kangyur-data-test.xml")

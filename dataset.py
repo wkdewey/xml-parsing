@@ -129,19 +129,27 @@ class Work:
         return bdrc_id
 
     def add_or_update_attributions(self, person):
-        ids_84000 = getattr(person, "text_84000_ids")
+        ids_84000 = str(getattr(person, "text_84000_ids"))
+
         for attribution in self.attributions:
-            pass
-        # for (idx, role) in enumerate(self.roles):
-        #     attribution = ET.SubElement(self.work_element, "attribution")
-        #     attribution.attrib["role"] = role
+            print(attribution.id_84000, ids_84000)
+            if attribution.id_84000 in ids_84000:
+                attribution.update_attribution(person)
+                return
+        self.add_attribution(person)
+
+    def add_attribution(self, person):
+        role = getattr(person, "role")
+        name = getattr(person, "_6")
+        bdrc_id = getattr(person, "identification")
+        attribution = ET.SubElement(self.work_element, "attribution")
+        attribution.attrib["role"] = role
         #     #add a label with corresponding name
-        #     label = ET.SubElement(attribution, "label")
-        #     label.text = self.kangyur_names.iloc[idx]
-        #     sameAs= ET.SubElement(attribution, "owl:sameAs")
-        #     if type(self.person_ids.iloc[idx]) is str:
-        #         person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
-        #     sameAs.attrib["rdf:resource"] = person_uri
+        label = ET.SubElement(attribution, "label")
+        label.text = name
+        sameAs = ET.SubElement(attribution, "owl:sameAs")
+        person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
+        sameAs.attrib["rdf:resource"] = person_uri
 
     def add_bdrc_id(self, kangyur_sheet):
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
@@ -179,13 +187,14 @@ class Attribution:
             Output.discrepant_roles["84000 role"].append(self.attribution_element.attrib["role"])
             Output.discrepant_roles["BDRC role"].append(role)
     
-    def update_attribution(self, bdrc_id):
-        person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
-        role = person["role"].item()
+    def update_attribution(self, person):
+        # person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
+        role = getattr(person, "role")
+        bdrc_id = getattr(person, "identification")
         print(f"adding role {role}")
 
         self.attribution_element.attrib["role"] = role
-        #add sameAs element with BDRC number
+        # #add sameAs element with BDRC number
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
         person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
