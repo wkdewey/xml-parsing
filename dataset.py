@@ -128,22 +128,26 @@ class Work:
             bdrc_id = url.split("/")[-1]
         return bdrc_id
 
-    def add_attributions(self):
-        
-        for (idx, role) in enumerate(self.roles):
-            attribution = ET.SubElement(self.work_element, "attribution")
-            attribution.attrib["role"] = role
-            #add a label with corresponding name
-            label = ET.SubElement(attribution, "label")
-            label.text = self.kangyur_names.iloc[idx]
-            sameAs= ET.SubElement(attribution, "owl:sameAs")
-            if type(self.person_ids.iloc[idx]) is str:
-                person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
-            sameAs.attrib["rdf:resource"] = person_uri
-        # What do I need to do for the spreadsheet
+    def add_or_update_attributions(self, person):
+        ids_84000 = getattr(person, "text_84000_ids")
+        for attribution in self.attributions:
+            pass
+        # for (idx, role) in enumerate(self.roles):
+        #     attribution = ET.SubElement(self.work_element, "attribution")
+        #     attribution.attrib["role"] = role
+        #     #add a label with corresponding name
+        #     label = ET.SubElement(attribution, "label")
+        #     label.text = self.kangyur_names.iloc[idx]
+        #     sameAs= ET.SubElement(attribution, "owl:sameAs")
+        #     if type(self.person_ids.iloc[idx]) is str:
+        #         person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
+        #     sameAs.attrib["rdf:resource"] = person_uri
 
     def add_bdrc_id(self, kangyur_sheet):
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
+
+    def find_matching_attributions(self, sheet):
+        return sheet.loc[sheet["ID"] == self.spread_num]
 
 class Attribution:
 

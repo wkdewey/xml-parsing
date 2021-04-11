@@ -84,4 +84,13 @@ with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
 final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
 final_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
-tree.write("new-kangyur-data-test.xml")
+
+#spread_works = set(final_sheet["ID"].to_list()[1:])
+
+for text in dataset.texts:
+    for work in text.works:
+        spread_attributions = work.find_matching_attributions(final_sheet)
+        for person in spread_attributions.itertuples():
+            work.add_or_update_attributions(person)
+
+tree.write("new-kangyur-daquitta-test.xml")
