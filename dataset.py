@@ -156,6 +156,10 @@ class Work:
             sameAs = ET.SubElement(attribution, "owl:sameAs")
             person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
             sameAs.attrib["rdf:resource"] = person_uri
+        Output.new_attributions["toh"].append(self.toh_num)
+        Output.new_attributions["name"].append(name)
+        Output.new_attributions["role"].append(role)
+        Output.new_attributions["BDRC ID"].append(bdrc_id)
 
     def add_bdrc_id(self, kangyur_sheet):
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
@@ -241,4 +245,5 @@ class Output:
     attributable_works = {"attributed_toh": [], "unattributed_toh": []}
     unattributed_works = { "84000 ID": []}
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
+    new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": []}
     # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}

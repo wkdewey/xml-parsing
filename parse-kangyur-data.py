@@ -92,5 +92,7 @@ for text in dataset.texts:
         spread_attributions = work.find_matching_attributions(final_sheet)
         for person in spread_attributions.itertuples():
             work.add_or_update_attributions(person)
+new_attributions_df = pd.DataFrame(Output.new_attributions)
+new_attributions_df.to_excel("new_attributions.xlsx")
 
 tree.write("new-kangyur-data.xml")
