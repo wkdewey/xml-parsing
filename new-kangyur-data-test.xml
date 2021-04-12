@@ -1,4 +1,8 @@
-<attributions xmlns="http://read.84000.co/ns/1.0" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<attributions
+  xmlns="http://read.84000.co/ns/1.0"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
 	<export timestamp="2021-03-12T16:42:09.442Z" user="admin" />
 	<text id="UT22084-001-001">
 		<bibl type="toh" key="toh1-1">
@@ -726,7 +730,7 @@
 					<label>
 						snga zhus kun dga'o shAkya dpal/_/gnyis kyis ma dag dri ma bsal/_/gsum zhus mkhas pa snar thang dpon slob pas/_/sa yi steng 'dir legs par dag bgyis so
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/???" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -1109,7 +1113,7 @@
 					<label>
 						kyi smad gnye thang na mo che
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -1550,7 +1554,7 @@
 					<label>
 						dpal bsam yas lhun gyis grub pa'i gtsug lag gi dge rgyas bye ma gling gi rtsig ngos
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -2317,7 +2321,7 @@
 					<label>
 						dzam bu'i gling gi dbus/_'phags pa'i yul/_byang chub kyi snying po rdo rje'i gdan las dpag tshad brgya tsam byang shar du bgrod pa'i bod yul/_gangs ri'i khrod/_rtsang nyang ro tshong 'dus 'gur mo'i sa cha/_'phags pa rang byung 'jig rten dbang phyug gi gtsug lag khang gi bdag po/_sangs rgyas bcom ldan 'das kyi bstan pa la lhag par mos shing /_dpal 'byor dang chab srid du ma la dbang phyug dam pa'i go 'phang thob pa'i zha lu pa sku zhang grags pa rgyal mtshan du dben sha'i bka' lung gis/_byang chub kyi snying po rdo rje'i gdan las lho phyogs su dpag tshad drug brgya tsam bgrod pa'i gnas/_sing g+ha gling pa bram ze'i rigs las legs par rab tu byung zhing bsnyen par rdzogs pa sde snod gsum la thugs legs par byang ba'i paN+Di ta A nan+da shrI'i zhal snga nas/_mang du thos pa'i lo tsA ba shAkya'i dge slong nyi ma rgyal mtshan dpal bzang pos/_skad gnyis smra ba rnams kyi gdan sa/_gtsug lag khang chen po dpal thar pa gling du bsgyur cing zhus te/_gtan la phab pa'o
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -3505,7 +3509,10 @@
 				</label>
 				<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
 				<sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0046" />
-				<attribution role="translator" resource="eft:kawa-paltsek-under-the-name-paltsek-raksita-">
+				<attribution
+          role="translator"
+          resource="eft:kawa-paltsek-under-the-name-paltsek-raksita-"
+        >
 					<label>
 						Kawa Paltsek (under the name Paltsek Rak&#7779;ita)
 					</label>
@@ -7685,7 +7692,10 @@
 				</label>
 				<type rdf:resource="http://purl.bdrc.io/ontology/core/Work" />
 				<sameAs rdf:resource="http://purl.bdrc.io/resource/WA0RK0119" />
-				<attribution role="translatorTib" resource="eft:wang-phab-zhwun-wang-phan-zhun-">
+				<attribution
+          role="translatorTib"
+          resource="eft:wang-phab-zhwun-wang-phan-zhun-"
+        >
 					<label>
 						wang phab zhwun (wang phan zhun)
 					</label>
@@ -13305,7 +13315,7 @@
 					<label>
 						pho brang lhan dkar du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -17330,7 +17340,10 @@
 						Pa&#7751;&#7693;ita Dharm&#257;kara
 					</label>
 				</attribution>
-				<attribution role="translatorTib" resource="eft:lotsawa-zangkyong-bzang-skyong-">
+				<attribution
+          role="translatorTib"
+          resource="eft:lotsawa-zangkyong-bzang-skyong-"
+        >
 					<label>
 						Lots&#257;wa Zangkyong (bzang skyong)
 					</label>
@@ -18726,7 +18739,7 @@
 					<label>
 						lo ts+tsha ba ban de byin gyi snying po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -19507,7 +19520,7 @@
 					<label>
 						sngon rgya las 'gyur ba'i brda rnying par 'dug
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -19824,7 +19837,7 @@
 					<label>
 						bsam gtan gling gi dben gnas
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -19961,7 +19974,7 @@
 					<label>
 						dpal sa skya'i gtsug lag khang chen po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -20280,7 +20293,7 @@
 					<label>
 						grom pa ru lag rgyang phu'i lha ri mo'i mgul gyi dben gnas su bsgyur ba'o
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -20318,7 +20331,7 @@
 					<label>
 						dpal bal yul grub pa'i gnas mchog chen po yu tung lhun gyis grub pa'i gtsug lag khang chen po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -20471,7 +20484,7 @@
 					<label>
 						slad kyis de nyid kyi tshe paN+Di ta
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -21708,7 +21721,7 @@
 					<label>
 						pham thing du bsgyur cing gtan la phab pa'o
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22082,7 +22095,7 @@
 					<label>
 						dpal sa skya'i dben gnas
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22114,7 +22127,7 @@
 					<label>
 						dpal sa skya'i dben gnas
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22395,7 +22408,7 @@
 					<label>
 						dpal ldan sa skya'i gtsug lag khang chen po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22556,7 +22569,7 @@
 					<label>
 						dpal sa skya'i gtsug lag khang chen po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22690,7 +22703,7 @@
 					<label>
 						g.yas ru'i sa'i cha/_shangs kyi sreg zhing
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22716,7 +22729,7 @@
 					<label>
 						ldang 'phrul gyi gtsug lag khang chen po ra sa ra mo che
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22909,7 +22922,7 @@
 					<label>
 						thugs dam sa'i snying po tho ling snying po dpal dpe med lhun gyis grub pa'i gtsug lag khang
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -22973,7 +22986,7 @@
 					<label>
 						bla ma de nyid dang
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="revisor">
 					<label>
@@ -23029,6 +23042,7 @@
 					<label>
 						slob dpon chen pos mar me mdzad pa la ye shes
 					</label>
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -23176,7 +23190,7 @@
 					<label>
 						du la k+She tra'i grong khyer chen po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -23479,7 +23493,7 @@
 					<label>
 						ska cog
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="revisor">
 					<label>
@@ -23671,7 +23685,7 @@
 					<label>
 						bla ma dam pa'i dkyil 'khor chen po'i slob dpon dpal lA li ta badzra
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/???" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="translatorPandita">
 					<label>
@@ -23729,7 +23743,7 @@
 					<label>
 						paN+Di ta chen po a mo g+ha'i zhabs nus pa can
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="translator">
 					<label>
@@ -23863,7 +23877,7 @@
 					<label>
 						bal yul yam bu'i grong khyer
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -23895,7 +23909,7 @@
 					<label>
 						chos kyi rje khro phu lots+tsha ba'i gdan sa gnas gsar dgon pa
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -23991,13 +24005,13 @@
 					<label>
 						chos kyi rje khro phu lots+tsha ba'i gdan sa gnas gsar dgon pa
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="revisionplace">
 					<label>
 						thub bstan chos 'khor gyi dgon pa
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -24267,7 +24281,7 @@
 					<label>
 						spre'u lo dbyug gu zla ba'i mar ngo'i tshes bcu gsum la/_gtsug lag khang chen po dpal thang po cher dbu btsugs nas/_smin drug zla ba'i yar ngo'i tshes bcu gnyis kyi snga dro'i bar zhag bco lngar 'gro ba'i tshe dpal 'dren gyi lha'i gdings su tshar bar bgyis so
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -24427,7 +24441,7 @@
 					<label>
 						dpal sa skya'i dben gnas dam par bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -24465,7 +24479,7 @@
 					<label>
 						dpal ldan sa skya'i gtsug lag khang du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -24547,7 +24561,7 @@
 					<label>
 						dpal 'khor bde chen gyi gtsug lag khang du/_bi kra ma la shI la'i gtsug lag gi rgya dpe la gtugs nas/_mi 'chos su mi rung ba rnams legs par bcos te dag par bgyis pa'o
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -24772,7 +24786,7 @@
 					<label>
 						dpal dpe med lhun gyis grub pa'i gtsug lag khang
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -25054,7 +25068,7 @@
 					<label>
 						tho ling gser khang
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -28900,7 +28914,7 @@
 					<label>
 						dpal thar pa gling gi gtsug lag khang du
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -29154,7 +29168,7 @@
 					<label>
 						rnal 'byor gyi dbang phyug chen po don yod rdo rje
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/?" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -31393,7 +31407,7 @@
 					<label>
 						dge bsnyen grags pa rgyal
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/???" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -31411,13 +31425,13 @@
 					<label>
 						dge bsnyen grags pa rgyal mtshan
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/???" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="translationplace">
 					<label>
 						dpal ldan sa skya'i dben gnas
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -32321,7 +32335,7 @@
 					<label>
 						rig pa'i 'byung gnas rig pa'i 'od zer
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/???" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="translator">
 					<label>
@@ -32333,7 +32347,7 @@
 					<label>
 						shes rab pad+ma rgyas pa'i kha che'i yul bdud rtsi 'byung ba'i gtsug lag khang chen po
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -32435,13 +32449,13 @@
 					<label>
 						rje btsun bla ma dpal rig pa 'dzin pa
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/???" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 				<attribution role="translationplace">
 					<label>
 						mdo smad sde dge'i mnga' ris dpal spungs dgon pa
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -33176,7 +33190,7 @@
 					<label>
 						kha che'i yul dur khrod 'bris ka rang byung gi mchod rten rtsar
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -34138,7 +34152,7 @@
 					<label>
 						dpal gdong gi lo tha skar can gyi yar tshes brgyad kyi nyin mdo smad sde dge'i mnga' ris thub bstan chos 'khor gling gi gtsug lag khang du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -34846,7 +34860,7 @@
 					<label>
 						dpal sa skya'i dben gnas dam par bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -35012,7 +35026,7 @@
 					<label>
 						dpal na lan da'i sgo 'gram du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -35042,7 +35056,7 @@
 					<label>
 						dpal na lan dra'i sgo 'gram du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -35805,7 +35819,7 @@
 					<label>
 						tho ling du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -35843,7 +35857,7 @@
 					<label>
 						lhun gyis grub pa'i gtsug lag tho ling rgyan du bsgyur
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>
@@ -38081,7 +38095,7 @@
 					<label>
 						mang yul byams sprin gtsug lag khang gi ya thog gi dbu rtse
 					</label>
-					<sameAs rdf:resource="http://purl.bdrc.io/resource/-" />
+					<sameAs rdf:resource="http://purl.bdrc.io/resource/unknown" />
 				</attribution>
 			</work>
 		</bibl>

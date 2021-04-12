@@ -21,6 +21,7 @@ root = tree.getroot()
 texts = root.findall("default:text", ns)
 
 spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRoQ2LY-zLATi0XMd_MUhV94zAMkHLzxbAVHji4EtBLl2gAkzXJmKyq0alkd9B3HJsX-98D6mKzCoyL/pub?output=xlsx"
+print("loading Kangyur spreadsheet")
 r = requests.get(spreadsheet_url)
 #is it possible to change file paths so it's not hardcorded?
 spreadsheet_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/ATII - Tentative template.xlsx'
@@ -28,12 +29,11 @@ with open(spreadsheet_path, 'wb') as f:
     f.write(r.content)
 spreadsheet = Path(spreadsheet_path)
 kangyur_sheet = ""
-breakpoint()
 if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
-matches_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/combined notes on spreadsheet.xlsx'
+matches_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_identified_person_matches.xlsx'
 matches = Path(matches_path)
 WD_person_matches = ""
 if matches.exists():
@@ -53,22 +53,22 @@ for text in dataset.texts:
         else:
             work.find_unattributed_works()
         work.add_bdrc_id(kangyur_sheet)
-            # work.add_attributions()
 #some query to get associated places, likely from BDRC
 matches_df = pd.DataFrame(Output.person_matches)
-matches_df.to_csv("person_matches.csv")
 unmatched_df = pd.DataFrame(Output.unmatched_persons)
-unmatched_df.to_csv("unmatched_persons.csv", encoding='utf-8')
 unmatched_works_df = pd.DataFrame(Output.unmatched_works)
-unmatched_works_df.to_csv("unmatched_works.csv")
 matchable_works_df = pd.DataFrame(Output.matchable_works)
-matchable_works_df.to_csv("matchable_works.csv")
 unattributed_works_df = pd.DataFrame(Output.unattributed_works)
-unattributed_works_df.to_csv("unattributed_works.csv")
 attributable_works_df = pd.DataFrame(Output.attributable_works)
-attributable_works_df.to_csv("attributable_works.csv")
 discrepant_roles_df = pd.DataFrame(Output.discrepant_roles)
-discrepant_roles_df.to_csv("discrepant_roles.csv", encoding='utf-8')
+with pd.ExcelWriter("discrepancies.xlsx") as writer:
+    unmatched_df.to_excel(writer, sheet_name='unmatched persons')
+    unmatched_works_df.to_excel(writer, sheet_name='unmatched works')
+    unattributed_works_df.to_excel(writer, sheet_name='unattributed works')
+    matchable_works_df.to_excel(writer, sheet_name="matchable works")
+    attributable_works_df.to_excel(writer, sheet_name='attributable works')
+    discrepant_roles_df.to_excel(writer, sheet_name='discrepant roles')
+
 all_person_matches = pd.concat([matches_df, WD_person_matches], axis = 0)
 bdrc_ids = set(all_person_matches["BDRC ID"].to_list())
 ids_84000 = []
@@ -87,12 +87,10 @@ with pd.ExcelWriter("all_person_matches.xlsx") as writer:
 final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
 final_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 
-#spread_works = set(final_sheet["ID"].to_list()[1:])
-
 for text in dataset.texts:
     for work in text.works:
         spread_attributions = work.find_matching_attributions(final_sheet)
         for person in spread_attributions.itertuples():
             work.add_or_update_attributions(person)
 
-tree.write("new-kangyur-data-test.xml")
+tree.write("new-kangyur-data.xml")
