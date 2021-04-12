@@ -22,11 +22,13 @@ texts = root.findall("default:text", ns)
 
 spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRoQ2LY-zLATi0XMd_MUhV94zAMkHLzxbAVHji4EtBLl2gAkzXJmKyq0alkd9B3HJsX-98D6mKzCoyL/pub?output=xlsx"
 r = requests.get(spreadsheet_url)
+#is it possible to change file paths so it's not hardcorded?
 spreadsheet_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/ATII - Tentative template.xlsx'
 with open(spreadsheet_path, 'wb') as f:
     f.write(r.content)
 spreadsheet = Path(spreadsheet_path)
 kangyur_sheet = ""
+breakpoint()
 if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")

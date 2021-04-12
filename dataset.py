@@ -140,6 +140,7 @@ class Work:
 
     def add_attribution(self, person):
         role = getattr(person, "role")
+        #below needs to be changed
         name = getattr(person, "_6")
         bdrc_id = getattr(person, "identification")
         attribution = ET.SubElement(self.work_element, "attribution")
@@ -147,9 +148,11 @@ class Work:
         #     #add a label with corresponding name
         label = ET.SubElement(attribution, "label")
         label.text = name
-        sameAs = ET.SubElement(attribution, "owl:sameAs")
-        person_uri = "http://purl.bdrc.io/resource/" + self.person_ids.iloc[idx]
-        sameAs.attrib["rdf:resource"] = person_uri
+        if type(bdrc_id) == str:
+            sameAs = ET.SubElement(attribution, "owl:sameAs")
+            person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
+            sameAs.attrib["rdf:resource"] = person_uri
+            breakpoint()
 
     def add_bdrc_id(self, kangyur_sheet):
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
@@ -189,12 +192,12 @@ class Attribution:
     
     def update_attribution(self, person):
         # person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
+        print()
         role = getattr(person, "role")
         bdrc_id = getattr(person, "identification")
         print(f"adding role {role}")
 
         self.attribution_element.attrib["role"] = role
-        # #add sameAs element with BDRC number
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
         person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
