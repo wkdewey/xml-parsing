@@ -152,6 +152,9 @@ class Work:
             ids_84000 = "unknown"
         attribution = ET.SubElement(self.work_element, "attribution")
         attribution.attrib["role"] = role
+        if ids_84000[0] == "{":
+            id_84000 = ids_84000.split("'")[1]
+            attribution.attrib["resource"] = id_84000
         #     #add a label with corresponding name
         label = ET.SubElement(attribution, "label")
         label.text = name
