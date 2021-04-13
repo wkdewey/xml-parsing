@@ -85,6 +85,7 @@ with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
 final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
+final_sheet = final_sheet.rename(columns={'indicated value': 'indicated_value'})
 final_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 
 for text in dataset.texts:
