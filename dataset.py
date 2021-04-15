@@ -160,7 +160,7 @@ class Work:
         label = ET.SubElement(attribution, "label")
         label.text = name
         if lang != "unknown":
-            label.attrib["lang"] = lang
+            label.attrib["lang"] = lang + "-Latn"
         if type(bdrc_id) == str and bdrc_id != "unknown":
             sameAs = ET.SubElement(attribution, "owl:sameAs")
             person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
