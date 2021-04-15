@@ -139,10 +139,9 @@ class Work:
         self.add_attribution(person)
 
     def add_attribution(self, person):
-
         role = getattr(person, "role")
-        #below needs to be changed
         name = getattr(person, "indicated_value")
+        lang = str(getattr(person, "attribution_lang"))
         print(f"New attribution on work toh{self.toh_num} for person/place with name {name} and role {role}")
         bdrc_id = str(getattr(person, "identification"))
         if bdrc_id[0] not in "PG":
@@ -150,6 +149,8 @@ class Work:
         ids_84000 = str(getattr(person, "text_84000_ids"))
         if ids_84000 == 'nan':
             ids_84000 = "unknown"
+        if lang == 'nan':
+            lang = "unknown"
         attribution = ET.SubElement(self.work_element, "attribution")
         attribution.attrib["role"] = role
         if ids_84000[0] == "{":
@@ -158,6 +159,8 @@ class Work:
         #     #add a label with corresponding name
         label = ET.SubElement(attribution, "label")
         label.text = name
+        if lang != "unknown":
+            label.attrib["lang"] = lang
         if type(bdrc_id) == str and bdrc_id != "unknown":
             sameAs = ET.SubElement(attribution, "owl:sameAs")
             person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
@@ -167,6 +170,7 @@ class Work:
         Output.new_attributions["role"].append(role)
         Output.new_attributions["BDRC ID"].append(bdrc_id)
         Output.new_attributions["possible 84000 IDs"].append(ids_84000)
+        Output.new_attributions["language"].append(lang)
 
     def add_bdrc_id(self, kangyur_sheet):
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
@@ -249,5 +253,5 @@ class Output:
     attributable_works = {"attributed_toh": [], "unattributed_toh": []}
     unattributed_works = { "84000 ID": []}
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
-    new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": []}
+    new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": [], "language": []}
     # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}
