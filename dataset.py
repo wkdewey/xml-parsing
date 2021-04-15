@@ -158,7 +158,7 @@ class Work:
         #     #add a label with corresponding name
         label = ET.SubElement(attribution, "label")
         label.text = name
-        if type(bdrc_id) == str:
+        if type(bdrc_id) == str and bdrc_id != "unknown":
             sameAs = ET.SubElement(attribution, "owl:sameAs")
             person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
             sameAs.attrib["rdf:resource"] = person_uri
