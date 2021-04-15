@@ -83,15 +83,15 @@ for bdrc_id in bdrc_ids:
     ids_84000.append(matching_ids)
 grouped_matches = pd.DataFrame({ "BDRC ID": list(bdrc_ids), "84000 ID": ids_84000})
 
+final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
 for bdrc_id in bdrc_ids:
     id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
     lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
-    kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
-    kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
+    final_sheet.loc[final_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
+    final_sheet.loc[final_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
-final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
 final_sheet = final_sheet.rename(columns={'indicated value': 'indicated_value'})
 final_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 
