@@ -43,7 +43,12 @@ missing = Path(missing_path)
 WD_missing_entries = ""
 if missing.exists():
     WD_missing_entries = pd.read_excel(missing)
+language_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_language_attributions.xlsx'
+languages = Path(language_path)
+if languages.exists():
+    WD_language_attributions = pd.read_excel(languages)
 dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet)
+language_attributions = pd.DataFrame(WD_language_attributions)
 
 for text in dataset.texts:
     for work in text.works:
@@ -80,7 +85,9 @@ grouped_matches = pd.DataFrame({ "BDRC ID": list(bdrc_ids), "84000 ID": ids_8400
 
 for bdrc_id in bdrc_ids:
     id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
+    lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
     kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
+    kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
