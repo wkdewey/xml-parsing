@@ -72,7 +72,6 @@ class Work:
         self.bdrc_id = self.find_bdrc_id(ns)
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num.split('-')[0]
-        breakpoint()
         self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
         if self.kangyur_match.empty:
             Output.unmatched_works["Toh"].append(bibl.attrib["key"])
