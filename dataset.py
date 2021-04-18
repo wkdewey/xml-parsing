@@ -212,10 +212,12 @@ class Attribution:
         # person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
         print(f"updating attribution for 84000 id {self.id_84000}")
         role = getattr(person, "role")
+        lang = getattr(person, "attribution_lang")
         bdrc_id = getattr(person, "identification")
         print(f"adding role {role}")
 
         self.attribution_element.attrib["role"] = role
+        self.attribution_element.attrib["lang"] = lang
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
         person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
