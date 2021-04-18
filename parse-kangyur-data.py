@@ -86,9 +86,13 @@ grouped_matches = pd.DataFrame({ "BDRC ID": list(bdrc_ids), "84000 ID": ids_8400
 final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
 for bdrc_id in bdrc_ids:
     id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
-    lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
+    # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
     final_sheet.loc[final_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
-    final_sheet.loc[final_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
+    # final_sheet.loc[final_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
+names = set(language_attributions["name"].to_list())
+for name in names:
+    lang = language_attributions.loc[language_attributions['name'] == name, 'lang'].values[0]
+    final_sheet.loc[final_sheet['indicated value'] == name, 'attribution_lang'] = str(lang)
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
@@ -103,4 +107,4 @@ for text in dataset.texts:
 new_attributions_df = pd.DataFrame(Output.new_attributions)
 new_attributions_df.to_excel("new_attributions.xlsx")
 
-tree.write("new-kangyur-data.xml")
+tree.write("new-kangyur-data-test.xml")
