@@ -74,6 +74,7 @@ with pd.ExcelWriter("discrepancies.xlsx") as writer:
     attributable_works_df.to_excel(writer, sheet_name='attributable works')
     discrepant_roles_df.to_excel(writer, sheet_name='discrepant roles')
 
+
 all_person_matches = pd.concat([matches_df, WD_person_matches], axis = 0)
 bdrc_ids = set(all_person_matches["BDRC ID"].to_list())
 ids_84000 = []
@@ -82,26 +83,39 @@ for bdrc_id in bdrc_ids:
     matching_ids = set(matching_ids)
     ids_84000.append(matching_ids)
 grouped_matches = pd.DataFrame({ "BDRC ID": list(bdrc_ids), "84000 ID": ids_84000})
-
-final_sheet = pd.concat([kangyur_sheet, WD_missing_entries], axis=0)
+matched_tohs = matchable_works_df["matched_toh"].to_list()
+for idx, matched_toh in enumerate(matched_tohs):
+    unmatched_tohs = matchable_works_df.iloc[idx, 1]
+    for unmatched_toh in unmatched_tohs:
+        corresponding = kangyur_sheet.loc[kangyur_sheet["ID"] == "D" + matched_toh[0]]
+        corresponding["ID"] = "D" + unmatched_toh
+        kangyur_sheet = pd.concat([kangyur_sheet, corresponding], axis=0)
+matched_tohs = matchable_works_df["matched_toh"].to_list()
+#add duplicate entries that can be found
+for idx, matched_toh in enumerate(matched_tohs):
+    unmatched_tohs = matchable_works_df.iloc[idx, 1]
+    for unmatched_toh in unmatched_tohs:
+        corresponding = kangyur_sheet.loc[kangyur_sheet["ID"] == "D" + matched_toh[0]]
+        corresponding["ID"] = "D" + unmatched_toh
+        kangyur_sheet = pd.concat([kangyur_sheet, corresponding], axis=0)
 for bdrc_id in bdrc_ids:
     id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
     # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
-    final_sheet.loc[final_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
+    kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
     # final_sheet.loc[final_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
 names = set(language_attributions["name"].to_list())
 for name in names:
     lang = language_attributions.loc[language_attributions['name'] == name, 'lang'].values[0]
-    final_sheet.loc[final_sheet['indicated value'] == name, 'attribution_lang'] = str(lang)
+    kangyur_sheet.loc[kangyur_sheet['indicated value'] == name, 'attribution_lang'] = str(lang)
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
-final_sheet = final_sheet.rename(columns={'indicated value': 'indicated_value'})
-final_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
+kangyur_sheet = kangyur_sheet.rename(columns={'indicated value': 'indicated_value'})
+kangyur_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 
 for text in dataset.texts:
     for work in text.works:
-        spread_attributions = work.find_matching_attributions(final_sheet)
+        spread_attributions = work.find_matching_attributions(kangyur_sheet)
         for person in spread_attributions.itertuples():
             work.add_or_update_attributions(person)
 new_attributions_df = pd.DataFrame(Output.new_attributions)
