@@ -120,5 +120,8 @@ for text in dataset.texts:
             work.add_or_update_attributions(person)
 new_attributions_df = pd.DataFrame(Output.new_attributions)
 new_attributions_df.to_excel("new_attributions.xlsx")
+existing_attributions_df = pd.DataFrame(Output.existing_attributions)
+existing_attributions_df.to_excel("existing_attributions.xlsx")
+
 
 tree.write("new-kangyur-data.xml")

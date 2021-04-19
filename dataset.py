@@ -186,8 +186,13 @@ class Attribution:
         self.label = attribution_element.find("default:label", ns)
         self.name_84000 = Attribution.strip_name(self.label.text)
         self.id_84000 = attribution_element.attrib["resource"]
+        self.role = attribution_element.attrib["role"]
         self.toh_num = toh_num
         self.kangyur_match = kangyur_match
+        Output.existing_attributions["toh"].append(self.toh_num)
+        Output.existing_attributions["name"].append(self.name_84000)
+        Output.existing_attributions["role"].append(self.role)
+        Output.existing_attributions["84000 ID"].append(self.id_84000)
 
     @staticmethod
     def strip_name(name):
@@ -212,12 +217,12 @@ class Attribution:
         # person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
         print(f"updating attribution for 84000 id {self.id_84000}")
         role = getattr(person, "role")
-        lang = getattr(person, "attribution_lang")
+        # lang = getattr(person, "attribution_lang")
         bdrc_id = getattr(person, "identification")
         print(f"adding role {role}")
 
         self.attribution_element.attrib["role"] = role
-        self.attribution_element.attrib["lang"] = lang
+        # self.attribution_element.attrib["lang"] = lang
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
         person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
@@ -255,5 +260,6 @@ class Output:
     attributable_works = {"attributed_toh": [], "unattributed_toh": []}
     unattributed_works = { "84000 ID": []}
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
+    existing_attributions = { "toh": [], "name": [], "role": [], "84000 ID": []}
     new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": [], "language": []}
     # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}
