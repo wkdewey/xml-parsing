@@ -3,32 +3,33 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 
 class Dataset:
-    def __init__(self, texts, ns, kangyur_sheet, tib_sheet, ind_sheet):
+    def __init__(self, texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs):
         self.texts = []
         self.kangyur_sheet = kangyur_sheet
         self.tib_sheet = tib_sheet
         self.ind_sheet = ind_sheet
+        self.attribution_langs = attribution_langs
         self.initialize_texts(texts, ns)
 
     def initialize_texts(self, texts, ns):
         for text in texts:
             bibls = text.findall("default:bibl", ns)
-            text_obj = Text(bibls, self.kangyur_sheet, self.tib_sheet, self.ind_sheet, ns)
+            text_obj = Text(bibls, self.kangyur_sheet, self.tib_sheet, self.ind_sheet, self.attribution_langs, ns)
             self.texts.append(text_obj)
 
 class Text:
-    def __init__(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, ns):
+    def __init__(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns):
         self.works = []
         self.bibls = bibls
-        self.initialize_works(bibls, kangyur_sheet, tib_sheet, ind_sheet, ns)
+        self.initialize_works(bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns)
         if len(self.works) > 1:
             self.find_matches()
     
-    def initialize_works(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, ns):
+    def initialize_works(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns):
         for bibl in bibls:
             works = bibl.findall("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
             for work_element in works:
-                work_obj = Work(bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, ns)
+                work_obj = Work(bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns)
                 self.works.append(work_obj)
 
     def find_matches(self):
@@ -63,7 +64,7 @@ class Text:
 
 
 class Work:
-    def __init__(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, ns):
+    def __init__(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns):
         self.attributions = []
         self.bibl = bibl
         self.work_element = work_element
@@ -79,12 +80,12 @@ class Work:
         self.roles = self.kangyur_match["role"]
         self.kangyur_names = self.kangyur_match["indicated value"]
         self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
-        self.initialize_attributions(ns)
+        self.initialize_attributions(attribution_langs, ns)
 
-    def initialize_attributions(self, ns):
+    def initialize_attributions(self, attribution_langs, ns):
         attributions = self.work_element.findall("default:attribution", ns)
         for attribution_element in attributions:
-            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, ns)
+            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, attribution_langs, ns)
             self.attributions.append(attribution_obj)
 
     def find_possible_individuals(self, tib_sheet, ind_sheet):
@@ -159,8 +160,7 @@ class Work:
         #     #add a label with corresponding name
         label = ET.SubElement(attribution, "label")
         label.text = name
-        if lang != "unknown":
-            label.attrib["lang"] = lang + "-Latn"
+        label.attrib["lang"] = "Bo-Latn"
         if type(bdrc_id) == str and bdrc_id != "unknown":
             sameAs = ET.SubElement(attribution, "owl:sameAs")
             person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
@@ -170,7 +170,7 @@ class Work:
         Output.new_attributions["role"].append(role)
         Output.new_attributions["BDRC ID"].append(bdrc_id)
         Output.new_attributions["possible 84000 IDs"].append(ids_84000)
-        Output.new_attributions["language"].append(lang)
+        Output.new_attributions["lang"].append(lang)
 
     def add_bdrc_id(self, kangyur_sheet):
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
@@ -180,12 +180,14 @@ class Work:
 
 class Attribution:
 
-    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, ns):
+    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, attribution_langs, ns):
         self.attribution_element = attribution_element
         self.possible_individuals = possible_individuals
         self.label = attribution_element.find("default:label", ns)
         self.name_84000 = Attribution.strip_name(self.label.text)
         self.id_84000 = attribution_element.attrib["resource"]
+        if self.id_84000:
+            self.lang = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang_attribute'].values 
         self.role = attribution_element.attrib["role"]
         self.toh_num = toh_num
         self.kangyur_match = kangyur_match
@@ -193,6 +195,7 @@ class Attribution:
         Output.existing_attributions["name"].append(self.name_84000)
         Output.existing_attributions["role"].append(self.role)
         Output.existing_attributions["84000 ID"].append(self.id_84000)
+        Output.existing_attributions["lang"].append(self.lang)
 
     @staticmethod
     def strip_name(name):
@@ -222,7 +225,7 @@ class Attribution:
         print(f"adding role {role}")
 
         self.attribution_element.attrib["role"] = role
-        # self.attribution_element.attrib["lang"] = lang
+        self.attribution_element.attrib["lang"] = self.lang + "-Latn"
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
         person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
@@ -260,6 +263,6 @@ class Output:
     attributable_works = {"attributed_toh": [], "unattributed_toh": []}
     unattributed_works = { "84000 ID": []}
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
-    existing_attributions = { "toh": [], "name": [], "role": [], "84000 ID": []}
-    new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": [], "language": []}
+    existing_attributions = { "toh": [], "name": [], "role": [], "84000 ID": [], "lang": [] }
+    new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": [], "lang": []}
     # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}

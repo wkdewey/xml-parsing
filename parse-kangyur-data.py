@@ -43,13 +43,13 @@ missing = Path(missing_path)
 WD_missing_entries = ""
 if missing.exists():
     WD_missing_entries = pd.read_excel(missing)
-language_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_language_attributions.xlsx'
+language_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/existing_attributions_with_langs.xlsx'
 languages = Path(language_path)
 if languages.exists():
     WD_language_attributions = pd.read_excel(languages)
-dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet)
-language_attributions = pd.DataFrame(WD_language_attributions)
+attribution_langs = pd.DataFrame(WD_language_attributions)
 
+dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs)
 for text in dataset.texts:
     for work in text.works:
         if len(work.attributions) > 0:
@@ -103,9 +103,9 @@ for bdrc_id in bdrc_ids:
     # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
     kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
     # final_sheet.loc[final_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
-names = set(language_attributions["name"].to_list())
+names = set(attribution_langs["name"].to_list())
 for name in names:
-    lang = language_attributions.loc[language_attributions['name'] == name, 'lang'].values[0]
+    lang = attribution_langs.loc[attribution_langs['name'] == name, 'lang_attribute'].values[0]
     kangyur_sheet.loc[kangyur_sheet['indicated value'] == name, 'attribution_lang'] = str(lang)
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
