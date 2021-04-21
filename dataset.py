@@ -185,12 +185,16 @@ class Attribution:
         self.possible_individuals = possible_individuals
         self.label = self.attribution_element.find("default:label", ns)
         self.name_84000 = Attribution.strip_name(self.label.text)
+        self.id_84000 = ""
+        self.lang = ""
         if "resource" in self.attribution_element.attrib:
             self.id_84000 = self.attribution_element.attrib["resource"]
         if "lang" in self.attribution_element.attrib:
             self.lang = self.attribution_element.attrib["lang"]
         elif self.id_84000:
-            self.lang = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang_attribute'].values[0]
+            lang_attribute = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang_attribute']
+            if len(lang_attribute) > 0:
+                self.lang = lang_attribute.values[0]
         self.role = self.attribution_element.attrib["role"]
         self.toh_num = toh_num
         self.kangyur_match = kangyur_match
