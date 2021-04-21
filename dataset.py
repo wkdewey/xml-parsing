@@ -73,14 +73,20 @@ class Work:
         self.bdrc_id = self.find_bdrc_id(ns)
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num.split('-')[0]
-        self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
-        if self.kangyur_match.empty:
-            Output.unmatched_works["Toh"].append(bibl.attrib["key"])
         self.person_ids = self.kangyur_match["identification"]
         self.roles = self.kangyur_match["role"]
         self.kangyur_names = self.kangyur_match["indicated value"]
         self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
         self.initialize_attributions(attribution_langs, ns)
+        self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
+        if self.kangyur_match.empty:
+            Output.unmatched_works["Toh"].append(bibl.attrib["key"])
+            if self.attributions:
+                Output.unmatched_works["has_attributions"].append(True)
+                breakpoint()
+            else:
+                Output.unmatched_works["has_attributions"].append(True)
+                breakpoint()
 
     def initialize_attributions(self, attribution_langs, ns):
         attributions = self.work_element.findall("default:attribution", ns)
@@ -243,6 +249,7 @@ class Attribution:
     def find_matches(self):
         matched = False
         print(f"Looking for matches for person {self.name_84000} from toh {self.toh_num}")
+        #see if the attribution has a matching
         for bdrc_id, bdrc_names in self.possible_individuals.items():
             for bdrc_name in bdrc_names:
                 print(f"checking {bdrc_name} against {self.name_84000}")
@@ -265,7 +272,7 @@ class Attribution:
 class Output:
     person_matches = { "84000 ID": [], "BDRC ID": []}
     unmatched_persons = { "toh": [], "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
-    unmatched_works = {"Toh": []}
+    unmatched_works = {"Toh": [], "has_attributions": []}
     matchable_works = {"matched_toh": [], "unmatched_toh": []}
     attributable_works = {"attributed_toh": [], "unattributed_toh": []}
     unattributed_works = { "84000 ID": []}
