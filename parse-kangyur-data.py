@@ -101,12 +101,14 @@ for idx, matched_toh in enumerate(matched_tohs):
 for bdrc_id in bdrc_ids:
     id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
     # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
+    # lang = "bo-Latn"
     kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
-    # final_sheet.loc[final_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
-names = set(attribution_langs["name"].to_list())
-for name in names:
-    lang = attribution_langs.loc[attribution_langs['name'] == name, 'lang_attribute'].values[0]
-    kangyur_sheet.loc[kangyur_sheet['indicated value'] == name, 'attribution_lang'] = str(lang)
+    # kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'attribution_lang'] = str(lang)
+kangyur_sheet['attribution_lang'] = "bo-Latn"
+# names = set(attribution_langs["name"].to_list())
+# for name in names:
+#     lang = attribution_langs.loc[attribution_langs['name'] == name, 'lang_attribute'].values[0]
+#     kangyur_sheet.loc[kangyur_sheet['indicated value'] == name, 'attribution_lang'] = str(lang)
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')

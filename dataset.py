@@ -142,7 +142,7 @@ class Work:
     def add_attribution(self, person):
         role = getattr(person, "role")
         name = getattr(person, "indicated_value")
-        lang = str(getattr(person, "attribution_lang"))
+        lang = "bo-Latn"
         print(f"New attribution on work toh{self.toh_num} for person/place with name {name} and role {role}")
         bdrc_id = str(getattr(person, "identification"))
         if bdrc_id[0] not in "PG":
@@ -160,7 +160,7 @@ class Work:
         #     #add a label with corresponding name
         label = ET.SubElement(attribution, "label")
         label.text = name
-        label.attrib["lang"] = "Bo-Latn"
+        label.attrib["lang"] = lang
         if type(bdrc_id) == str and bdrc_id != "unknown":
             sameAs = ET.SubElement(attribution, "owl:sameAs")
             person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
@@ -183,12 +183,15 @@ class Attribution:
     def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, attribution_langs, ns):
         self.attribution_element = attribution_element
         self.possible_individuals = possible_individuals
-        self.label = attribution_element.find("default:label", ns)
+        self.label = self.attribution_element.find("default:label", ns)
         self.name_84000 = Attribution.strip_name(self.label.text)
-        self.id_84000 = attribution_element.attrib["resource"]
-        if self.id_84000:
-            self.lang = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang_attribute'].values 
-        self.role = attribution_element.attrib["role"]
+        if "resource" in self.attribution_element.attrib:
+            self.id_84000 = self.attribution_element.attrib["resource"]
+        if "lang" in self.attribution_element.attrib:
+            self.lang = self.attribution_element.attrib["lang"]
+        elif self.id_84000:
+            self.lang = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang_attribute'].values[0]
+        self.role = self.attribution_element.attrib["role"]
         self.toh_num = toh_num
         self.kangyur_match = kangyur_match
         Output.existing_attributions["toh"].append(self.toh_num)
