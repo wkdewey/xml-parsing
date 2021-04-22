@@ -3,33 +3,33 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 
 class Dataset:
-    def __init__(self, texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs):
+    def __init__(self, texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, WD_person_matches):
         self.texts = []
         self.kangyur_sheet = kangyur_sheet
         self.tib_sheet = tib_sheet
         self.ind_sheet = ind_sheet
         self.attribution_langs = attribution_langs
-        self.initialize_texts(texts, ns)
+        self.initialize_texts(texts, WD_person_matches, ns)
 
-    def initialize_texts(self, texts, ns):
+    def initialize_texts(self, texts, WD_person_matches, ns):
         for text in texts:
             bibls = text.findall("default:bibl", ns)
-            text_obj = Text(bibls, self.kangyur_sheet, self.tib_sheet, self.ind_sheet, self.attribution_langs, ns)
+            text_obj = Text(bibls, self.kangyur_sheet, self.tib_sheet, self.ind_sheet, self.attribution_langs, WD_person_matches, ns)
             self.texts.append(text_obj)
 
 class Text:
-    def __init__(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns):
+    def __init__(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, WD_person_matches, ns):
         self.works = []
         self.bibls = bibls
-        self.initialize_works(bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns)
+        self.initialize_works(bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, WD_person_matches, ns)
         if len(self.works) > 1:
             self.find_matches()
     
-    def initialize_works(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns):
+    def initialize_works(self, bibls, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, WD_person_matches, ns):
         for bibl in bibls:
             works = bibl.findall("./{http://read.84000.co/ns/1.0}work[@type='tibetanSource']")
             for work_element in works:
-                work_obj = Work(bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns)
+                work_obj = Work(bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, WD_person_matches, ns)
                 self.works.append(work_obj)
 
     def find_matches(self):
@@ -64,7 +64,7 @@ class Text:
 
 
 class Work:
-    def __init__(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, ns):
+    def __init__(self, bibl, work_element, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, WD_person_matches, ns):
         self.attributions = []
         self.bibl = bibl
         self.work_element = work_element
@@ -79,7 +79,7 @@ class Work:
         self.roles = self.kangyur_match["role"]
         self.kangyur_names = self.kangyur_match["indicated value"]
         self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
-        self.initialize_attributions(attribution_langs, ns)
+        self.initialize_attributions(attribution_langs, WD_person_matches, ns)
         if self.kangyur_match.empty:
             Output.unmatched_works["Toh"].append(bibl.attrib["key"])
             if self.attributions:
@@ -89,10 +89,10 @@ class Work:
                 Output.unmatched_works["has_attributions"].append(False)
         
 
-    def initialize_attributions(self, attribution_langs, ns):
+    def initialize_attributions(self, attribution_langs, WD_person_matches, ns):
         attributions = self.work_element.findall("default:attribution", ns)
         for attribution_element in attributions:
-            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, attribution_langs, ns)
+            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, attribution_langs, WD_person_matches, ns)
             self.attributions.append(attribution_obj)
 
     def find_possible_individuals(self, tib_sheet, ind_sheet):
@@ -201,7 +201,7 @@ class Work:
 
 class Attribution:
 
-    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, attribution_langs, ns):
+    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, attribution_langs, WD_person_matches, ns):
         self.attribution_element = attribution_element
         self.possible_individuals = possible_individuals
         self.label = self.attribution_element.find("default:label", ns)
@@ -219,6 +219,7 @@ class Attribution:
         self.role = self.attribution_element.attrib["role"]
         self.toh_num = toh_num
         self.kangyur_match = kangyur_match
+        self.bdrc_id = self.find_bdrc_id(WD_person_matches)
         Output.existing_attributions["toh"].append(self.toh_num)
         Output.existing_attributions["name"].append(self.name_84000)
         Output.existing_attributions["role"].append(self.role)
@@ -284,6 +285,13 @@ class Attribution:
                 Output.unmatched_persons["84000 name"].append(self.name_84000)
                 Output.unmatched_persons["possible BDRC matches"].append(self.possible_individuals)
 
+    def find_bdrc_id(self, person_matches):
+        bdrc_id = "unknown"
+        match = person_matches.loc[person_matches["84000 ID"] == self.id_84000, "BDRC ID"]
+        if len(match) > 0:
+            bdrc_id = match.values[0]
+        return bdrc_id
+
 class Output:
     person_matches = { "84000 ID": [], "BDRC ID": []}
     unmatched_persons = { "toh": [], "84000 ID": [], "84000 name": [], "possible BDRC matches": []}
@@ -295,4 +303,3 @@ class Output:
     existing_attributions = { "toh": [], "name": [], "role": [], "84000 ID": [], "lang": [] }
     new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": [], "lang": []}
     attributions_to_add = {"ID": [], "title": [], "role": [], "identification": [], "indicated_value": [], "text_bdrc_id": [], "text_84000_ids": [], "attribution_lang": []}
-    # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}

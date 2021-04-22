@@ -38,6 +38,7 @@ matches = Path(matches_path)
 WD_person_matches = ""
 if matches.exists():
     WD_person_matches = pd.read_excel(matches, sheet_name = "WD_person_matches")
+    previously_identified_matches = pd.read_excel(matches, sheet_name = "previously_identified_matches")
 missing_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_missing_entries.xlsx'
 missing = Path(missing_path)
 WD_missing_entries = ""
@@ -49,7 +50,7 @@ if languages.exists():
     WD_language_attributions = pd.read_excel(languages)
 attribution_langs = pd.DataFrame(WD_language_attributions)
 
-dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs)
+dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, previously_identified_matches)
 for text in dataset.texts:
     for work in text.works:
         if len(work.attributions) > 0:
