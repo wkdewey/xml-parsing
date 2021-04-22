@@ -73,20 +73,19 @@ class Work:
         self.bdrc_id = self.find_bdrc_id(ns)
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num.split('-')[0]
+        self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
         self.person_ids = self.kangyur_match["identification"]
         self.roles = self.kangyur_match["role"]
         self.kangyur_names = self.kangyur_match["indicated value"]
         self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
         self.initialize_attributions(attribution_langs, ns)
-        self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
         if self.kangyur_match.empty:
             Output.unmatched_works["Toh"].append(bibl.attrib["key"])
             if self.attributions:
                 Output.unmatched_works["has_attributions"].append(True)
-                breakpoint()
             else:
-                Output.unmatched_works["has_attributions"].append(True)
-                breakpoint()
+                Output.unmatched_works["has_attributions"].append(False)
+        
 
     def initialize_attributions(self, attribution_langs, ns):
         attributions = self.work_element.findall("default:attribution", ns)
@@ -198,7 +197,7 @@ class Attribution:
         if "lang" in self.attribution_element.attrib:
             self.lang = self.attribution_element.attrib["lang"]
         elif self.id_84000:
-            lang_attribute = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang_attribute']
+            lang_attribute = attribution_langs.loc[attribution_langs["name"] == self.name_84000, 'lang']
             if len(lang_attribute) > 0:
                 self.lang = lang_attribute.values[0]
         self.role = self.attribution_element.attrib["role"]

@@ -76,6 +76,7 @@ with pd.ExcelWriter("discrepancies.xlsx") as writer:
 
 
 all_person_matches = pd.concat([matches_df, WD_person_matches], axis = 0)
+#create grouped list of bdrc_id's matched with duplicate 84000 IDs
 bdrc_ids = set(all_person_matches["BDRC ID"].to_list())
 ids_84000 = []
 for bdrc_id in bdrc_ids:
@@ -83,21 +84,15 @@ for bdrc_id in bdrc_ids:
     matching_ids = set(matching_ids)
     ids_84000.append(matching_ids)
 grouped_matches = pd.DataFrame({ "BDRC ID": list(bdrc_ids), "84000 ID": ids_84000})
-matched_tohs = matchable_works_df["matched_toh"].to_list()
-for idx, matched_toh in enumerate(matched_tohs):
-    unmatched_tohs = matchable_works_df.iloc[idx, 1]
-    for unmatched_toh in unmatched_tohs:
-        corresponding = kangyur_sheet.loc[kangyur_sheet["ID"] == "D" + matched_toh[0]]
-        corresponding["ID"] = "D" + unmatched_toh
-        kangyur_sheet = pd.concat([kangyur_sheet, corresponding], axis=0)
-matched_tohs = matchable_works_df["matched_toh"].to_list()
 #add duplicate entries that can be found
+matched_tohs = matchable_works_df["matched_toh"].to_list()
 for idx, matched_toh in enumerate(matched_tohs):
     unmatched_tohs = matchable_works_df.iloc[idx, 1]
     for unmatched_toh in unmatched_tohs:
         corresponding = kangyur_sheet.loc[kangyur_sheet["ID"] == "D" + matched_toh[0]]
         corresponding["ID"] = "D" + unmatched_toh
         kangyur_sheet = pd.concat([kangyur_sheet, corresponding], axis=0)
+
 for bdrc_id in bdrc_ids:
     id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
     # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
