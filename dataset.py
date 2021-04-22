@@ -70,6 +70,7 @@ class Work:
         self.work_element = work_element
         # bdrc_id = work_element.find("owl:sameAs", ns).attrib['{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource']
         # self.bdrc_id = bdrc_id.split("/")[-1]
+        self.title = self.work_element.find("default:label", ns).text
         self.bdrc_id = self.find_bdrc_id(ns)
         self.toh_num = bibl.attrib["key"][3:]
         self.spread_num = "D" + self.toh_num.split('-')[0]
@@ -83,6 +84,7 @@ class Work:
             Output.unmatched_works["Toh"].append(bibl.attrib["key"])
             if self.attributions:
                 Output.unmatched_works["has_attributions"].append(True)
+                self.add_missing_attributions(self.attributions)
             else:
                 Output.unmatched_works["has_attributions"].append(False)
         
@@ -183,6 +185,20 @@ class Work:
     def find_matching_attributions(self, sheet):
         return sheet.loc[sheet["ID"] == self.spread_num]
 
+    def add_missing_attributions(self, attributions):
+        for attribution in attributions:
+            Output.attributions_to_add["ID"].append(self.spread_num)
+            Output.attributions_to_add["title"].append(self.title)
+            Output.attributions_to_add["role"].append(attribution.role)
+            if hasattr(attribution, "bdrc_id"):
+                Output.attributions_to_add["identification"].append(attribution.bdrc_id)
+            else:
+                Output.attributions_to_add["identification"].append("unknown")
+            Output.attributions_to_add["indicated_value"].append(attribution.name_84000)
+            Output.attributions_to_add["text_bdrc_id"].append(self.bdrc_id)
+            Output.attributions_to_add["text_84000_ids"].append(attribution.id_84000)
+            Output.attributions_to_add["attribution_lang"].append(attribution.lang)
+
 class Attribution:
 
     def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, attribution_langs, ns):
@@ -278,4 +294,5 @@ class Output:
     discrepant_roles = { "toh": [], "84000 ID": [], "84000 name": [],"BDRC ID": [], "84000 role": [], "BDRC role": []}
     existing_attributions = { "toh": [], "name": [], "role": [], "84000 ID": [], "lang": [] }
     new_attributions = { "toh": [], "name": [], "role": [], "BDRC ID": [], "possible 84000 IDs": [], "lang": []}
+    attributions_to_add = {"ID": [], "title": [], "role": [], "identification": [], "indicated_value": [], "text_bdrc_id": [], "text_84000_ids": [], "attribution_lang": []}
     # correct_data = { "toh": [], "84000 ID": [], "BDRC ID": [], "84000 role": [], "BDRC role": []}
