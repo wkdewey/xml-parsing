@@ -260,8 +260,9 @@ class Attribution:
         self.attribution_element.attrib["lang"] = self.lang + "-Latn"
         print(f"same as bdrc {bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
-        person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
-        sameAs.attrib["rdf:resource"] = person_uri
+        if bdrc_id[0] == "P":
+            person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
+            sameAs.attrib["rdf:resource"] = person_uri
 
     
     
