@@ -271,7 +271,8 @@ class Attribution:
         print(f"adding role {self.role}")
 
         self.attribution_element.attrib["role"] = self.role
-        self.attribution_element.attrib["lang"] = self.lang + "-Latn"
+        label = self.attribution_element.find("{http://read.84000.co/ns/1.0}label")
+        label.attrib["lang"] = self.lang + "-Latn"
         self.attribution_element.attrib["resource"] = self.id_84000
         print(f"same as bdrc {self.bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
