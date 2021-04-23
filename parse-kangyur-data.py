@@ -118,7 +118,7 @@ for text in dataset.texts:
     for work in text.works:
         spread_attributions = work.find_matching_attributions(kangyur_sheet)
         for person in spread_attributions.itertuples():
-            work.add_or_update_attributions(person)
+            work.add_or_update_attributions(person, previously_identified_matches)
 new_attributions_df = pd.DataFrame(Output.new_attributions)
 new_attributions_df.to_excel("new_attributions.xlsx")
 existing_attributions_df = pd.DataFrame(Output.existing_attributions)

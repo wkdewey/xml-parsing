@@ -86,7 +86,7 @@ class Work:
                 Output.unmatched_works["has_attributions"].append(True)
                 if "-" in self.toh_num:
                     self.spread_num = "D" + self.toh_num
-                self.add_missing_attributions(self.attributions)
+                self.add_missing_attributions(self.attributions, WD_person_matches)
             else:
                 Output.unmatched_works["has_attributions"].append(False)
         
@@ -138,20 +138,28 @@ class Work:
             bdrc_id = url.split("/")[-1]
         return bdrc_id
 
-    def add_or_update_attributions(self, person):
+    def add_or_update_attributions(self, person, person_matches):
         ids_84000 = str(getattr(person, "text_84000_ids"))
 
         for attribution in self.attributions:
             print(attribution.id_84000, ids_84000)
             if attribution.id_84000 in ids_84000:
-                attribution.update_attribution(person)
+                attribution.update_attribution(person, person_matches)
                 return
         self.add_attribution(person)
 
     def add_attribution(self, person):
+        attribution = ET.SubElement(self.work_element, "attribution")
         role = getattr(person, "role")
+        number = re.search("\d", role)
+        if number:
+            number = number.group(0)
+            role = ''.join(re.split("\d", role))
+            attribution.attrib["role"] = role
+            attribution.attrib["revision"] = number
         name = getattr(person, "indicated_value")
-        lang = "bo-Latn"
+        role = re.sub(r"revisor", "reviser", role)
+        attribution.attrib["role"] = role
         print(f"New attribution on work toh{self.toh_num} for person/place with name {name} and role {role}")
         bdrc_id = str(getattr(person, "identification"))
         if bdrc_id[0] not in "PG":
@@ -159,14 +167,10 @@ class Work:
         ids_84000 = str(getattr(person, "text_84000_ids"))
         if ids_84000 == 'nan':
             ids_84000 = "unknown"
-        if lang == 'nan':
-            lang = "unknown"
-        attribution = ET.SubElement(self.work_element, "attribution")
-        attribution.attrib["role"] = role
         if ids_84000[0] == "{":
             id_84000 = ids_84000.split("'")[1]
             attribution.attrib["resource"] = id_84000
-        #     #add a label with corresponding name
+        lang = "bo-Latn"
         label = ET.SubElement(attribution, "label")
         label.text = name
         label.attrib["lang"] = lang
@@ -188,7 +192,7 @@ class Work:
         return sheet.loc[sheet["ID"] == self.spread_num]
 
 
-    def add_missing_attributions(self, attributions):
+    def add_missing_attributions(self, attributions, WD_person_matches):
         for attribution in attributions:
             Output.attributions_to_add["ID"].append("D" + self.toh_num)
             Output.attributions_to_add["title"].append(self.title)
@@ -248,20 +252,31 @@ class Attribution:
             Output.discrepant_roles["84000 role"].append(self.attribution_element.attrib["role"])
             Output.discrepant_roles["BDRC role"].append(role)
     
-    def update_attribution(self, person):
+    def update_attribution(self, person, person_matches):
         # person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
         print(f"updating attribution for 84000 id {self.id_84000}")
-        role = getattr(person, "role")
+        self.role = getattr(person, "role")
+        number = re.search("\d", self.role)
+        if number:
+            number = number.group(0)
+            self.role = ''.join(re.split("\d", self.role))
+            self.attribution_element.attrib["role"] = self.role
+            self.attribution_element.attrib["revision"] = number
+        self.role = re.sub(r"revisor", "reviser", self.role)
         # lang = getattr(person, "attribution_lang")
-        bdrc_id = getattr(person, "identification")
-        print(f"adding role {role}")
+        self.bdrc_id = getattr(person, "identification")
+        possible_matches = person_matches.loc[person_matches["BDRC ID"] == self.bdrc_id, "84000 ID"]
+        if len(possible_matches) > 0:
+            self.id_84000 = possible_matches.values[0]
+        print(f"adding role {self.role}")
 
-        self.attribution_element.attrib["role"] = role
+        self.attribution_element.attrib["role"] = self.role
         self.attribution_element.attrib["lang"] = self.lang + "-Latn"
-        print(f"same as bdrc {bdrc_id}")
+        self.attribution_element.attrib["resource"] = self.id_84000
+        print(f"same as bdrc {self.bdrc_id}")
         sameAs = ET.SubElement(self.attribution_element, "owl:sameAs")
-        if bdrc_id[0] == "P":
-            person_uri = "http://purl.bdrc.io/resource/" + bdrc_id
+        if self.bdrc_id[0] == "P":
+            person_uri = "http://purl.bdrc.io/resource/" + self.bdrc_id
             sameAs.attrib["rdf:resource"] = person_uri
 
     
