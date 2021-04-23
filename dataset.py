@@ -264,7 +264,7 @@ class Attribution:
             self.attribution_element.attrib["revision"] = number
         self.role = re.sub(r"revisor", "reviser", self.role)
         # lang = getattr(person, "attribution_lang")
-        self.bdrc_id = getattr(person, "identification")
+        self.bdrc_id = getattr(person, "identification").split(" ")[0]
         possible_matches = person_matches.loc[person_matches["BDRC ID"] == self.bdrc_id, "84000 ID"]
         if len(possible_matches) > 0:
             self.id_84000 = possible_matches.values[0]

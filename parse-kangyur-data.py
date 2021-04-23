@@ -106,7 +106,6 @@ kangyur_sheet['attribution_lang'] = "bo-Latn"
 kangyur_sheet = kangyur_sheet.rename(columns={'indicated value': 'indicated_value'})
 #add missing attributions to the spreadsheet
 kangyur_sheet = kangyur_sheet.append(attributions_to_add_df, ignore_index=True, sort=False)
-#find the tohoku numbers
 
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
