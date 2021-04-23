@@ -161,7 +161,7 @@ class Work:
         role = re.sub(r"revisor", "reviser", role)
         attribution.attrib["role"] = role
         print(f"New attribution on work toh{self.toh_num} for person/place with name {name} and role {role}")
-        bdrc_id = str(getattr(person, "identification"))
+        bdrc_id = str(getattr(person, "identification")).split(" ")[0]
         if bdrc_id[0] not in "PG":
             bdrc_id = "unknown"
         ids_84000 = str(getattr(person, "text_84000_ids"))
