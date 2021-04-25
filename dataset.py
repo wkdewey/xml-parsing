@@ -73,19 +73,18 @@ class Work:
         self.title = self.work_element.find("default:label", ns).text
         self.bdrc_id = self.find_bdrc_id(ns)
         self.toh_num = bibl.attrib["key"][3:]
-        self.spread_num = "D" + self.toh_num.split('-')[0]
+        self.spread_num = "D" + self.toh_num
         self.kangyur_match = kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num]
         self.person_ids = self.kangyur_match["identification"]
         self.roles = self.kangyur_match["role"]
         self.kangyur_names = self.kangyur_match["indicated value"]
         self.possible_individuals = self.find_possible_individuals(tib_sheet, ind_sheet)
         self.initialize_attributions(attribution_langs, WD_person_matches, ns)
-        if self.kangyur_match.empty or "-" in self.toh_num:
+        if self.kangyur_match.empty:
             Output.unmatched_works["Toh"].append(bibl.attrib["key"])
             if self.attributions:
                 Output.unmatched_works["has_attributions"].append(True)
-                if "-" in self.toh_num:
-                    self.spread_num = "D" + self.toh_num
+                self.spread_num = "D" + self.toh_num
                 self.add_missing_attributions(self.attributions, WD_person_matches)
             else:
                 Output.unmatched_works["has_attributions"].append(False)
