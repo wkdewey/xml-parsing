@@ -97,7 +97,10 @@ for idx, matched_toh in enumerate(matched_tohs):
         kangyur_sheet = pd.concat([kangyur_sheet, corresponding], axis=0)
 #add 84000 ids to the spreadsheet
 for bdrc_id in bdrc_ids:
-    id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
+    try:
+        id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
+    except:
+        breakpoint()
     # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
     # lang = "bo-Latn"
     kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)

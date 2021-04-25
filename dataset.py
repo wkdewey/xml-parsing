@@ -94,7 +94,7 @@ class Work:
     def initialize_attributions(self, attribution_langs, WD_person_matches, ns):
         attributions = self.work_element.findall("default:attribution", ns)
         for attribution_element in attributions:
-            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, attribution_langs, WD_person_matches, ns)
+            attribution_obj = Attribution(attribution_element, self.possible_individuals, self.toh_num, self.kangyur_match, self.title, self.bdrc_id, attribution_langs, WD_person_matches, ns)
             self.attributions.append(attribution_obj)
 
     def find_possible_individuals(self, tib_sheet, ind_sheet):
@@ -208,7 +208,7 @@ class Work:
 
 class Attribution:
 
-    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, attribution_langs, WD_person_matches, ns):
+    def __init__(self, attribution_element, possible_individuals, toh_num, kangyur_match, title, text_bdrc_id, attribution_langs, WD_person_matches, ns):
         self.attribution_element = attribution_element
         self.possible_individuals = possible_individuals
         self.label = self.attribution_element.find("default:label", ns)
@@ -225,8 +225,10 @@ class Attribution:
                 self.lang = lang_attribute.values[0]
         self.role = self.attribution_element.attrib["role"]
         self.toh_num = toh_num
+        self.title = title
         self.kangyur_match = kangyur_match
         self.bdrc_id = self.find_bdrc_id(WD_person_matches)
+        self.text_bdrc_id = text_bdrc_id
         Output.existing_attributions["toh"].append(self.toh_num)
         Output.existing_attributions["name"].append(self.name_84000)
         Output.existing_attributions["role"].append(self.role)
@@ -304,6 +306,17 @@ class Attribution:
                 Output.unmatched_persons["84000 ID"].append(self.id_84000)
                 Output.unmatched_persons["84000 name"].append(self.name_84000)
                 Output.unmatched_persons["possible BDRC matches"].append(self.possible_individuals)
+            Output.attributions_to_add["ID"].append("D" + self.toh_num)
+            Output.attributions_to_add["title"].append(self.title)
+            Output.attributions_to_add["role"].append(self.role)
+            if hasattr(self, "bdrc_id"):
+                Output.attributions_to_add["identification"].append(self.bdrc_id)
+            else:
+                Output.attributions_to_add["identification"].append("unknown")
+            Output.attributions_to_add["indicated_value"].append(self.name_84000)
+            Output.attributions_to_add["text_bdrc_id"].append(self.text_bdrc_id)
+            Output.attributions_to_add["text_84000_ids"].append(self.id_84000)
+            Output.attributions_to_add["attribution_lang"].append(self.lang)
 
     def find_bdrc_id(self, person_matches):
         bdrc_id = "unknown"
