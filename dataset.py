@@ -103,7 +103,10 @@ class Work:
             possible_individuals[id] = []
             kangyur_name = self.kangyur_names.iloc[idx]
             possible_individuals[id].append(kangyur_name)
-            tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
+            try:
+                tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
+            except:
+                breakpoint()
             tib_name_1 = tib_match["names_tib"] 
             if len(tib_name_1) > 0:
                 if not pd.isnull(tib_name_1.iloc[0]):

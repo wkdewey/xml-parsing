@@ -32,6 +32,7 @@ kangyur_sheet = ""
 if spreadsheet.exists():
     kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
     tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
+    tib_sheet = tib_sheet.rename(columns={tib_sheet.columns[0]: 'ID'})
     ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
 matches_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_identified_person_matches.xlsx'
 matches = Path(matches_path)
@@ -97,10 +98,7 @@ for idx, matched_toh in enumerate(matched_tohs):
         kangyur_sheet = pd.concat([kangyur_sheet, corresponding], axis=0)
 #add 84000 ids to the spreadsheet
 for bdrc_id in bdrc_ids:
-    try:
-        id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
-    except:
-        breakpoint()
+    id_84000 = grouped_matches.loc[grouped_matches['BDRC ID'] == bdrc_id, "84000 ID"].values[0]
     # lang = language_attributions.loc[language_attributions['BDRC ID'] == bdrc_id, 'language'].values[0]
     # lang = "bo-Latn"
     kangyur_sheet.loc[kangyur_sheet['identification'] == bdrc_id, 'text_84000_ids'] = str(id_84000)
