@@ -574,8 +574,8 @@
         >
                     <label>ban de dpal gyi lhun po</label>
                 </attribution>
-                <attribution role="reviser" resource="eft:bidyakaraprabha">
-                    <label>bidyakaraprabha</label>
+                <attribution role="reviser" resource="eft:vidyakaraprabha">
+                    <label>vidyakaraprabha</label>
                 </attribution>
                 <attribution
           role="translatorTib"
@@ -881,29 +881,20 @@
                 </attribution>
                 <attribution
           role="translatorTib"
-          resource="eft:rin-chen-bzag-po"
-        >
-                    <label>rin chen bzag po</label>
-                </attribution>
-                <attribution
-          role="reviser"
-          revision="3"
-          resource="eft:dipamkarasrijnana"
-        >
-                    <label>dipamkarasrijnana</label>
-                </attribution>
-                <attribution
-          role="translatorTib"
           resource="eft:-brom-rgyal-ba-i-byung-gnas"
         >
                     <label>'brom rgyal ba'i 'byung gnas</label>
                 </attribution>
-                <attribution role="reviser" revision="4" resource="eft:-brom">
+                <attribution
+          role="reviser"
+          revision="3"
+          resource="eft:-brom-rgyal-ba-i-byung-gnas"
+        >
                     <label>'brom</label>
                 </attribution>
                 <attribution
           role="reviser"
-          revision="5"
+          revision="4"
           resource="eft:blo-ldan-shes-rab"
         >
                     <label>blo ldan shes rab</label>
@@ -961,29 +952,20 @@
                 </attribution>
                 <attribution
           role="translatorTib"
-          resource="eft:rin-chen-bzag-po"
-        >
-                    <label>rin chen bzag po</label>
-                </attribution>
-                <attribution
-          role="reviser"
-          revision="3"
-          resource="eft:dipamkarasrijnana"
-        >
-                    <label>dipamkarasrijnana</label>
-                </attribution>
-                <attribution
-          role="translatorTib"
           resource="eft:-brom-rgyal-ba-i-byung-gnas"
         >
                     <label>'brom rgyal ba'i 'byung gnas</label>
                 </attribution>
-                <attribution role="reviser" revision="4" resource="eft:-brom">
+                <attribution
+          role="reviser"
+          revision="3"
+          resource="eft:-brom-rgyal-ba-i-byung-gnas"
+        >
                     <label>'brom</label>
                 </attribution>
                 <attribution
           role="reviser"
-          revision="5"
+          revision="4"
           resource="eft:blo-ldan-shes-rab"
         >
                     <label>blo ldan shes rab</label>
@@ -3515,9 +3497,6 @@
         />
                 <attribution role="translatorTib" resource="eft:jinamitra">
                     <label>Jinamitra</label>
-                </attribution>
-                <attribution role="translatorTib" resource="eft:danasila">
-                    <label>Dānaśīla</label>
                 </attribution>
                 <attribution role="translatorTib" resource="eft:yesh-d-">
                     <label>Yeshé Dé</label>

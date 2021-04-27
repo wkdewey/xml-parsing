@@ -106,23 +106,30 @@ for bdrc_id in bdrc_ids:
 kangyur_sheet['attribution_lang'] = "bo-Latn"
 kangyur_sheet = kangyur_sheet.rename(columns={'indicated value': 'indicated_value'})
 #add missing attributions to the spreadsheet
-kangyur_sheet = kangyur_sheet.append(attributions_to_add_df, ignore_index=True, sort=False)
+new_sheet = kangyur_sheet.append(attributions_to_add_df, ignore_index=True, sort=False)
 
 with pd.ExcelWriter("all_person_matches.xlsx") as writer:
     all_person_matches.to_excel(writer, sheet_name='person matches')
     grouped_matches.to_excel(writer, sheet_name='grouped matches')
 
-kangyur_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
+new_sheet.to_excel("WD_BDRC_data.xlsx", sheet_name='DergeKangyur')
 
 for text in dataset.texts:
     for work in text.works:
         spread_attributions = work.find_matching_attributions(kangyur_sheet)
         for person in spread_attributions.itertuples():
             work.add_or_update_attributions(person, previously_identified_matches)
+        for attribution in work.attributions:
+            if not attribution.updated:
+                person = attribution.find_matching_attributions(attributions_to_add_df)
+                if person:
+                    attribution.update_attribution(person, previously_identified_matches)
+        
 new_attributions_df = pd.DataFrame(Output.new_attributions)
 new_attributions_df.to_excel("new_attributions.xlsx")
 existing_attributions_df = pd.DataFrame(Output.existing_attributions)
 existing_attributions_df.to_excel("existing_attributions.xlsx")
 
 
-tree.write("new-kangyur-data.xml")
+# tree.write("new-kangyur-data.xml")
+tree.write("new-kangyur-data-no-duplicates.xml")

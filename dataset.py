@@ -85,7 +85,7 @@ class Work:
             if self.attributions:
                 Output.unmatched_works["has_attributions"].append(True)
                 self.spread_num = "D" + self.toh_num
-                self.add_missing_attributions(self.attributions, WD_person_matches)
+                self.add_missing_attributions(self.attributions)
             else:
                 Output.unmatched_works["has_attributions"].append(False)
         
@@ -102,10 +102,7 @@ class Work:
             possible_individuals[id] = []
             kangyur_name = self.kangyur_names.iloc[idx]
             possible_individuals[id].append(kangyur_name)
-            try:
-                tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
-            except:
-                breakpoint()
+            tib_match = tib_sheet.loc[tib_sheet["ID"] == id]
             tib_name_1 = tib_match["names_tib"] 
             if len(tib_name_1) > 0:
                 if not pd.isnull(tib_name_1.iloc[0]):
@@ -141,14 +138,22 @@ class Work:
         return bdrc_id
 
     def add_or_update_attributions(self, person, person_matches):
-        ids_84000 = str(getattr(person, "text_84000_ids"))
-
+        # ids_84000 = str(getattr(person, "text_84000_ids"))
+        # for attribution in self.attributions:
+        #     print(attribution.id_84000, ids_84000)
+        #     if attribution.id_84000 in ids_84000:
+        #         attribution.update_attribution(person, person_matches)
+        #         return
+        # self.add_attribution(person)
+        bdrc_id = str(getattr(person, "identification"))
         for attribution in self.attributions:
-            print(attribution.id_84000, ids_84000)
-            if attribution.id_84000 in ids_84000:
+            print(attribution.bdrc_id, bdrc_id)
+            if attribution.bdrc_id == bdrc_id and not attribution.updated:
+                #how can you tell which ones have been seen?
                 attribution.update_attribution(person, person_matches)
                 return
         self.add_attribution(person)
+        
 
     def add_attribution(self, person):
         attribution = ET.SubElement(self.work_element, "attribution")
@@ -191,10 +196,10 @@ class Work:
         kangyur_sheet.loc[kangyur_sheet["ID"] == self.spread_num, 'text_bdrc_id'] = self.bdrc_id
 
     def find_matching_attributions(self, sheet):
-        return sheet.loc[sheet["ID"] == self.spread_num]
+        return sheet.loc[sheet["ID"] == self.spread_num.split("-")[0]]
 
 
-    def add_missing_attributions(self, attributions, WD_person_matches):
+    def add_missing_attributions(self, attributions):
         for attribution in attributions:
             Output.attributions_to_add["ID"].append("D" + self.toh_num)
             Output.attributions_to_add["title"].append(self.title)
@@ -207,6 +212,7 @@ class Work:
             Output.attributions_to_add["text_bdrc_id"].append(self.bdrc_id)
             Output.attributions_to_add["text_84000_ids"].append(attribution.id_84000)
             Output.attributions_to_add["attribution_lang"].append(attribution.lang)
+            attribution.added = True
 
 class Attribution:
 
@@ -231,6 +237,8 @@ class Attribution:
         self.kangyur_match = kangyur_match
         self.bdrc_id = self.find_bdrc_id(WD_person_matches)
         self.text_bdrc_id = text_bdrc_id
+        self.updated = False
+        self.added = False
         Output.existing_attributions["toh"].append(self.toh_num)
         Output.existing_attributions["name"].append(self.name_84000)
         Output.existing_attributions["role"].append(self.role)
@@ -259,7 +267,9 @@ class Attribution:
     def update_attribution(self, person, person_matches):
         # person = self.kangyur_match.loc[self.kangyur_match["identification"] == bdrc_id]
         print(f"updating attribution for 84000 id {self.id_84000}")
-        self.role = getattr(person, "role")
+        new_role = getattr(person, "role")
+        print(f"current role is {self.role} new role is {new_role}")
+        self.role = new_role
         number = re.search("\d", self.role)
         if number:
             number = number.group(0)
@@ -272,8 +282,7 @@ class Attribution:
         possible_matches = person_matches.loc[person_matches["BDRC ID"] == self.bdrc_id, "84000 ID"]
         if len(possible_matches) > 0:
             self.id_84000 = possible_matches.values[0]
-        print(f"adding role {self.role}")
-
+        
         self.attribution_element.attrib["role"] = self.role
         label = self.attribution_element.find("{http://read.84000.co/ns/1.0}label")
         label.attrib["lang"] = self.lang + "-Latn"
@@ -283,13 +292,12 @@ class Attribution:
         if self.bdrc_id[0] == "P":
             person_uri = "http://purl.bdrc.io/resource/" + self.bdrc_id
             sameAs.attrib["rdf:resource"] = person_uri
-
-    
+        self.updated = True
     
     def find_matches(self):
         matched = False
         print(f"Looking for matches for person {self.name_84000} from toh {self.toh_num}")
-        #see if the attribution has a matching
+        #see if the attribution has a match
         for bdrc_id, bdrc_names in self.possible_individuals.items():
             for bdrc_name in bdrc_names:
                 print(f"checking {bdrc_name} against {self.name_84000}")
@@ -301,8 +309,9 @@ class Attribution:
                         Output.person_matches["BDRC ID"].append(bdrc_id)
                     self.find_discrepant_roles(bdrc_id)
                     break
-        if not matched:
+        if not matched and not self.added:
             print("no matches found")
+
             if self.id_84000 not in Output.unmatched_persons["84000 ID"] and self.possible_individuals not in Output.unmatched_persons["possible BDRC matches"]:
                 Output.unmatched_persons["toh"].append(self.toh_num)
                 Output.unmatched_persons["84000 ID"].append(self.id_84000)
@@ -319,6 +328,7 @@ class Attribution:
             Output.attributions_to_add["text_bdrc_id"].append(self.text_bdrc_id)
             Output.attributions_to_add["text_84000_ids"].append(self.id_84000)
             Output.attributions_to_add["attribution_lang"].append(self.lang)
+            self.added = True
 
     def find_bdrc_id(self, person_matches):
         bdrc_id = "unknown"
@@ -326,6 +336,18 @@ class Attribution:
         if len(match) > 0:
             bdrc_id = match.values[0]
         return bdrc_id
+
+    def find_matching_attributions(self, sheet):
+        work_matches = sheet.loc[sheet["ID"] == "D" + self.toh_num]
+        if len(work_matches) == 0:
+            return None
+        matches = work_matches.loc[work_matches["identification"] == self.bdrc_id]
+        if len(matches) > 1:
+            matches = matches.loc[matches["indicated_value"] == self.name_84000]
+            person = list(matches.itertuples())[0]
+        else:
+            person = list(matches.itertuples())[0]
+            return person
 
 class Output:
     person_matches = { "84000 ID": [], "BDRC ID": []}
