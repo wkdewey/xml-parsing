@@ -5,9 +5,9 @@ from pathlib import Path
 from dataset import Dataset, Output
 import requests
 
-# data_file = 'sample-data.xml'
-# Note: change back to xml-parsing without the refactoring
-data_file = "/Users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/kangyur-data.xml"
+cwd = Path.cwd()
+data_relative = "data-export/kangyur-data.xml"
+data_file = (cwd / data_relative).resolve()
 ET.register_namespace('', "http://read.84000.co/ns/1.0")
 ET.register_namespace('rdf', "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 ET.register_namespace('owl', "http://www.w3.org/2002/07/owl#")
@@ -23,32 +23,32 @@ texts = root.findall("default:text", ns)
 spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRoQ2LY-zLATi0XMd_MUhV94zAMkHLzxbAVHji4EtBLl2gAkzXJmKyq0alkd9B3HJsX-98D6mKzCoyL/pub?output=xlsx"
 print("loading Kangyur spreadsheet")
 r = requests.get(spreadsheet_url)
-#is it possible to change file paths so it's not hardcorded?
-spreadsheet_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/ATII - Tentative template.xlsx'
+
+spreadsheet_relative = "data-export/kangyur-data.xml"
+spreadsheet_path = (cwd / spreadsheet_relative).resolve()
 with open(spreadsheet_path, 'wb') as f:
     f.write(r.content)
-spreadsheet = Path(spreadsheet_path)
 kangyur_sheet = ""
-if spreadsheet.exists():
-    kangyur_sheet = pd.read_excel(spreadsheet, sheet_name = "DergeKangyur")
-    tib_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Tib")
+if spreadsheet_path.exists():
+    kangyur_sheet = pd.read_excel(spreadsheet_path, sheet_name = "DergeKangyur")
+    tib_sheet = pd.read_excel(spreadsheet_path, sheet_name = "Persons-Tib")
     tib_sheet = tib_sheet.rename(columns={tib_sheet.columns[0]: 'ID'})
-    ind_sheet = pd.read_excel(spreadsheet, sheet_name = "Persons-Ind")
-matches_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_identified_person_matches.xlsx'
-matches = Path(matches_path)
+    ind_sheet = pd.read_excel(spreadsheet_path, sheet_name = "Persons-Ind")
+matches_relative = "data-export/WD_identified_person_matches.xlsx"
+matches_path = (cwd / matches_relative).resolve()
 WD_person_matches = ""
-if matches.exists():
-    WD_person_matches = pd.read_excel(matches, sheet_name = "WD_person_matches")
-    previously_identified_matches = pd.read_excel(matches, sheet_name = "previously_identified_matches")
-missing_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/WD_missing_entries.xlsx'
-missing = Path(missing_path)
+if matches_path.exists():
+    WD_person_matches = pd.read_excel(matches_path, sheet_name = "WD_person_matches")
+    previously_identified_matches = pd.read_excel(matches_path, sheet_name = "previously_identified_matches")
+missing_relative = "data-export/WD_missing_entries.xlsx"
+missing_path = (cwd / missing_relative).resolve()
 WD_missing_entries = ""
-if missing.exists():
-    WD_missing_entries = pd.read_excel(missing)
-language_path = '/users/williamdewey/Development/code/84000-data-rdf/xml-parsing/data-export/existing_attributions_with_langs.xlsx'
-languages = Path(language_path)
-if languages.exists():
-    WD_language_attributions = pd.read_excel(languages)
+if missing_path.exists():
+    WD_missing_entries = pd.read_excel(missing_path)
+language_relative = 'data-export/existing_attributions_with_langs.xlsx'
+language_path = (cwd / language_relative).resolve()
+if language_path.exists():
+    WD_language_attributions = pd.read_excel(language_path)
 attribution_langs = pd.DataFrame(WD_language_attributions)
 
 dataset = Dataset(texts, ns, kangyur_sheet, tib_sheet, ind_sheet, attribution_langs, previously_identified_matches)
