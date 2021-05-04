@@ -1,0 +1,59 @@
+text—id=number begininng with UT
+bibl—type=”toh”, key=”toh###”
+	label(toh number)
+	work—type=”Tibetan source”
+		label(title of text)
+		rdf:type—rdf:resource= http://purl.bdrc.io/ontology/core/Work
+		owl:sameAs—rdf:resource=http://purl.bdrc.io/resource/W[BDRC ID]
+		attribution—role=”translator’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”translatorPandita’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”reviser’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”reciter’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”reviserPandita’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”translationPlace’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”revisionPlace’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”translator”, revision=”2”, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”translatorPandita’, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”reviser’, revision=”2”,  resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+		attribution—role=”reviserPandita’, revision=”2”, resource=[84000_ID]
+			label--lang=[lang](name of person)
+			owl:sameAs-- rdf:resource=http://purl.bdrc.io/resource/P[BDRC ID]
+work—type=”englishTranslation”
+	label (text title)
+	rdf:type—rdf:resource= http://purl.bdrc.io/ontology/core/Work
+	attribution—role=”translatorMain”, resource=[84000_id]
+		label(name)
+	attribution—role=”translatorEng”, resource=[84000_id]
+		label(name)
+	attribution—role=”advisor”, resource=[84000_id]
+		label(name)
+	attribution—role=”associateEditor”, resource=[84000_id]
+		label(name)
+	attribution—role=”externalReviewer”, resource=[84000_id]
+		label(name)
+	attribution—role=”reviser”, resource=[84000_id]
+		label(name)
+	attribution—role=”dharmaMaster”, resource=[84000_id]
+		label(name)
+	attribution—role=”finalReviewer”, resource=[84000_id]
+		label(name)
